@@ -1,3 +1,7 @@
+.home {
+    text-align: center;
+}
+
 /* Left */
 .home-left {
     position: absolute;
@@ -10,7 +14,7 @@
     .menu-icon {
         position: absolute;
         width: 20.25px;
-        height: 13 .5px;
+        height: 13.5px;
         left: 22px;
         top: 28.5px;
         background: #000000;
@@ -21,7 +25,7 @@
         position: absolute;
         width: 133px;
         height: 78px;
-        left: 283px;
+        left: 265px;
         top: 70px;
     }
 
@@ -48,7 +52,7 @@
         position: absolute;
         width: 180px;
         height: 27px;
-        left: 272px;
+        left: 245px;
         top: 164px;
         font-family: OpenSans;
         font-size: 20px;
@@ -63,22 +67,23 @@
         width: 210px;
         /* height: 337px; */
         top: 363px;
+        left: 265px;
 
         /* Line */
         .line{
             position: absolute;
             width: 121px;
             height: 0.5px;
-            left: 290px;
-            top: 269px;
+/*             left: 290px;
+ */            top: 269px;
             border: 0.5px solid #000000;            
         }
 
         .sign-up {
             position: absolute;
-            width: 102.26px;
+            width: 125.26px;
             height: 15px;
-            left: 299px;
+            /* left: 299px; */
             top: 285px;
             font-family: OpenSans;
             font-size: 11px;
@@ -100,7 +105,7 @@
             position: absolute;
             width: 292px;
             height: 32px;
-            left: 204px;
+            left: 180px;
             top: 204px;
         }
 
@@ -129,6 +134,7 @@
             line-height: 26px;
             /* or 186% */
             color: #000000;
+            text-align: left;
         }
     }
 }

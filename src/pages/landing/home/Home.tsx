@@ -1,6 +1,8 @@
-import './home.scss';
+import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
-import routesPaths from 'constants/routesPaths';
+
+import './home.scss';
+import routes from 'constants/routesPaths';
 
 const Home = () => {
   return (
@@ -26,10 +28,11 @@ const Home = () => {
         <div className="form">
           <div className="line"></div>
           <div className="sign-up">
-            <Link to={routesPaths.signUp}>SIGN UP</Link>
+            <Link to={routes.signUp}>SIGN UP</Link>
           </div>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };
