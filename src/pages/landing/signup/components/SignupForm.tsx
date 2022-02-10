@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import routes from 'constants/routesPaths';
 import { InputText, Button } from 'components/common';
+import './signup-form.scss';
 
 export interface SignUpFormFields {
   name: string;

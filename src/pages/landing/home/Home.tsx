@@ -3,16 +3,22 @@ import { Link } from 'react-router-dom';
 
 import './home.scss';
 import routes from 'constants/routesPaths';
+import MenuIcon from 'components/common/MenuItem/MenuItem';
+import smileMedia from 'assets/layout/media/smile.svg';
 
 const Home = () => {
   return (
     <div className="home">
-      <div className="menu-icon"></div>
       <div className="home-left">
+        <MenuIcon />
         <div className="info">
           <div className="smilies">
-            <div className="oval-2">-</div>
-            <div className="oval-2-copy">-</div>
+            <div className="oval-2">
+              <img src={smileMedia} alt="smile" />
+            </div>
+            <div className="oval-2-copy">
+              <img src={smileMedia} alt="smile" />
+            </div>
           </div>
           <div className="target-mvd">TARGET MVD</div>
           <div className="adress">

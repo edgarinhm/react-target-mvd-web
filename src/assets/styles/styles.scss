@@ -21,10 +21,11 @@ body {
     -webkit-text-size-adjust: 100%;
     margin: 0;
     font-family: $fontFamily;
-    color: #333333;
-    background-color: #f3f3f3;
+    color: $textColor;
+    background-color: $bodyBgColor;
     padding: 0;
     margin: 0;
+
     &.layout-scroll-block {
         overflow: hidden;
     }

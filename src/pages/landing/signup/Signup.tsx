@@ -7,7 +7,7 @@ import mobileLayout from 'assets/layout/media/i6.png';
 import appStoreMedia from 'assets/layout/media/appstore-button.svg';
 import facebookMedia from 'assets/layout/media/facebook.svg';
 import twitterMedia from 'assets/layout/media/twitter.svg';
-import MenuIcon from 'components/MenuIcon/MenuIcon';
+import { MenuItem } from 'components/common';
 
 const SignUp = () => {
   const handleSubmit = () => {
@@ -15,13 +15,13 @@ const SignUp = () => {
   };
   return (
     <div className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
-      <h1>Sign Up</h1>
-      <MenuIcon></MenuIcon>
+      <MenuItem />
       <div className="left">
+        <h1>Sign Up</h1>
         <SignupForm onSubmit={handleSubmit} />
       </div>
-      <div className="right">
-        <div className="rectangle">
+      <div className="right rectangle">
+        <div className="rectangle-content">
           <img src={mobileLayout} alt="signup mobile version" />
           <Link data-testid="signup-appstore-link" to={routesPaths.login} className="link">
             <img src={appStoreMedia} alt="go to app store" />
