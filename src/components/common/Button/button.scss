@@ -1,0 +1,17 @@
+@import "src/assets/themes/mvd/variables";
+
+.button {
+  background-color: $primaryColor;
+  border: none;
+  color: $white;
+  padding: 1rem;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.disabled {
+  opacity: .65;
+}

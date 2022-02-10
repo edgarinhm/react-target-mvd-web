@@ -1,40 +1,41 @@
-.signup-wrap {
+.form {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    justify-content: space-between;
+    width: 400px;
+    background-color: $white;
+    padding: 40px;
+    border-radius: 8px;
+    align-self: center;
+    box-shadow: 0px 1px 3px -1px $black;
 
-    .form {
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        background-color: $white;
-        padding: 40px;
-        border-radius: 8px;
-        align-self: center;
-        box-shadow: 0px 1px 3px -1px $black;
+    h2 {
+        color: $primaryDark;
+        text-align: center;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
 
-        h2 {
-            color: $primaryDark;
-            text-align: center;
-            font-size: 20px;
-            text-transform: uppercase;
+    button {
+        margin-top: 32px;
+    }
+
+    .link {
+        text-align: center;
+        color: $primary;
+        text-transform: lowercase;
+        margin-top: 16px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
         }
+    }
 
-        button {
-            margin-top: 32px;
-        }
-
-        .link {
-            text-align: center;
-            color: $primary;
-            text-transform: lowercase;
-            margin-top: 16px;
-            cursor: pointer;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    /* Line */
+    .line {
+        position: absolute;
+        width: 121px;
+        height: 0.5px;
+        border: 0.5px solid #000000;
     }
 }

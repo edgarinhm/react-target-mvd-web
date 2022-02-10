@@ -7,6 +7,73 @@
   box-sizing: border-box;
 }
 
+.input-text {
+  margin: 0;
+  outline: medium none;
+  font-weight: normal;
+  font-size: $fontSize;
+  color: $textColor;
+  background: $inputBgColor;
+  padding: $inputPadding;
+  border: $inputBorder;
+  @include transition($inputTransition);
+  @include appearance(none);
+  @include border-radius($borderRadius);
 
+  &:enabled:hover {
+      border-color: $inputHoverBorderColor;
+  }
+
+  &:enabled:focus {
+      @include focused-input();
+  }
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+  text-align: center;
+  zoom: 1;
+  overflow: visible; /* the overflow property removes extra width in IE */
+  margin-right: 0.25em;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+  color: $buttonTextColor;
+  background-color: $buttonBgColor;
+  border: $buttonBorder;
+  font-size: $fontSize;
+  @include transition($buttonTransition);
+  @include border-radius($borderRadius);
+
+  &:enabled:hover {
+      background-color: $buttonHoverBgColor;
+      color: $buttonHoverTextColor;
+      border-color: $buttonHoverBorderColor;
+  }
+
+  &:enabled:focus {
+      @include focused();
+  }
+
+  &:enabled:active  {
+      background-color: $buttonActiveBgColor;
+      color: $buttonActiveTextColor;
+      border-color: $buttonActiveBorderColor;
+  }
+
+  &.button-raised {
+      @include shadow($raisedButtonShadow);
+  }
+
+  &.button-rounded {
+      @include border-radius($roundedButtonBorderRadius);
+  }
+}
 
 /* Add your customizations of theme here */

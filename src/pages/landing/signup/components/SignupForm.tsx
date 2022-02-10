@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import routes from 'constants/routesPaths';
+import { InputText, Button } from 'components/common';
 
 export interface SignUpFormFields {
   name: string;
@@ -24,21 +25,32 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
   const [formData, setFormData] = useState(initialValues);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('handleSubmit', event);
+    console.log('SignupForm handleSubmit', event);
     setFormData(formData);
   };
 
-  
   return (
-    <form data-testid="form" className="signup-wrap" onSubmit={handleSubmit} noValidate>
-      {/*< Input type="text" name="name" placeholder="Digite seu nome" />
-    <Input type="email" name="email" placeholder="Digite seu e-mail" />
-    <Input type="password" name="password" placeholder="Digite sua senha" />
-    <Input type="password" name="passwordConfirmation" placeholder="Repita sua senha" />
-    <SubmitButton text="Cadastrar" /> */}
-      <Link data-testid="signup-form-link" to={routes.login} className="link">
-        SIGN IN
-      </Link>
+    <form data-testid="form" className="form" onSubmit={handleSubmit} noValidate>
+      <InputText type="text" name="name" label="name" placeholder="write your name" />
+      <InputText type="email" name="email" label="email" placeholder="write your e-mail" />
+      <InputText
+        type="password"
+        name="password"
+        label="password"
+        placeholder="write your password"
+      />
+      <InputText
+        type="password"
+        name="passwordConfirmation"
+        label="confirm password"
+        placeholder="confirm your password"
+      />
+      <Button label="sing up" />
+      <div className="line">
+        <Link data-testid="signup-form-link" to={routes.login} className="link">
+          SIGN IN
+        </Link>
+      </div>
     </form>
   );
 };

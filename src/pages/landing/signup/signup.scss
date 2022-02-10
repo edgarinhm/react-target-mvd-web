@@ -1,13 +1,13 @@
-/* sign up */
-.signup {
-    position: relative;
-    width: 1366px;
-    height: 768px;
-    background: #FFFFFF;
+/* Signup Wrap */
+.signup-wrap {
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Left */
-.signup .left {
+.signup-wrap .left {
     position: absolute;
     width: 400px;
     height: 604.5px;
@@ -16,10 +16,15 @@
 }
 
 /* right */
-.signup .right {
+.signup-wrap .right {
     position: absolute;
     width: 683px;
     height: 846px;
     left: 683px;
     top: -78px;
+}
+
+/* Rectangle */
+.signup-wrap .right .rectangle{
+    background: #2FBCF7;
 }
