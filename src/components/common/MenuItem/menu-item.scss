@@ -1,5 +1,8 @@
 /* Line */
-.menu-item .path {
+.menu-item {
+    cursor: pointer;
+    .path {
     height: 0.25rem;
     margin-bottom: 0.3rem;
+    }
 }

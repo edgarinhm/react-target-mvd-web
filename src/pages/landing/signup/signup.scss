@@ -1,38 +1,28 @@
 /* Signup Wrap */
 .signup-wrap {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
 /* Left */
 .signup-wrap .left {
-    position: absolute;
-    width: 400px;
-    height: 604.5px;
-    left: 22px;
-    top: 28.5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 50%;
 }
 
 /* right */
 .signup-wrap .right {
-    position: absolute;
-    width: 683px;
-    height: 846px;
-    left: 683px;
-}
-
-/* Rectangle */
-.signup-wrap .rectangle{
-    background: #2FBCF7;
-    display: block;
-}
-
-/* Rectangle Content */
-.signup-wrap .rectangle-content{
-    top: -78px;
+    flex-basis: 50%;
 }
 
 .signup-wrap .menu-item {
     top: 28.5px;
+}
+
+h1 {
+    font-size: 20px;
+    text-transform: uppercase;
 }

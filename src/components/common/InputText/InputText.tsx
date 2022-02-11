@@ -35,7 +35,7 @@ const InputText = ({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className={style('input')}
+          className={style('input input-text')}
           type={type}
         />
         {error && <div className={style('input-error')}>{error}</div>}

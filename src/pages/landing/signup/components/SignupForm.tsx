@@ -38,7 +38,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         type="password"
         name="password"
         label="password"
-        placeholder="write your password"
+        placeholder="min. 6 characters long"
       />
       <InputText
         type="password"
@@ -47,11 +47,10 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         placeholder="confirm your password"
       />
       <Button label="sing up" />
-      <div className="line">
-        <Link data-testid="signup-form-link" to={routes.login} className="link">
-          SIGN IN
-        </Link>
-      </div>
+      <div className="line"></div>
+      <Link data-testid="signup-form-link" to={routes.login} className="link">
+        SIGN IN
+      </Link>
     </form>
   );
 };

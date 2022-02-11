@@ -4,35 +4,12 @@
     justify-content: center;
     flex-direction: column;
     width: 400px;
-    padding: 40px;
+    padding: 10px;
     border-radius: 8px;
     align-self: center;
     
     h2 {
-        text-align: center;
-        font-size: 20px;
-        text-transform: uppercase;
+        font-size: 18px;
     }
 
-    button {
-        margin-top: 32px;
-    }
-
-    .link {
-        text-align: center;
-        text-transform: lowercase;
-        margin-top: 16px;
-        cursor: pointer;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    /* Line */
-    .line {
-        position: absolute;
-        width: 121px;
-        height: 0.5px;
-    }
 }
