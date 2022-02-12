@@ -29,7 +29,8 @@
             @include focused-input();
         }
     }
-    &-error{
+
+    &-error {
         color: $red;
     }
 }
@@ -129,6 +130,32 @@
 
     &:active {
         text-decoration: underline;
+    }
+}
+
+.dropdown {
+    margin: 0;
+    outline: medium none;
+    font-weight: normal;
+    font-size: $fontSize;
+    color: $textColor;
+    background: $inputBgColor;
+    padding: $inputPadding;
+    border: $inputBorder;
+    @include transition($inputTransition);
+    @include appearance(none);
+    @include border-radius($borderRadius);
+
+    &:enabled:hover {
+        border-color: $inputHoverBorderColor;
+    }
+
+    &:enabled:focus {
+        @include focused-input();
+    }
+
+    &-error {
+        color: $red;
     }
 }
 

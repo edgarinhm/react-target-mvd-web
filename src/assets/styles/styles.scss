@@ -78,6 +78,23 @@ body {
         letter-spacing: 1.65px;
     }
 
+    .dropdown {
+        width: 180px;
+        height: 37px;
+        margin-bottom: 2.25rem;
+        padding: .5rem;
+        border-radius: 0px;
+        border: 0.5px solid $inputBorder;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+
+        @include placeholder {
+            color: $inputPlaceholderTextColor;
+        }
+    }
+
 }
 
 #root {
