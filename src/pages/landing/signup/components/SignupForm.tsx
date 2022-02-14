@@ -58,7 +58,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Dropdown
           options={GENDER_OPTIONS}
-          value="male"
+          //value="male"
           label="gender"
           placeholder="select your gender"
           {...register('gender')}

@@ -1,25 +1,65 @@
-.select {
-    margin: 0;
-    outline: medium none;
-    padding: .25em;
-    font-weight: normal;
-  
-    &-container {
-      padding-bottom: 1rem;
-    }
-  
-    &-label {
-      padding-bottom: .5rem;
-    }
-  
-    &-error {
-      padding-top: .5rem;
-    }
+select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  // Stack above custom arrow
+  z-index: 1;
+
+  // Remove dropdown arrow in IE10 & IE11
+  // @link https://www.filamentgroup.com/lab/select-css.html
+  &::-ms-expand {
+    display: none;
   }
-  
-  .fluid .input-text {
-    width: 100%;
-    box-sizing: border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing: border-box;
+
+  // Remove focus outline, will add on alternate element
+  outline: none;
+}
+
+select[multiple] {
+  padding-right: 0;
+
+  /*
+   * Safari will not reveal an option
+   * unless the select height has room to 
+   * show all of it
+   * Firefox and Chrome allow showing 
+   * a partial option
+   */
+  height: 6rem;
+
+  option {
+    white-space: normal;
   }
+
+  /* 
+   * Experimental - styling of selected options
+   * in the multiselect
+   * Not supported crossbrowser
+   */
+  //   &:not(:disabled) option {
+  //     border-radius: 12px;
+  //     transition: 120ms all ease-in;
+
+  //     &:checked {
+  //       background: linear-gradient(hsl(242, 61%, 76%), hsl(242, 61%, 71%));
+  //       padding-left: 0.5em;
+  //       color: black !important;
+  //     }
+  //   }
+}
+
+.fluid .dropdown {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}

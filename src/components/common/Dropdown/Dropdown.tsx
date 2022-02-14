@@ -24,14 +24,14 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
     return (
       <div className={style('input-container', className)}>
         {label && <div className={style('input-label')}>{label}</div>}
-        <div>
+        <div className="dropdown">
           <select
             name={name}
             value={value}
             onChange={onChange}
             onFocus={onFocus}
             placeholder={placeholder}
-            className={style('select dropdown')}
+            className={style('select')}
             required={required}
             ref={ref}
           >

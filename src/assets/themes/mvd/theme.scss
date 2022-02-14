@@ -134,29 +134,36 @@
 }
 
 .dropdown {
-    margin: 0;
-    outline: medium none;
-    font-weight: normal;
-    font-size: $fontSize;
-    color: $textColor;
-    background: $inputBgColor;
-    padding: $inputPadding;
+    width: 100%;
     border: $inputBorder;
-    @include transition($inputTransition);
-    @include appearance(none);
-    @include border-radius($borderRadius);
+    border-radius: 0.25em;
+    padding: 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
 
-    &:enabled:hover {
-        border-color: $inputHoverBorderColor;
-    }
+.dropdown--disabled {
+    cursor: not-allowed;
+}
 
-    &:enabled:focus {
-        @include focused-input();
-    }
+// Interim solution until :focus-within has better support
+select:focus+.focus {
+    border: 2px solid var($inputFocusBorderColor);
+}
 
-    &-error {
-        color: $red;
+select[multiple] {
+    option {
+        // Only affects Chrome
+        outline-color: var($inputFocusBorderColor);
     }
+}
+
+.select--disabled {
+    background-color: #eee;
+    background-image: linear-gradient(to top, #ddd, #eee 33%);
 }
 
 /* Add your customizations of theme here */
