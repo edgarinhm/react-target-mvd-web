@@ -41,8 +41,8 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
               </option>
             ))}
           </select>
-          {error && <div className={style('input-error')}>{error}</div>}
         </div>
+        {error && <div className={style('input-error')}>{error}</div>}
       </div>
     );
   }

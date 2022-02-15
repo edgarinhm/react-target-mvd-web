@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import routes from 'constants/routesPaths';
 import { InputText, Button, Dropdown } from 'components/common';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import signupValidation from 'validation/signup.validation';
 
 import './signup-form.scss';
 import { GENDER_OPTIONS } from 'constants/options';
@@ -32,28 +34,38 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     formState: { errors },
   } = useForm<SignUpFormFields>({
     defaultValues: initialValues,
+    resolver: yupResolver(signupValidation),
   });
 
   return (
     <section>
       <form data-testid="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <InputText type="text" label="name" placeholder="write your name" {...register('name')} />
+        <InputText
+          type="text"
+          label="name"
+          placeholder="write your name"
+          error={errors.name?.message}
+          {...register('name')}
+        />
         <InputText
           type="email"
           label="email"
           placeholder="write your e-mail"
+          error={errors.email?.message}
           {...register('email')}
         />
         <InputText
           type="password"
           label="password"
           placeholder="min. 6 characters long"
+          error={errors.password?.message}
           {...register('password')}
         />
         <InputText
           type="password"
           label="confirm password"
           placeholder="confirm your password"
+          error={errors.passwordConfirm?.message}
           {...register('passwordConfirm')}
         />
         <Dropdown
@@ -61,6 +73,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           //value="male"
           label="gender"
           placeholder="select your gender"
+          error={errors.gender?.message}
           {...register('gender')}
         />
         <Button
