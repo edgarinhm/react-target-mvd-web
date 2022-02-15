@@ -7,16 +7,15 @@ import twitterMedia from 'assets/layout/media/twitter.svg';
 import playMedia from 'assets/layout/media/play.png';
 
 import './mobile.scss';
+import classNames from 'classnames/bind';
 
 function Mobile() {
   return (
     <div className="rectangle">
-      <img src={mobileLayout} alt="signup mobile version" />
+      <img className="mobile" src={mobileLayout} alt="signup mobile version" />
+      <img className="play" src={playMedia} alt="mobil version" />
       <Link data-testid="signup-appstore-link" to={routesPaths.login} className="link">
         <img src={appStoreMedia} alt="go to app store" />
-        <div className="play">
-          <img src={playMedia} alt="mobil version" />
-        </div>
       </Link>
       <div className="social-media">
         <Link data-testid="signup-facebook-link" to={routesPaths.login} className="link">
