@@ -10,16 +10,14 @@ const SignUp = () => {
     console.log('Signup handleSubmit', data);
   };
   return (
-    <article>
-      <div className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
-        <div className="left">
-          <MenuItem />
-          <h1>Sign Up</h1>
-          <SignupForm onSubmit={handleSubmit} />
-        </div>
-        <div className="right">
-          <Mobile />
-        </div>
+    <article className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
+      <div className="left">
+        <MenuItem />
+        <h1>Sign Up</h1>
+        <SignupForm onSubmit={handleSubmit} />
+      </div>
+      <div className="right">
+        <Mobile />
       </div>
     </article>
   );

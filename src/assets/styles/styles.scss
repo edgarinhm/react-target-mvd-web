@@ -6,7 +6,7 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    height: 100%;
+    height: 100vh;
 }
 
 body {
@@ -22,13 +22,10 @@ body {
     text-rendering: optimizeLegibility;
     text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
     -webkit-text-size-adjust: 100%;
-    margin: 0;
     font-family: $fontFamily;
     color: $textColor;
     background-color: $bodyBgColor;
-    padding: 0;
-    margin: 0;
-
+    
     &.layout-scroll-block {
         overflow: hidden;
     }
@@ -81,10 +78,14 @@ body {
         width: 180px;
         height: 37px;
         border-radius: 0;   
+        margin-bottom: 2.25rem;
+        border: 0.5px solid $inputBorder;
     }
     .select{
         text-align: center;
         text-transform: uppercase;
+        letter-spacing: 1.5px;
+        vertical-align: -webkit-baseline-middle;
     }
         
 

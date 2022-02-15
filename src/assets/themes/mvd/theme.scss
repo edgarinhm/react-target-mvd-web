@@ -135,23 +135,56 @@
 
 .dropdown {
     width: 100%;
-    border: $inputBorder;
-    border-radius: 0.25em;
     padding: 0.5em;
     font-size: 1.25rem;
     cursor: pointer;
     line-height: 1.1;
-    background-color: #fff;
-    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    //background-color: $inputBgColor;
+    //background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+    background: $inputBgColor;
+    border: $inputBorder;
+    @include transition($inputTransition);
+    @include border-radius($borderRadius);
+
+    &:enabled:focus {
+        @include focused-input();
+    }
+
+    &:not(disabled):hover {
+        border-color: $inputHoverBorderColor;
+    }
+
+    &:not(disabled).p-focus {
+        @include focused-input();
+    }
+
+    .dropdown-label {
+        padding-right: 2em;
+
+        &:focus {
+            outline: 0 none;
+            @include shadow(none);
+        }
+    }
+
+    .dropdown-trigger {
+        background-color: $inputBgColor;
+        width: 2em;
+        line-height: 2em;
+        text-align: center;
+        padding: 0;
+        color: $inputDropdownIconColor;
+        @include border-radius($borderRadius);
+    }
+
+    .dropdown-clear-icon {
+        color: $inputDropdownIconColor;
+    }
 }
 
 .dropdown--disabled {
     cursor: not-allowed;
-}
-
-// Interim solution until :focus-within has better support
-select:focus+.focus {
-    border: 2px solid var($inputFocusBorderColor);
 }
 
 select[multiple] {
