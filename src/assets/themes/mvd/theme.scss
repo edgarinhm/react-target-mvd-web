@@ -201,4 +201,26 @@ select[multiple] {
     background-image: linear-gradient(to top, #ddd, #eee 33%);
 }
 
+input.error {
+    border-color: var($inputErrorBorder);
+}
+
+.spinner {
+    &.negative {
+        div {
+            background: $white;
+        }
+    }
+
+    div {
+        background: $primaryDarkColor;
+    }
+}
+
+.errorWrap {
+    .error {
+        color: $primaryDarkColor;
+    }
+}
+
 /* Add your customizations of theme here */

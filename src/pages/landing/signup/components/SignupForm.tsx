@@ -6,22 +6,15 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import signupValidation from 'validation/signup.validation';
 
-import './signup-form.scss';
+import UserSignUp from 'interfaces/user.interface';
 import { GENDER_OPTIONS } from 'constants/options';
 
-export interface SignUpFormFields {
-  name: string;
-  email: string;
-  password: string;
-  passwordConfirm: string;
-  gender: string;
-}
-
+import './signup-form.scss';
 export interface SignupFormProps {
-  onSubmit: (values: SignUpFormFields) => void;
+  onSubmit: (values: UserSignUp) => void;
 }
 const SignupForm = ({ onSubmit }: SignupFormProps) => {
-  const initialValues: SignUpFormFields = {
+  const initialValues: UserSignUp = {
     name: '',
     email: '',
     password: '',
@@ -32,7 +25,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<SignUpFormFields>({
+  } = useForm<UserSignUp>({
     defaultValues: initialValues,
     resolver: yupResolver(signupValidation),
   });
