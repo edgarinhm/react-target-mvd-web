@@ -70,7 +70,6 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Dropdown
           options={GENDER_OPTIONS}
-          //value="male"
           label="gender"
           placeholder="select your gender"
           error={errors.gender?.message}
