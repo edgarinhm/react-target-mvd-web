@@ -217,9 +217,9 @@ input.error {
     }
 }
 
-.errorWrap {
+.error-wrap {
     .error {
-        color: $primaryDarkColor;
+        color: $red;
     }
 }
 

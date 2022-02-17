@@ -50,7 +50,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         <InputText
           type="password"
           label="password"
-          placeholder="min. 6 characters long"
+          placeholder="min. 8 characters long"
           error={errors.password?.message}
           {...register('password')}
         />

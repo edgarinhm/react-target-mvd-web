@@ -1,2 +1,2 @@
-export { default as SignupForm } from './SignupForm';
-export { default as FormStatus } from './FormStatus';
+export { SignupForm } from './SignupForm';
+export { FormStatus } from './FormStatus';
