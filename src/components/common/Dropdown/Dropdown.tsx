@@ -9,6 +9,7 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
       name,
       value,
       options,
+      defaultOption,
       onChange,
       label,
       placeholder,
@@ -35,9 +36,10 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
             required={required}
             ref={ref}
           >
+            <option value="">{defaultOption}</option>
             {options?.map(option => (
-              <option value={option} key={option}>
-                {option}
+              <option value={option.value} key={option.value}>
+                {option.text}
               </option>
             ))}
           </select>
@@ -48,10 +50,15 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
   }
 );
 
+interface DropDownOption {
+  value: string;
+  text: string;
+}
 export interface DropdownProps {
   name: string;
   value?: string;
-  options?: string[];
+  options?: DropDownOption[];
+  defaultOption?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
   label?: string;
   placeholder?: string;

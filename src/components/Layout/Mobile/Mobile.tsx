@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import routesPaths from 'constants/routesPaths';
+import routesPaths from 'constants/routes-paths';
 import mobileLayout from 'assets/layout/media/i6.png';
 import appStoreMedia from 'assets/layout/media/appstore-button.svg';
 import facebookMedia from 'assets/layout/media/facebook.svg';

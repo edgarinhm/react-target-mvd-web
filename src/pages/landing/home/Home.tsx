@@ -2,7 +2,7 @@ import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import './home.scss';
-import routes from 'constants/routesPaths';
+import routes from 'constants/routes-paths';
 import MenuIcon from 'components/common/MenuItem/MenuItem';
 import smileMedia from 'assets/layout/media/smile.svg';
 

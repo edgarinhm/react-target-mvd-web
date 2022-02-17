@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import routes from 'constants/routesPaths';
+import routes from 'constants/routes-paths';
 import { InputText, Button, Dropdown } from 'components/common';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -63,6 +62,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Dropdown
           options={GENDER_OPTIONS}
+          defaultOption={'select your gender'}
           label="gender"
           placeholder="select your gender"
           error={errors.gender?.message}
