@@ -8,11 +8,10 @@ import UserService from 'services/user/user.service';
 import { FormStatus, SignupForm } from './components';
 import './signup.scss';
 import { signUp } from 'state/actions/user-actions';
-import { useDispatch } from 'hooks';
+// import { useDispatch } from 'hooks';
+// import { useAppDispatch } from '../../../state/store/index';
 
 const SignUp = () => {
-  const signupRequest = useDispatch(signUp);
-
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const handleSubmit = (formData: UserSignUp) => {
@@ -37,7 +36,7 @@ const SignUp = () => {
         <MenuItem />
         <FormStatus isLoading={loading} error={error} />
         <h1>Sign Up</h1>
-        <SignupForm onSubmit={signupRequest} />
+        <SignupForm />
       </div>
       <div className="right">
         <Mobile />

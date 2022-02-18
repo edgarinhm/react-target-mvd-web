@@ -9,10 +9,15 @@ import { UserSignUp } from 'interfaces/user.interface';
 import { GENDER_OPTIONS } from 'constants/options';
 
 import './signup-form.scss';
+
+import { useAppDispatch } from 'state/store/index';
+import { signUp } from 'state/actions/user-actions';
+
 export interface SignupFormProps {
   onSubmit: (values: UserSignUp) => void;
 }
-const SignupForm = ({ onSubmit }: SignupFormProps) => {
+const SignupForm = () => {
+  const dispatch = useAppDispatch();
   const initialValues: UserSignUp = {
     name: '',
     email: '',
@@ -28,6 +33,10 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     defaultValues: initialValues,
     resolver: yupResolver(signupValidation),
   });
+
+  const onSubmit = (formData: UserSignUp) => {
+    dispatch(signUp(formData));
+  };
 
   return (
     <section>

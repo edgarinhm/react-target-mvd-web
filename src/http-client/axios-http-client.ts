@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
+
+export interface HttpClient extends AxiosInstance {}
 
 const APPLICATION_JSON = 'application/json';
 const CONTENT_TYPE = 'Content-Type';

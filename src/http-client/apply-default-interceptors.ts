@@ -1,13 +1,13 @@
-/* import { EnhancedStore } from '@reduxjs/toolkit';
-import { AxiosInstance } from 'axios';
+import { EnhancedStore } from '@reduxjs/toolkit';
 
-import { logout, updateSession } from 'state/actions/userActions';
+import { updateSession } from 'state/actions/user-actions';
 import { AppDispatch } from 'state/store';
+import { HttpClient } from 'http-client';
 
 const ACCESS_TOKEN = 'access-token';
 const UNAUTHORIZED = 401;
 
-const applyDefaultInterceptors = (store: EnhancedStore, client: AxiosInstance) => {
+const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
   const dispatch: AppDispatch = store.dispatch;
 
   client.interceptors.request.use(config => {
@@ -36,7 +36,7 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: AxiosInstance) =
     },
     error => {
       if (error.response && error.response.status === UNAUTHORIZED) {
-        dispatch(logout());
+        // dispatch(logout());
       }
 
       return Promise.reject(error);
@@ -45,8 +45,3 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: AxiosInstance) =
 };
 
 export default applyDefaultInterceptors;
- */
-
-export const applyDefaultInterceptors = () => {
-  return '';
-};
