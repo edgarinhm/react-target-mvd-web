@@ -14,6 +14,7 @@ export interface InputProps {
   error?: string;
   type?: string;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 }
 
 const InputText = forwardRef<HTMLInputElement, InputProps>(
@@ -29,6 +30,7 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
       error,
       type = 'text',
       onFocus,
+      disabled = false,
     },
     ref
   ) => {
@@ -47,6 +49,7 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
             className={style(error ? 'input input-text error' : 'input input-text')}
             type={type}
             required={required}
+            disabled={disabled}
             ref={ref}
           />
           {error && <div className={style('input-error')}>{error}</div>}

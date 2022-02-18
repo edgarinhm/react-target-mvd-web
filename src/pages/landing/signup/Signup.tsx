@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MenuItem } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import testIds from 'constants/test-ids';
-import UserSignUp from 'interfaces/user.interface';
+import { UserSignUp } from 'interfaces/user.interface';
 import UserService from 'services/user/user.service';
 
 import { FormStatus, SignupForm } from './components';
