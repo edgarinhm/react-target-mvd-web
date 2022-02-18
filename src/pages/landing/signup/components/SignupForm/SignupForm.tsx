@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import signupValidation from 'validation/signup.validation';
 
-import UserSignUp from 'interfaces/user.interface';
+import { UserSignUp } from 'interfaces/user.interface';
 import { GENDER_OPTIONS } from 'constants/options';
 
 import './signup-form.scss';

@@ -1,13 +1,13 @@
 import { httpClient } from 'http-client';
 import ErrorApi from 'interfaces/error-api.interface';
 import { SignupErrorResponse } from 'interfaces/signup-error-response.interface';
-import UserSingUp from 'interfaces/user.interface';
+import { UserSignUp } from 'interfaces/user.interface';
 import SignupRequest from './signup-request.interface';
 
 const SIGNUP_URL = '/users';
 
 class UserService {
-  static async signUp(user: UserSingUp) {
+  static async signUp(user: UserSignUp) {
     const signupRequest: SignupRequest = {
       user: {
         username: user.name,
