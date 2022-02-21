@@ -12,4 +12,6 @@ export const signUp = createAsyncThunk('user/signUp', async (user: UserSignUp) =
   }
 });
 
-export const updateSession = createAction<object | undefined>('session/update');
+export const updateSession = createAction<string | undefined>('session/update');
+export const setLoading = createAction<boolean | undefined>('interceptor/setLoading');
+export const setErrors = createAction<string | undefined>('interceptor/setErrors');

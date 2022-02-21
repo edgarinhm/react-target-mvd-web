@@ -1,5 +1,5 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { updateSession } from 'state/actions/user-actions';
+import { updateSession, signUp } from 'state/actions/user-actions';
 
 export interface SessionState {
   accessToken?: string;
@@ -14,6 +14,11 @@ const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<str
   state.accessToken = payload;
 };
 
+const handleSignupFulfilled = (state: SessionState) => {
+  state.authenticated = true;
+};
+
 export default createReducer(initialState, {
   [updateSession.type]: handleUpdateSession,
+  [signUp.fulfilled.type]: handleSignupFulfilled,
 });

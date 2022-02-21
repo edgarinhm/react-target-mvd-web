@@ -6,9 +6,9 @@ interface FormStatusProps {
   error: string;
 }
 
-const FormStatus = ({ isLoading, error }: FormStatusProps) => {
+const FormStatus = () => {
   // const [error] = useState();
-  const state = { isLoading: isLoading, mainError: error };
+  const state = { isLoading: true, mainError: '' };
   return <FormStatusBase state={state} />;
 };
 

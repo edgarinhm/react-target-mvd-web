@@ -1,5 +1,5 @@
 import localForage from 'localforage';
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import {
   persistStore,
@@ -20,27 +20,22 @@ const persistConfig = {
   whitelist: ['session'],
 };
 
-const middlewares = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
-
-if (process.env.NODE_ENV === 'development') {
-  const logger = createLogger({
-    collapsed: true,
-  });
-  middlewares.push(logger);
-}
-
 const persistedReducer = persistReducer(persistConfig, AppReducer);
+
+const logger = createLogger({
+  predicate: () => process.env.NODE_ENV === `development`,
+  collapsed: true,
+});
 
 const store = configureStore({
   reducer: persistedReducer,
   preloadedState: {},
-  middleware: middlewares,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(logger),
 });
 
 const persistor = persistStore(store);
