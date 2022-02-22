@@ -71,13 +71,13 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Button
           type="submit"
-          label="sing up"
+          label="sign up"
           onClick={() => {
             console.log('Button-submit onClick errors', errors.name);
           }}
         />
         <div className="line"></div>
-        <Link data-testid="signup-form-link" to={routes.login} className="link">
+        <Link data-testid="signup-form-link" to={routes.home} className="link">
           SIGN IN
         </Link>
       </form>

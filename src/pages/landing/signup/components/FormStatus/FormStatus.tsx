@@ -1,14 +1,14 @@
 import { FormStatusBase } from 'components/common';
-// import { useState } from 'react';
+import useInterceptor from 'hooks/useInterceptor';
 
 interface FormStatusProps {
   isLoading: boolean;
-  error: string;
+  errors?: string;
 }
 
 const FormStatus = () => {
-  // const [error] = useState();
-  const state = { isLoading: true, mainError: '' };
+  const { isLoading, errors } = useInterceptor();
+  const state: FormStatusProps = { isLoading, errors };
   return <FormStatusBase state={state} />;
 };
 

@@ -3,7 +3,7 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import { setErrors, setLoading, updateSession } from 'state/actions/user-actions';
 import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
-import { SignupErrorResponse } from 'interfaces/signup-error-response.interface';
+import { ErrorApiResponse } from 'interfaces/error-api-response.interface';
 import ErrorApi from 'interfaces/error-api.interface';
 
 const ACCESS_TOKEN = 'access-token';
@@ -14,6 +14,7 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
 
   client.interceptors.request.use(config => {
     dispatch(setLoading(true));
+    dispatch(setErrors());
     const { accessToken } = store.getState().session;
     const { headers } = config;
     if (accessToken) {
@@ -45,9 +46,9 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
         if (errorApi) {
           dispatch(setErrors(errorApi));
         }
-        const errorSignup = error.response.data as SignupErrorResponse;
-        if (errorSignup?.status === 'error') {
-          dispatch(setErrors(errorSignup.errors.full_messages[0]));
+        const errorApiResponse = error.response.data as ErrorApiResponse;
+        if (errorApiResponse?.status === 'error') {
+          dispatch(setErrors(errorApiResponse.errors.full_messages[0]));
         }
       }
       return Promise.reject(error);

@@ -5,18 +5,18 @@ import { Spinner } from '../Spinner';
 interface FormStatusProps {
   state: {
     isLoading: boolean;
-    mainError: string;
+    errors?: string;
   };
 }
 
 const FormStatus = ({ state }: FormStatusProps) => {
-  const { isLoading, mainError } = state;
+  const { isLoading, errors } = state;
   return (
     <div data-testid="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}
-      {mainError && (
+      {errors && (
         <span data-testid="main-error" className="error">
-          {mainError}
+          {errors}
         </span>
       )}
     </div>
