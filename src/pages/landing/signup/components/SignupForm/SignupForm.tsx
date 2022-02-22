@@ -77,7 +77,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           }}
         />
         <div className="line"></div>
-        <Link data-testid="signup-form-link" to={routes.home} className="link">
+        <Link data-testid="signup-form-link" to={routes.index} className="link">
           SIGN IN
         </Link>
       </form>

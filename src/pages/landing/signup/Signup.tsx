@@ -14,7 +14,7 @@ const SignUp = () => {
   const { authenticated } = useSession();
 
   if (authenticated) {
-    return <Navigate to={routesPaths.index} />;
+    return <Navigate to={routesPaths.home} />;
   }
 
   return (
