@@ -2,12 +2,6 @@
 @import "../themes/mvd/mixins";
 @import "_custom-variables";
 
-* {
-    box-sizing: border-box;
-    font-size: 10px;
-    height: 100vh;
-}
-
 body {
     font-size: $fontSize;
     -webkit-font-smoothing: antialiased;
