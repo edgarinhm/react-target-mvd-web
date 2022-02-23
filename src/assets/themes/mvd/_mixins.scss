@@ -4,7 +4,7 @@
     display: flex;
 }
 
-@mixin icon-override($icon) {    
+@mixin icon-override($icon) {
     &:before {
         content: $icon;
     }
@@ -17,10 +17,10 @@
 }
 
 @mixin transition($transition...) {
-    -moz-transition:    $transition;
-    -o-transition:      $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
     -webkit-transition: $transition;
-    transition:         $transition;
+    transition: $transition;
 }
 
 @mixin focused() {
@@ -41,7 +41,7 @@
 }
 
 @mixin disabled-input() {
-	border-color: $inputDisabledBorderColor;
+    border-color: $inputDisabledBorderColor;
     background-color: $inputDisabledBgColor;
     color: $inputDisabledTextColor;
     cursor: default !important;
@@ -66,7 +66,7 @@
     border-top-right-radius: $val;
     -moz-border-radius-bottomright: $val;
     -webkit-border-bottom-right-radius: $val;
-    border-bottom-right-radius: $val; 
+    border-bottom-right-radius: $val;
 }
 
 @mixin border-radius-left($val) {
@@ -109,19 +109,30 @@
 }
 
 @mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie);
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
 }
 
 @mixin placeholder {
-    ::-webkit-input-placeholder {@content}
-    :-moz-placeholder           {@content}
-    ::-moz-placeholder          {@content}
-    :-ms-input-placeholder      {@content}  
+    ::-webkit-input-placeholder {
+        @content;
+    }
+
+    :-moz-placeholder {
+        @content;
+    }
+
+    ::-moz-placeholder {
+        @content;
+    }
+
+    :-ms-input-placeholder {
+        @content;
+    }
 }
 
-@mixin rotate($deg) {    
+@mixin rotate($deg) {
     -webkit-transform: rotate($deg);
     -moz-transform: rotate($deg);
     -o-transform: rotate($deg);
@@ -129,7 +140,7 @@
     transform: rotate($deg);
 }
 
-@mixin scale($deg) {    
+@mixin scale($deg) {
     -webkit-transform: scale($deg);
     -moz-transform: scale($deg);
     -o-transform: scale($deg);

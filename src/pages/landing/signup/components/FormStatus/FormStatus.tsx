@@ -1,15 +1,9 @@
 import { FormStatusBase } from 'components/common';
 import useInterceptor from 'hooks/useInterceptor';
 
-interface FormStatusProps {
-  isLoading: boolean;
-  errors?: string;
-}
-
 const FormStatus = () => {
   const { isLoading, errors } = useInterceptor();
-  const state: FormStatusProps = { isLoading, errors };
-  return <FormStatusBase state={state} />;
+  return <FormStatusBase isLoading={isLoading} errors={errors} />;
 };
 
 export default FormStatus;

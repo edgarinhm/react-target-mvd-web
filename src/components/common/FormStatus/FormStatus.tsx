@@ -3,14 +3,11 @@ import './form-status-styles.scss';
 import { Spinner } from '../Spinner';
 
 interface FormStatusProps {
-  state: {
-    isLoading: boolean;
-    errors?: string;
-  };
+  isLoading: boolean;
+  errors?: string;
 }
 
-const FormStatus = ({ state }: FormStatusProps) => {
-  const { isLoading, errors } = state;
+const FormStatus = ({ isLoading, errors }: FormStatusProps) => {
   return (
     <div data-test-id="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}

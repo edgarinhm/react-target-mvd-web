@@ -1,12 +1,7 @@
 import { Button } from 'components/common';
+import { ButtonProps } from '../Button/Button';
 
-export interface SubmitButtonProps {
-  label: string;
-  onClick?: () => any;
-  disabled?: boolean;
-}
-
-const SubmitButton = ({ label, onClick, disabled = false }: SubmitButtonProps) => {
+const SubmitButton = ({ label, onClick, disabled = false }: ButtonProps) => {
   return <Button label={label} disabled={disabled} onClick={onClick} type="submit"></Button>;
 };
 

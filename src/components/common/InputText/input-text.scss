@@ -1,7 +1,7 @@
 .input {
   margin: 0;
   outline: medium none;
-  padding: .25em;
+  padding: 0.25em;
   font-weight: normal;
 
   &-container {
@@ -9,17 +9,17 @@
   }
 
   &-label {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
   }
 
   &-error {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 }
 
 .fluid .input-text {
   width: 100%;
   box-sizing: border-box;
-  -webkit-box-sizing:border-box;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
