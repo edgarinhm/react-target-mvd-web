@@ -9,7 +9,7 @@ const Spinner: React.FC<Props> = ({ isNegative, ...props }: Props) => {
   return (
     <div
       {...props}
-      data-testid="spinner"
+      data-test-id="spinner"
       className={[Styles.spinner, negativeClass, props.className].join(' ')}
     >
       <div />

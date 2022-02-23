@@ -1,11 +1,11 @@
 import './home.scss';
-import MenuItem from 'components/common/MenuItem/MenuItem';
 import testIds from 'constants/test-ids';
 import { Maps } from 'components/Layout/Maps';
+import { MenuItem } from 'components/common';
 
 const Home = () => {
   return (
-    <article className="home-wrap" data-testid={testIds.HOME_PAGE}>
+    <article className="home-wrap" data-test-id={testIds.HOME_PAGE}>
       <div className="left">
         <MenuItem />
         <h1>Welcome To TARGET</h1>

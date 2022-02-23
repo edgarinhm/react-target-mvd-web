@@ -12,10 +12,10 @@ interface FormStatusProps {
 const FormStatus = ({ state }: FormStatusProps) => {
   const { isLoading, errors } = state;
   return (
-    <div data-testid="error-wrap" className="error-wrap">
+    <div data-test-id="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}
       {errors && (
-        <span data-testid="main-error" className="error">
+        <span data-test-id="main-error" className="error">
           {errors}
         </span>
       )}

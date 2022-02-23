@@ -2,7 +2,7 @@ import { Button } from 'components/common';
 
 export interface SubmitButtonProps {
   label: string;
-  onClick: () => any;
+  onClick?: () => any;
   disabled?: boolean;
 }
 

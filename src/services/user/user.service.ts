@@ -1,5 +1,5 @@
 import { httpClient } from 'http-client';
-import { UserSignUp } from 'interfaces/user.interface';
+import { UserSignUp } from 'interfaces/user-interface';
 import SignupRequest from './signup-request.interface';
 
 const SIGNUP_URL = '/users';

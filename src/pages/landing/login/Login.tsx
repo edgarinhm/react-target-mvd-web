@@ -1,17 +1,15 @@
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import routes from 'constants/routes-paths';
-import MenuIcon from 'components/common/MenuItem/MenuItem';
 import smileMedia from 'assets/layout/media/smile.svg';
-
+import { MenuItem } from 'components/common';
 import './login.scss';
 
 const Login = () => {
   return (
     <div className="home">
       <div className="home-left">
-        <MenuIcon />
+        <MenuItem />
         <div className="info">
           <div className="smilies">
             <div className="oval-2">
@@ -28,7 +26,7 @@ const Login = () => {
           <div className="text">
             <div className="create-target-where">
               Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc
-              and start conecting with others who share your interest.
+              and start connecting with others who share your interest.
             </div>
           </div>
         </div>

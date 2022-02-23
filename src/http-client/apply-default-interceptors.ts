@@ -3,8 +3,8 @@ import { EnhancedStore } from '@reduxjs/toolkit';
 import { setErrors, setLoading, updateSession } from 'state/actions/user-actions';
 import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
-import { ErrorApiResponse } from 'interfaces/error-api-response.interface';
-import ErrorApi from 'interfaces/error-api.interface';
+import { ErrorApiResponse } from 'interfaces/error-api-response-interface';
+import ErrorApi from 'interfaces/error-api-interface';
 
 const ACCESS_TOKEN = 'access-token';
 const UNAUTHORIZED = 401;

@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
-import routes from 'constants/routes-paths';
-import { InputText, Button, Dropdown } from 'components/common';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { InputText, Dropdown, SubmitButton } from 'components/common';
+import { UserSignUp } from 'interfaces/user-interface';
 import signupValidation from 'validation/signup.validation';
-
-import { UserSignUp } from 'interfaces/user.interface';
-import { GENDER_OPTIONS } from 'constants/options';
-
+import routes from 'constants/routes-paths';
+import { GENDER_OPTIONS } from 'constants/gender-options';
 import './signup-form.scss';
 
 export interface SignupFormProps {
@@ -32,7 +30,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
 
   return (
     <section>
-      <form data-testid="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form data-test-id="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <InputText
           type="text"
           label="name"
@@ -69,15 +67,9 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           error={errors.gender?.message}
           {...register('gender')}
         />
-        <Button
-          type="submit"
-          label="sign up"
-          onClick={() => {
-            console.log('Button-submit onClick errors', errors.name);
-          }}
-        />
+        <SubmitButton label="sign up" />
         <div className="line"></div>
-        <Link data-testid="signup-form-link" to={routes.index} className="link">
+        <Link data-test-id="signup-form-link" to={routes.index} className="link">
           SIGN IN
         </Link>
       </form>

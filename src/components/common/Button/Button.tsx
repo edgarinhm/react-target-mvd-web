@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { forwardRef } from 'react';
-
 import buttonStyle from './button.scss';
 
 export interface ButtonProps {
@@ -18,7 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <button
-        data-testid={type}
+        data-test-id={type}
         disabled={disabled}
         onClick={onClick}
         type={type}

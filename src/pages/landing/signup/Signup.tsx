@@ -1,13 +1,12 @@
+import { Navigate } from 'react-router-dom';
 import { MenuItem } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
-import testIds from 'constants/test-ids';
 import { FormStatus, SignupForm } from './components';
-import './signup.scss';
-
-import { signUp } from 'state/actions/user-actions';
 import { useDispatch, useSession } from 'hooks';
-import { Navigate } from 'react-router-dom';
+import { signUp } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths';
+import testIds from 'constants/test-ids';
+import './signup.scss';
 
 const SignUp = () => {
   const handleSubmit = useDispatch(signUp);
@@ -18,7 +17,7 @@ const SignUp = () => {
   }
 
   return (
-    <article className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
+    <article className="signup-wrap" data-test-id={testIds.SIGNUP_PAGE}>
       <div className="left">
         <MenuItem />
         <FormStatus />
