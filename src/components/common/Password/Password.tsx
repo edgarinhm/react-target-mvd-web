@@ -26,7 +26,7 @@ const Password = ({
         value={value}
         disabled={disabled}
         onChange={onChange}
-      ></InputText>
+      />
       (isIconVisible && (
       <span className={`icon-password-${isIconVisible}`}>
         <img src="" alt="password icon" />

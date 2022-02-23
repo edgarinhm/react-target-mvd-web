@@ -1,4 +1,4 @@
-import routesPaths from 'constants/routes-paths';
+import routesPaths from 'constants/routes-paths-constant';
 import Home from 'pages/landing/home/Home';
 
 import SignUp from 'pages/landing/signup/Signup';

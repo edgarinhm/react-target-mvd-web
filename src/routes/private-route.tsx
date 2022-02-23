@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Route, Navigate, useLocation } from 'react-router-dom';
 
-import routes from 'constants/routes-paths';
+import routes from 'constants/routes-paths-constant';
 
 const PrivateRoute = ({ children, authenticated, exact = false, path }: PrivateRouteProps) => {
   const location = useLocation();

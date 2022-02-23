@@ -1,5 +1,5 @@
 import './home.scss';
-import testIds from 'constants/test-ids';
+import testIds from 'constants/test-ids-constant';
 import { Maps } from 'components/Layout/Maps';
 import { MenuItem } from 'components/common';
 

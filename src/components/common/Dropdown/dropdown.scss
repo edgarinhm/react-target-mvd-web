@@ -39,22 +39,6 @@ select[multiple] {
   option {
     white-space: normal;
   }
-
-  /* 
-   * Experimental - styling of selected options
-   * in the multiselect
-   * Not supported crossbrowser
-   */
-  //   &:not(:disabled) option {
-  //     border-radius: 12px;
-  //     transition: 120ms all ease-in;
-
-  //     &:checked {
-  //       background: linear-gradient(hsl(242, 61%, 76%), hsl(242, 61%, 71%));
-  //       padding-left: 0.5em;
-  //       color: black !important;
-  //     }
-  //   }
 }
 
 .fluid .dropdown {

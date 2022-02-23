@@ -9,7 +9,7 @@ import ErrorApi from 'interfaces/error-api-interface';
 const ACCESS_TOKEN = 'access-token';
 const UNAUTHORIZED = 401;
 
-const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
+const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
   const dispatch: AppDispatch = store.dispatch;
 
   client.interceptors.request.use(config => {
@@ -38,11 +38,10 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
     },
     error => {
       dispatch(setLoading(false));
+      const errorApi = (error.response.data as ErrorApi)?.error;
       if (error.response && error.response.status === UNAUTHORIZED) {
-        // dispatch(logout());
+        dispatch(setErrors(errorApi));
       } else {
-        // validate api error status
-        const errorApi = (error.response.data as ErrorApi)?.error;
         if (errorApi) {
           dispatch(setErrors(errorApi));
         }
@@ -56,4 +55,4 @@ const applyDefaultInterceptors = (store: EnhancedStore, client: HttpClient) => {
   );
 };
 
-export default applyDefaultInterceptors;
+export default applyDefaultInterceptor;

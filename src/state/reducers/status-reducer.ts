@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, AsyncThunk, createReducer } from '@reduxjs/toolkit';
 
-import { FULFILLED, REJECTED, PENDING } from 'constants/action-status';
+import { FULFILLED, REJECTED, PENDING } from 'constants/action-status-constant';
 
 export type GenericAsyncThunk = AsyncThunk<any, any, any>;
 

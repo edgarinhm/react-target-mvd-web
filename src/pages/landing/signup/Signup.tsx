@@ -4,8 +4,8 @@ import { Mobile } from 'components/Layout/Mobile';
 import { FormStatus, SignupForm } from './components';
 import { useDispatch, useSession } from 'hooks';
 import { signUp } from 'state/actions/user-actions';
-import routesPaths from 'constants/routes-paths';
-import testIds from 'constants/test-ids';
+import routesPaths from 'constants/routes-paths-constant';
+import testIds from 'constants/test-ids-constant';
 import './signup.scss';
 
 const SignUp = () => {

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
-import routes from 'constants/routes-paths';
+import routes from 'constants/routes-paths-constant';
 import smileMedia from 'assets/layout/media/smile.svg';
 import { MenuItem } from 'components/common';
 import './login.scss';

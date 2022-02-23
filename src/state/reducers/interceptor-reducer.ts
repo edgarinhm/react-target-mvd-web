@@ -5,16 +5,19 @@ interface InterceptorState {
   isLoading: boolean;
   errors?: string;
 }
+
 const initialState: InterceptorState = {
   errors: undefined,
   isLoading: false,
 };
+
 const handleSetLoadingInterceptor = (
   state: InterceptorState,
   { payload }: PayloadAction<boolean>
 ) => {
   state.isLoading = payload;
 };
+
 const handleSetErrorsInterceptor = (
   state: InterceptorState,
   { payload }: PayloadAction<string>

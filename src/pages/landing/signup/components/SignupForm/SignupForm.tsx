@@ -4,8 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, Dropdown, SubmitButton } from 'components/common';
 import { UserSignUp } from 'interfaces/user-interface';
 import signupValidation from 'validation/signup.validation';
-import routes from 'constants/routes-paths';
-import { GENDER_OPTIONS } from 'constants/gender-options';
+import routes from 'constants/routes-paths-constant';
+import { GENDER_OPTIONS } from 'constants/gender-options-constant';
 import './signup-form.scss';
 
 export interface SignupFormProps {

@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom';
-import './assets/themes/mvd/theme.scss';
-import './assets/styles/styles.scss';
-import App from './components/App/App';
-import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import App from './components/App/App';
+import reportWebVitals from './reportWebVitals';
 import { persistor, store } from 'state/store';
-import { BrowserRouter } from 'react-router-dom';
-import { httpClient, applyDefaultInterceptors } from 'http-client';
+import { httpClient } from 'http-client';
+import { applyDefaultInterceptor } from 'interceptors';
+import './assets/themes/mvd/theme.scss';
+import './assets/styles/styles.scss';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -25,4 +25,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-applyDefaultInterceptors(store, httpClient);
+applyDefaultInterceptor(store, httpClient);
