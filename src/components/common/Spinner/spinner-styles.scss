@@ -2,23 +2,23 @@
     display: inline-block;
     position: relative;
     width: 80px;
-    height: 13px;
+    height: 0.8125rem;
 
     div {
         position: absolute;
         top: 0px;
-        width: 13px;
-        height: 13px;
+        width: 0.8125rem;
+        height: 0.8125rem;
         border-radius: 50%;
         animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
         &:nth-child(1) {
-            left: 8px;
+            left: 0.5rem;
             animation: spinner1 0.6s infinite;
         }
 
         &:nth-child(2) {
-            left: 8px;
+            left: 0.5rem;
             animation: spinner2 0.6s infinite;
         }
 
