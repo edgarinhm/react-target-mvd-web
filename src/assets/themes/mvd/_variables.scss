@@ -22,7 +22,7 @@ $primaryDarkerColor: rgba($primaryColor, 0.2);
 $primaryTextColor: #ffffff;
 
 // Global
-$fontFamily: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontFamily: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $fontSize: 14px;
 $textColor: #000000;
 $textSecondaryColor: #848484;
@@ -154,7 +154,7 @@ $checkboxActiveHoverBgColor: $primaryDarkerColor;
 $checkboxActiveHoverTextColor: $primaryTextColor;
 $checkboxActiveHoverBorderColor: $primaryDarkerColor;
 $checkboxTransition: background-color $transitionDuration, border-color $transitionDuration,
-    box-shadow $transitionDuration;
+  box-shadow $transitionDuration;
 
 // radiobutton
 $radiobuttonWidth: 20px;
@@ -166,7 +166,7 @@ $radiobuttonActiveHoverBgColor: $primaryDarkerColor;
 $radiobuttonActiveHoverTextColor: $primaryTextColor;
 $radiobuttonActiveHoverBorderColor: $primaryDarkerColor;
 $radiobuttonTransition: background-color $transitionDuration, border-color $transitionDuration,
-    box-shadow $transitionDuration;
+  box-shadow $transitionDuration;
 
 // scrollpanel
 $scrollPanelHandleBgColor: #dadada;
@@ -174,7 +174,8 @@ $scrollPanelTrackBorder: 0 none;
 $scrollPanelTrackBgColor: #f8f8f8;
 
 // card
-$cardShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+$cardShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 2px 1px -1px rgba(0, 0, 0, 0.12);
 
 // messages
 $messagesMargin: 1em 0;

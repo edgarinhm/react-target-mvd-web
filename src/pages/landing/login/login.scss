@@ -1,185 +1,185 @@
 .login {
-    text-align: center;
-    top: 28.5px;
+  text-align: center;
+  top: 28.5px;
 }
 
 /* Left */
 .login-left {
+  position: absolute;
+  width: 488px;
+  height: 671.5px;
+  left: 22px;
+  top: 28.5px;
+
+  /* smilies */
+  .smilies {
     position: absolute;
-    width: 488px;
-    height: 671.5px;
-    left: 22px;
-    top: 28.5px;
+    width: 133px;
+    height: 78px;
+    left: 265px;
+    top: 70px;
+  }
 
-    /* smilies */
-    .smilies {
-        position: absolute;
-        width: 133px;
-        height: 78px;
-        left: 265px;
-        top: 70px;
+  /* Oval 2 */
+  .oval-2 {
+    width: 78px;
+    height: 78px;
+    background: #efc638;
+    border-radius: 50%;
+  }
+
+  /* Oval 2 Copy */
+  .oval-2-copy {
+    width: 78px;
+    height: 78px;
+    background: #2fbcf7;
+    border-radius: 50%;
+    background-blend-mode: multiply;
+  }
+
+  /* TARGET MVD */
+  .target-mvd {
+    position: absolute;
+    width: 180px;
+    height: 27px;
+    left: 245px;
+    top: 164px;
+    font-family: OpenSans;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 3px;
+    color: #000000;
+  }
+
+  /* form */
+  .form {
+    position: absolute;
+    width: 210px;
+    top: 363px;
+    left: 265px;
+
+    /* Line */
+    .line {
+      position: absolute;
+      width: 121px;
+      height: 0.5px;
+      top: 269px;
+      border: 0.5px solid #000000;
     }
 
-    /* Oval 2 */
-    .oval-2 {
-        width: 78px;
-        height: 78px;
-        background: #efc638;
-        border-radius: 50%;
+    .sign-up {
+      position: absolute;
+      width: 125.26px;
+      height: 15px;
+      top: 285px;
+      font-family: OpenSans;
+      font-size: 11px;
+      line-height: 13px;
+      text-align: center;
+      letter-spacing: 1.65px;
+      color: #000000;
+    }
+  }
+
+  /* Info */
+  .info {
+    position: absolute;
+    height: 110px;
+    top: 204px;
+
+    /* Adress */
+    .adress .find-peope-near-you {
+      position: absolute;
+      width: 292px;
+      height: 32px;
+      left: 180px;
+      top: 204px;
     }
 
-    /* Oval 2 Copy */
-    .oval-2-copy {
-        width: 78px;
-        height: 78px;
-        background: #2fbcf7;
-        border-radius: 50%;
-        background-blend-mode: multiply;
+    /* Find people near you */
+    .find-peope-near-you {
+      font-family: OpenSans;
+      font-size: 18px;
+      line-height: 32px;
+      /* identical to box height, or 178% */
+      color: #212121;
     }
 
-    /* TARGET MVD */
-    .target-mvd {
-        position: absolute;
-        width: 180px;
-        height: 27px;
-        left: 245px;
-        top: 164px;
-        font-family: OpenSans;
-        font-size: 20px;
-        line-height: 23px;
-        letter-spacing: 3px;
-        color: #000000;
+    /* Text */
+    .text {
+      position: absolute;
+      width: 321px;
+      height: 78px;
+      left: 189px;
+      top: 236px;
     }
 
-    /* form */
-    .form {
-        position: absolute;
-        width: 210px;
-        top: 363px;
-        left: 265px;
-
-        /* Line */
-        .line {
-            position: absolute;
-            width: 121px;
-            height: 0.5px;
-            top: 269px;
-            border: 0.5px solid #000000;
-        }
-
-        .sign-up {
-            position: absolute;
-            width: 125.26px;
-            height: 15px;
-            top: 285px;
-            font-family: OpenSans;
-            font-size: 11px;
-            line-height: 13px;
-            text-align: center;
-            letter-spacing: 1.65px;
-            color: #000000;
-        }
+    /* Create a target wher */
+    .create-target-where {
+      font-family: OpenSans;
+      font-size: 14px;
+      line-height: 26px;
+      /* or 186% */
+      color: #000000;
+      text-align: left;
     }
-
-    /* Info */
-    .info {
-        position: absolute;
-        height: 110px;
-        top: 204px;
-
-        /* Adress */
-        .adress .find-peope-near-you {
-            position: absolute;
-            width: 292px;
-            height: 32px;
-            left: 180px;
-            top: 204px;
-        }
-
-        /* Find people near you */
-        .find-peope-near-you {
-            font-family: OpenSans;
-            font-size: 18px;
-            line-height: 32px;
-            /* identical to box height, or 178% */
-            color: #212121;
-        }
-
-        /* Text */
-        .text {
-            position: absolute;
-            width: 321px;
-            height: 78px;
-            left: 189px;
-            top: 236px;
-        }
-
-        /* Create a target wher */
-        .create-target-where {
-            font-family: OpenSans;
-            font-size: 14px;
-            line-height: 26px;
-            /* or 186% */
-            color: #000000;
-            text-align: left;
-        }
-    }
+  }
 }
 
 /* right */
 .login-right {
+  position: absolute;
+  width: 488px;
+  height: 671.5px;
+  left: 22px;
+  top: 28.5px;
+
+  /* play */
+  .play {
     position: absolute;
-    width: 488px;
-    height: 671.5px;
-    left: 22px;
-    top: 28.5px;
+    width: 60px;
+    height: 61px;
+    left: 1007px;
+    top: 315px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+  }
 
-    /* play */
-    .play {
-        position: absolute;
-        width: 60px;
-        height: 61px;
-        left: 1007px;
-        top: 315px;
-        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
-    }
-
-    /* i6 */
-    .i-6 {
-        position: absolute;
-        width: 550px;
-        height: 794.44px;
-        left: 761px;
-        top: -78px;
-        /*         background: url("../../assets/media/i6.png");
+  /* i6 */
+  .i-6 {
+    position: absolute;
+    width: 550px;
+    height: 794.44px;
+    left: 761px;
+    top: -78px;
+    /*         background: url("../../assets/media/i6.png");
  */
-    }
+  }
 
-    /* appstore button */
-    .appstore-button {
-        position: absolute;
-        width: 120px;
-        height: 38px;
-        left: 976px;
-        top: 634px;
-    }
+  /* appstore button */
+  .appstore-button {
+    position: absolute;
+    width: 120px;
+    height: 38px;
+    left: 976px;
+    top: 634px;
+  }
 
-    /* Social */
-    .social {
-        position: absolute;
-        width: 77px;
-        height: 26px;
-        left: 1000px;
-        top: 690px;
-    }
+  /* Social */
+  .social {
+    position: absolute;
+    width: 77px;
+    height: 26px;
+    left: 1000px;
+    top: 690px;
+  }
 
-    /* Rectangle */
-    .rectangle {
-        position: absolute;
-        width: 683px;
-        height: 768px;
-        left: 684px;
-        top: -1px;
-        background: #2fbcf7;
-    }
+  /* Rectangle */
+  .rectangle {
+    position: absolute;
+    width: 683px;
+    height: 768px;
+    left: 684px;
+    top: -1px;
+    background: #2fbcf7;
+  }
 }

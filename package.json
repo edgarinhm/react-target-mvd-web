@@ -33,8 +33,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "style-format:fix": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "style-format": "prettier --check src",
-    "lint": "eslint src",
+    "style-format": "prettier --check .",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install"
   },
@@ -83,6 +83,11 @@
     "sass": "^1.49.7"
   },
   "lint-staged": {
-    "*.ts": "eslint --cache --fix"
+    "**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix"
+    ],
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "npm run style-format:fix"
+    ]
   }
 }
