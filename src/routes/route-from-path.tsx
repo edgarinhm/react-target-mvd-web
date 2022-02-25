@@ -1,21 +1,12 @@
-import { ReactNode } from 'react';
 import { Route } from 'react-router-dom';
-
 import PrivateRoute from './private-route';
+import { Routes } from 'interfaces/routes-interface';
 
-const RouteFromPath = ({ element, ...route }: RouteFromPathProps) =>
+const RouteFromPath = ({ element, ...route }: Routes) =>
   route.private ? (
     <PrivateRoute {...route}>{element}</PrivateRoute>
   ) : (
     <Route {...route}>{element}</Route>
   );
-
-export interface RouteFromPathProps {
-  path: string;
-  element: ReactNode;
-  authenticated?: boolean;
-  exact?: boolean;
-  private?: boolean;
-}
 
 export default RouteFromPath;

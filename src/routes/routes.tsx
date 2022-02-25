@@ -1,10 +1,9 @@
-import routesPaths from 'constants/routes-paths-constant';
 import Home from 'pages/landing/home/Home';
-
 import SignUp from 'pages/landing/signup/Signup';
-import { RouteFromPathProps } from './route-from-path';
+import routesPaths from 'constants/routes-paths-constant';
+import { Routes } from 'interfaces/routes-interface';
 
-let routes: RouteFromPathProps[] = [
+const routes: Routes[] = [
   {
     path: routesPaths.index,
     element: <Home />,
