@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { InputText, Dropdown, SubmitButton } from 'components/common';
+import { InputText, Dropdown, Button } from 'components/common';
 import { UserSignUp } from 'interfaces/user-interface';
 import signupValidation from 'validation/signup.validation';
 import routes from 'constants/routes-paths-constant';
 import { GENDER_OPTIONS } from 'constants/gender-options-constant';
 import './signup-form.scss';
-
 export interface SignupFormProps {
   onSubmit: (values: UserSignUp) => void;
 }
@@ -46,14 +45,12 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           {...register('email')}
         />
         <InputText
-          type="password"
           label="password"
           placeholder="min. 8 characters long"
           error={errors.password?.message}
           {...register('password')}
         />
         <InputText
-          type="password"
           label="confirm password"
           placeholder="confirm your password"
           error={errors.passwordConfirm?.message}
@@ -67,7 +64,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           error={errors.gender?.message}
           {...register('gender')}
         />
-        <SubmitButton label="sign up" />
+        <Button type="submit" label="sign up" />
         <div className="line"></div>
         <Link data-test-id="signup-form-link" to={routes.index} className="link">
           SIGN IN

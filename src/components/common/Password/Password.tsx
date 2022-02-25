@@ -1,10 +1,13 @@
+import { ChangeEvent } from 'react';
 import { InputText } from '../InputText';
-
 export interface PasswordProps {
   name: string;
   label: string;
-  value: string;
-  onChange: () => any;
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  required?: boolean;
+  error?: string;
   disabled?: boolean;
   isIconVisible?: boolean;
 }
@@ -15,7 +18,10 @@ const Password = ({
   value,
   onChange,
   disabled = false,
-  isIconVisible = false,
+  placeholder,
+  required,
+  error,
+  isIconVisible = true,
 }: PasswordProps) => {
   return (
     <div>
@@ -24,14 +30,17 @@ const Password = ({
         name={name}
         label={label}
         value={value}
+        placeholder={placeholder}
+        required={required}
+        error={error}
         disabled={disabled}
         onChange={onChange}
       />
-      (isIconVisible && (
-      <span className={`icon-password-${isIconVisible}`}>
-        <img src="" alt="password icon" />
-      </span>
-      ))
+      {isIconVisible && (
+        <span className="password-panel">
+          <img src="" alt="password icon" />
+        </span>
+      )}
     </div>
   );
 };

@@ -220,4 +220,12 @@ input.error {
     }
 }
 
+.password-panel {
+    padding: $inputContentPanelPadding;
+    background-color: $inputContentPanelBgColor;
+    color: $inputContentPanelTextColor;
+    border: $inputOverlayBorder;
+    @include shadow($inputOverlayShadow);
+}
+
 /* Add your customizations of theme here */
