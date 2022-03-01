@@ -1,11 +1,11 @@
+import { User } from './user-interface';
+
 export default interface SignupRequest {
-  user: User;
+  user: UserRequest;
 }
 
-export interface User {
+export interface UserRequest extends User {
   username: string;
-  email: string;
   gender: string;
-  password: string;
   password_confirmation: string;
 }

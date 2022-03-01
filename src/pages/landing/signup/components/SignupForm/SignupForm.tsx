@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, Dropdown, Button } from 'components/common';
-import { UserSignUp } from 'interfaces/user-interface';
+import { UserSignUp } from 'interfaces/user/user-interface';
 import signupValidation from 'validation/signup.validation';
 import routes from 'constants/routes-paths-constant';
 import { GENDER_OPTIONS } from 'constants/gender-options-constant';
