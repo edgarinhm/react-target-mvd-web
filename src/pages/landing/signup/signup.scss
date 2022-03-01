@@ -1,0 +1,29 @@
+/* Signup Wrap */
+.signup-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Left */
+.signup-wrap .left {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+  justify-content: center;
+}
+
+/* right */
+.signup-wrap .right {
+  flex-basis: 50%;
+}
+
+.signup-wrap .menu-item {
+  top: 28.5px;
+}
+
+h1 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}

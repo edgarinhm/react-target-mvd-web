@@ -1,0 +1,231 @@
+@charset "UTF-8";
+@import './core';
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input {
+  &-text {
+    margin: 0;
+    outline: medium none;
+    font-weight: normal;
+    font-size: $fontSize;
+    color: $textColor;
+    background: $inputBgColor;
+    padding: $inputPadding;
+    border: $inputBorder;
+    @include transition($inputTransition);
+    @include appearance(none);
+    @include border-radius($borderRadius);
+
+    &:enabled:hover {
+      border-color: $inputHoverBorderColor;
+    }
+
+    &:enabled:focus {
+      @include focused-input();
+    }
+  }
+
+  &-error {
+    color: $red;
+    font-size: xx-small;
+    text-align: left;
+  }
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+  text-align: center;
+  zoom: 1;
+  overflow: visible;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+  color: $buttonTextColor;
+  background-color: $buttonBgColor;
+  border: $buttonBorder;
+  font-size: $fontSize;
+  @include transition($buttonTransition);
+  @include border-radius($borderRadius);
+
+  &:enabled:hover {
+    background-color: $buttonHoverBgColor;
+    color: $buttonHoverTextColor;
+    border-color: $buttonHoverBorderColor;
+  }
+
+  &:enabled:focus {
+    @include focused();
+  }
+
+  &:enabled:active {
+    background-color: $buttonActiveBgColor;
+    color: $buttonActiveTextColor;
+    border-color: $buttonActiveBorderColor;
+  }
+
+  &.button-raised {
+    @include shadow($raisedButtonShadow);
+  }
+
+  &.button-rounded {
+    @include border-radius($roundedButtonBorderRadius);
+  }
+}
+
+/* menu icon */
+.menu-item {
+  position: absolute;
+  width: 20.25px;
+  height: 13.5px;
+  top: 28.5px;
+  left: 22px;
+
+  /* Line */
+  .path {
+    border: 0.5px solid $primaryColor;
+    background: $primaryColor;
+  }
+}
+
+.form {
+  background-color: $white;
+  box-shadow: 0px 1px 3px -1px $black;
+
+  h2 {
+    color: $primaryDarkColor;
+  }
+}
+
+.line {
+  width: 121px;
+  height: 0.5px;
+  border: 0.5px solid $primaryColor;
+  margin: 2rem;
+}
+
+.link {
+  color: $primaryColor;
+  cursor: pointer;
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+.dropdown {
+  width: 100%;
+  padding: 0.5em;
+  font-size: $fontSize;
+  cursor: pointer;
+  line-height: 1.1;
+  background: $inputBgColor;
+  border: $inputBorder;
+  @include transition($inputTransition);
+  @include border-radius($borderRadius);
+
+  &:enabled:focus {
+    @include focused-input();
+  }
+
+  &:not(disabled):hover {
+    border-color: $inputHoverBorderColor;
+  }
+
+  &:not(disabled).p-focus {
+    @include focused-input();
+  }
+
+  .dropdown-label {
+    padding-right: 2em;
+
+    &:focus {
+      outline: 0 none;
+      @include shadow(none);
+    }
+  }
+
+  .dropdown-trigger {
+    background-color: $inputBgColor;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    padding: 0;
+    color: $inputDropdownIconColor;
+    @include border-radius($borderRadius);
+  }
+
+  .dropdown-clear-icon {
+    color: $inputDropdownIconColor;
+  }
+}
+
+.dropdown--disabled {
+  cursor: not-allowed;
+}
+
+select[multiple] {
+  option {
+    // Only affects Chrome
+    outline-color: var($inputFocusBorderColor);
+  }
+}
+
+.select--disabled {
+  background-color: #eee;
+  background-image: linear-gradient(to top, #ddd, #eee 33%);
+}
+
+input.error {
+  border-color: var($inputErrorBorder);
+}
+
+.spinner {
+  &.negative {
+    div {
+      background: $white;
+    }
+  }
+
+  div {
+    background: $primaryDarkColor;
+  }
+}
+
+.error-wrap {
+  .error {
+    color: $red;
+  }
+}
+
+.password-panel {
+  padding: $inputContentPanelPadding;
+  background-color: $inputContentPanelBgColor;
+  color: $inputContentPanelTextColor;
+  border: $inputOverlayBorder;
+  @include shadow($inputOverlayShadow);
+}
+
+/* Add your customizations of theme here */

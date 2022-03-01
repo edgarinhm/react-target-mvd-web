@@ -1,16 +1,23 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/styles.scss';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { persistor, store } from 'state/store';
+import { httpClient } from 'http-client';
+import { applyDefaultInterceptor } from 'interceptors';
+import './assets/themes/mvd/theme.scss';
+import './assets/styles/styles.scss';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
   document.getElementById('root')
 );
 
@@ -18,3 +25,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+applyDefaultInterceptor(store, httpClient);
