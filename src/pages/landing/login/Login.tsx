@@ -4,13 +4,14 @@ import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import { LoginForm } from './LoginForm';
 import { FormStatus } from './FormStatus';
-import { useSession } from 'hooks';
+import { useDispatch, useSession } from 'hooks';
+import { login } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
 import './login.scss';
 
 const Login = () => {
-  const handleSubmit = (e: any) => console.log('handleSubmit', e);
+  const handleSubmit = useDispatch(login);
   const { authenticated } = useSession();
 
   if (authenticated) {

@@ -1,10 +1,9 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
-
 import { setErrors, setLoading, updateSession } from 'state/actions/user-actions';
 import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
-import { ErrorApiResponse } from 'interfaces/error-api-response-interface';
-import ErrorApi from 'interfaces/error-api-interface';
+import { ErrorApiResponse } from 'interfaces/api/error-api-response-interface';
+import ErrorApi from 'interfaces/api/error-api-interface';
 
 const ACCESS_TOKEN = 'access-token';
 const UNAUTHORIZED = 401;
@@ -38,10 +37,11 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
     },
     error => {
       dispatch(setLoading(false));
-      const errorApi = (error.response.data as ErrorApi)?.error;
+      const errorApi401 = (error.response.data as ErrorApi)?.errors || '';
       if (error.response && error.response.status === UNAUTHORIZED) {
-        dispatch(setErrors(errorApi));
+        dispatch(setErrors(errorApi401.at(0)));
       } else {
+        const errorApi = (error.response.data as ErrorApi)?.error;
         if (errorApi) {
           dispatch(setErrors(errorApi));
         }
