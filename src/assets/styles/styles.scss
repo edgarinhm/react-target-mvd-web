@@ -215,3 +215,38 @@ p {
   line-height: 14px;
   letter-spacing: 1.8px;
 }
+
+.line-chat {
+  border: 0.5px solid $black;
+}
+
+.group-chats {
+  font-size: $chatFontSize;
+  color: $black;
+}
+
+.icon {
+  width: 18px;
+  height: 23px;
+}
+
+.icon-badge {
+  min-width: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: $iconBadgeColor;
+  color: $white;
+}
+
+/* smilies small */
+.smiles-small {
+  width: 48px;
+  height: 28px;
+}
+
+.footer {
+  margin-top: 10%;
+}

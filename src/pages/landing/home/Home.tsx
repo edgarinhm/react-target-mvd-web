@@ -1,8 +1,9 @@
-import { Maps } from 'components/Layout/Maps';
 import { MenuItem } from 'components/common';
-import testIds from 'constants/test-ids-constant';
+import { Maps } from 'components/Layout/Maps';
 import Profile from 'components/Layout/Profile';
 import { Chats } from 'components/Layout/Chats';
+import { HappySmile } from 'components/Layout/HappySmile';
+import testIds from 'constants/test-ids-constant';
 import './home.scss';
 
 const Home = () => {
@@ -15,6 +16,9 @@ const Home = () => {
         </div>
         <Profile />
         <Chats />
+        <div className="footer">
+          <HappySmile small="smiles-small" />
+        </div>
       </section>
       <section className="right">
         <Maps />
