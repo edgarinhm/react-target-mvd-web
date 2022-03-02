@@ -7,7 +7,9 @@ const Profile = () => {
   return (
     <>
       <img src={profileMedia} alt="profile avatar" />
-      <p id="profile-name">Edgarinhm</p>
+      <p id="profile-name">
+        <strong>Edgarinhm</strong>
+      </p>
       <div className="profile-links">
         <Link
           data-test-id={testIds.PROFILE_LINK}

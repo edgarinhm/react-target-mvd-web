@@ -10,8 +10,8 @@ import './chats.scss';
 const Chats = () => {
   return (
     <>
-      <p>Chats</p>
-      <div className="grid">
+      <h3 className="chat-title">Chat</h3>
+      <div className="grid chats">
         <div className="chat-details chat-details-first">
           <img className="avatar-chat" src={avartarOne} alt="avatar one" />
           <div className="group-chats">
@@ -20,11 +20,13 @@ const Chats = () => {
             </span>
             <span>¡Hola! A dónde querés viajar?</span>
           </div>
-          <img className="icon" src={worldIcon} alt="world icon" />
-          <div className="icon-badge">2</div>
+          <div className="group-icon">
+            <img className="icon" src={worldIcon} alt="world icon" />
+            <div className="icon-badge">2</div>
+          </div>
         </div>
       </div>
-      <div className="grid">
+      <div className="grid chats">
         <div className="chat-details">
           <img className="avatar-chat" src={avartarTwo} alt="avatar one" />
           <div className="group-chats">
@@ -33,11 +35,13 @@ const Chats = () => {
             </span>
             <span>¿Alguna película para recomendar?</span>
           </div>
-          <img className="icon" src={filmIcon} alt="film icon" />
-          <div className="icon-badge">2</div>
+          <div>
+            <img className="icon" src={filmIcon} alt="film icon" />
+            <div className="icon-badge">2</div>
+          </div>
         </div>
       </div>
-      <div className="grid">
+      <div className="grid chats">
         <div className="chat-details">
           <img className="avatar-chat" src={avartarThree} alt="avatar one" />
           <div className="group-chats">
@@ -46,10 +50,12 @@ const Chats = () => {
             </span>
             <span>¡Hola! ¿Cuál es tu serie de TV favorita?</span>
           </div>
-          <img className="icon" src={tvIcon} alt="film icon" />
+          <div>
+            <img className="icon" src={tvIcon} alt="film icon" />
+          </div>
         </div>
       </div>
-      <div className="grid">
+      <div className="grid chats">
         <div className="chat-details">
           <img className="avatar-chat" src={avartarFour} alt="avatar one" />
           <div className="group-chats">
@@ -58,7 +64,9 @@ const Chats = () => {
             </span>
             <span>Te gustó el último disco de NOFX?</span>
           </div>
-          <img className="icon" src={tvIcon} alt="film icon" />
+          <div>
+            <img className="icon" src={tvIcon} alt="film icon" />
+          </div>
         </div>
       </div>
     </>
