@@ -17,6 +17,7 @@ const Login = () => {
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;
   }
+
   return (
     <article className="two-column-layout-wrap" data-test-id={testIds.LOGIN_PAGE}>
       <div className="left">

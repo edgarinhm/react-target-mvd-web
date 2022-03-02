@@ -228,4 +228,14 @@ input.error {
   @include shadow($inputOverlayShadow);
 }
 
+.header-wrap {
+  position: absolute;
+  width: 20.25px;
+  height: 13.5px;
+  top: 28.5px;
+  left: 22px;
+  display: flex;
+  flex-direction: row;
+}
+
 /* Add your customizations of theme here */

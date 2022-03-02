@@ -6,6 +6,7 @@ import { UserLogin } from 'interfaces/user/user-interface';
 import routes from 'constants/routes-paths-constant';
 import loginValidation from 'validation/user/login-validation';
 import './login-form.scss';
+import testIds from 'constants/test-ids-constant';
 
 export interface LoginFormProps {
   onSubmit: (values: UserLogin) => void;
@@ -26,7 +27,12 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
 
   return (
     <section>
-      <form data-test-id="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form
+        data-test-id={testIds.FORM}
+        className="form"
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
         <InputText
           type="email"
           label="email"
@@ -43,23 +49,23 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
         />
         <SubmitButton label="sign in" />
         <Link
-          data-test-id="signup-form-link"
-          to={routes.signUp}
+          data-test-id="password-reset-form-link"
+          to={routes.passwordReset}
           className="link capital-case margin-forgot-password"
         >
           forgot your password?
         </Link>
         <Link
-          data-test-id="signup-form-link"
-          to={routes.signUp}
+          data-test-id={testIds.FACEBOOK_LINK}
+          to={routes.signupFacebook}
           className="link upper-case margin-facebook"
         >
           connect with facebook
         </Link>
         <div className="line"></div>
         <Link
-          data-test-id="signup-form-link"
-          to={routes.signUp}
+          data-test-id={testIds.SIGNUP_LINK}
+          to={routes.signup}
           className="link upper-case margin-sign-up"
         >
           sign up
