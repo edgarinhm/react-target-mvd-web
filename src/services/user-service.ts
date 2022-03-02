@@ -20,7 +20,7 @@ class UserService {
     try {
       return await httpClient.post(USER_BASE_URL, signupRequest);
     } catch ({ response: { data, status } }) {
-      throw Error();
+      throw Error(status as string);
     }
   }
 
@@ -31,7 +31,7 @@ class UserService {
     try {
       return await httpClient.post(LOGIN_URL, loginRequest);
     } catch ({ response: { data, status } }) {
-      throw Error();
+      throw Error(status as string);
     }
   }
 }
