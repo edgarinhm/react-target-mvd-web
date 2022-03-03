@@ -10,7 +10,7 @@ import testIds from 'constants/test-ids-constant';
 import './login.scss';
 
 const Login = () => {
-  const handleSubmit = (e: any) => console.log('handleSubmit', e);
+  const handleSubmit = () => {};
   const { authenticated } = useSession();
 
   if (authenticated) {
