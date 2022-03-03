@@ -37,9 +37,9 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
     },
     error => {
       dispatch(setLoading(false));
-      const errorApi401 = (error.response.data as ErrorApi)?.errors || '';
+      const unauthorizedError = (error.response.data as ErrorApi)?.errors || '';
       if (error.response && error.response.status === UNAUTHORIZED) {
-        dispatch(setErrors(errorApi401.at(0)));
+        dispatch(setErrors(unauthorizedError.at(0)));
       } else {
         const errorApi = (error.response.data as ErrorApi)?.error;
         if (errorApi) {
