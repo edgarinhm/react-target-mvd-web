@@ -1,9 +1,9 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
 import userService from 'services/user-service';
-import { UserSignUp } from 'interfaces/user/user-interface';
+import { User } from 'interfaces/user/user-interface';
 
-export const signUp = createAsyncThunk('user/signUp', async (user: UserSignUp) => {
+export const signUp = createAsyncThunk('user/signUp', async (user: User) => {
   try {
     const { data } = await userService.signUp(user);
     return data;

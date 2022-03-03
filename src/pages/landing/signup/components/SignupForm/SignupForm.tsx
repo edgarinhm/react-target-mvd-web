@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, Dropdown, Button } from 'components/common';
-import { UserSignUp } from 'interfaces/user/user-interface';
+import { User } from 'interfaces/user/user-interface';
 import signupValidation from 'validation/signup.validation';
 import routes from 'constants/routes-paths-constant';
 import { GENDER_OPTIONS } from 'constants/gender-options-constant';
 import './signup-form.scss';
 export interface SignupFormProps {
-  onSubmit: (values: UserSignUp) => void;
+  onSubmit: (values: User) => void;
 }
 const SignupForm = ({ onSubmit }: SignupFormProps) => {
-  const initialValues: UserSignUp = {
+  const initialValues: User = {
     name: '',
     email: '',
     password: '',
@@ -22,7 +22,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<UserSignUp>({
+  } = useForm<User>({
     defaultValues: initialValues,
     resolver: yupResolver(signupValidation),
   });
@@ -45,12 +45,14 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
           {...register('email')}
         />
         <InputText
+          type="password"
           label="password"
           placeholder="min. 8 characters long"
           error={errors.password?.message}
           {...register('password')}
         />
         <InputText
+          type="password"
           label="confirm password"
           placeholder="confirm your password"
           error={errors.passwordConfirm?.message}
