@@ -26,7 +26,7 @@ const Login = () => {
         <h2>Find people near you & Connect</h2>
         <p className="login-p">
           Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
-          start conecting with others who share your interest.
+          start connecting with others who share your interest.
         </p>
         <LoginForm onSubmit={handleSubmit} />
       </div>
