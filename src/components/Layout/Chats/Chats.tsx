@@ -2,7 +2,7 @@ import avartarOne from 'assets/layout/avatars/avatar1.png';
 import avartarTwo from 'assets/layout/avatars/avatar2.png';
 import avartarThree from 'assets/layout/avatars/avatar3.png';
 import avartarFour from 'assets/layout/avatars/avatar4.png';
-import worldIcon from 'assets/layout/icons/world-icon.svg';
+import travelIcon from 'assets/layout/icons/travel-icon.svg';
 import filmIcon from 'assets/layout/icons/film-icon.svg';
 import tvIcon from 'assets/layout/icons/tv-icon.svg';
 import './chats.scss';
@@ -21,7 +21,7 @@ const Chats = () => {
             <span>¡Hola! A dónde querés viajar?</span>
           </div>
           <div className="group-icon">
-            <img className="icon" src={worldIcon} alt="world icon" />
+            <img className="icon" src={travelIcon} alt="world icon" />
             <div className="icon-badge">2</div>
           </div>
         </div>

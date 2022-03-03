@@ -257,3 +257,19 @@ p {
 .chat-title {
   font-size: $chatTitleSize;
 }
+
+.home-empty-state-p {
+  color: $homeEmptyTextColor;
+}
+
+.home-empty-state-h2 {
+  font-size: $fontSizeH2;
+  width: 70%;
+}
+.home-empty-state-h3 {
+  font-size: $fontSizeH3;
+}
+
+.list-details span {
+  font-size: $fontSizeH4;
+}
