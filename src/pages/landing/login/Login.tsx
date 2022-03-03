@@ -1,16 +1,15 @@
 import { Navigate } from 'react-router';
-import { MenuItem } from 'components/common';
+import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import { LoginForm } from './components/LoginForm';
-import { FormStatus } from './components/FormStatus';
 import { useSession } from 'hooks';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
 import './login.scss';
 
 const Login = () => {
-  const handleSubmit = () => {};
+  const handleSubmit = (e: any) => console.log('handleSubmit', e);
   const { authenticated } = useSession();
 
   if (authenticated) {
