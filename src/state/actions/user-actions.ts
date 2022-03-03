@@ -1,22 +1,18 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import userService from 'services/user-service';
-import { UserSignUp, UserLogin } from 'interfaces/user/user-interface';
+import { User } from 'interfaces/user/user-interface';
 
-export const signUp = createAsyncThunk('user/signUp', async (user: UserSignUp) => {
+export const signUp = createAsyncThunk('user/signUp', async (user: User) => {
   try {
-    const { data } = await userService.signUp(user);
-    return data;
+    return await userService.signUp(user);
   } catch ({ response: { data } }) {
     throw data;
   }
 });
 
-export const login = createAsyncThunk('user/login', async (user: UserLogin) => {
+export const login = createAsyncThunk('user/login', async (user: User) => {
   try {
-    const {
-      data: { token },
-    } = await userService.login(user);
-    return token;
+    return await userService.login(user);
   } catch ({ response: { data } }) {
     throw data;
   }
@@ -25,4 +21,3 @@ export const login = createAsyncThunk('user/login', async (user: UserLogin) => {
 export const updateSession = createAction<string | undefined>('session/update');
 export const setLoading = createAction<boolean | undefined>('interceptor/setLoading');
 export const setErrors = createAction<string | undefined>('interceptor/setErrors');
-export const { fulfilled: loginFulfilled } = login;

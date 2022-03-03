@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom';
 import routes from 'constants/routes-paths-constant';
 import profileMedia from 'assets/layout/media/profile.svg';
 import testIds from 'constants/test-ids-constant';
+import { useSession } from 'hooks';
 
 const Profile = () => {
+  const { user } = useSession();
   return (
     <>
       <img src={profileMedia} alt="profile avatar" />
       <p id="profile-name">
-        <strong>Edgarinhm</strong>
+        <strong>{user?.username}</strong>
       </p>
       <div className="profile-links">
         <Link

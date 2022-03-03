@@ -1,7 +1,6 @@
 import { MenuItem } from 'components/common';
 import { Maps } from 'components/Layout/Maps';
 import Profile from 'components/Layout/Profile';
-import { Chats } from 'components/Layout/Chats';
 import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
 import HomeEmtpyState from './components/HomeEmtpyState';

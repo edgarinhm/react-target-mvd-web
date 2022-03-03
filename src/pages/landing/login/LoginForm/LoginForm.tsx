@@ -2,17 +2,17 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, SubmitButton } from 'components/common';
-import { UserLogin } from 'interfaces/user/user-interface';
+import { User } from 'interfaces/user/user-interface';
 import routes from 'constants/routes-paths-constant';
 import loginValidation from 'validation/user/login-validation';
 import './login-form.scss';
 import testIds from 'constants/test-ids-constant';
 
 export interface LoginFormProps {
-  onSubmit: (values: UserLogin) => void;
+  onSubmit: (values: User) => void;
 }
 const LoginForm = ({ onSubmit }: LoginFormProps) => {
-  const initialValues: UserLogin = {
+  const initialValues: User = {
     email: '',
     password: '',
   };
@@ -20,7 +20,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<UserLogin>({
+  } = useForm<User>({
     defaultValues: initialValues,
     resolver: yupResolver(loginValidation),
   });

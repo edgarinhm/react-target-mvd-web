@@ -1,13 +1,14 @@
 import { httpClient } from 'http-client';
-import { UserSignUp, UserLogin } from 'interfaces/user/user-interface';
+import { User } from 'interfaces/user/user-interface';
 import LoginRequest from 'interfaces/user/login-request-interface';
 import SignupRequest from 'interfaces/user/signup-request-interface';
+import LoginResponse from 'interfaces/user/login-response-interface';
 
 const USER_BASE_URL = '/users';
 const LOGIN_URL = `${USER_BASE_URL}/sign_in`;
 
 class UserService {
-  static async signUp(user: UserSignUp) {
+  static async signUp(user: User): Promise<User> {
     const signupRequest: SignupRequest = {
       user: {
         username: user.name,
@@ -18,20 +19,24 @@ class UserService {
       },
     };
     try {
-      return await httpClient.post(USER_BASE_URL, signupRequest);
+      const { data } = await httpClient.post<User>(USER_BASE_URL, signupRequest);
+      return data;
     } catch ({ response: { data, status } }) {
-      throw Error();
+      throw Error(status as string);
     }
   }
 
-  static async login(user: UserLogin) {
+  static async login(user: User): Promise<User> {
     const loginRequest: LoginRequest = {
       user,
     };
     try {
-      return await httpClient.post(LOGIN_URL, loginRequest);
+      const {
+        data: { data },
+      } = await httpClient.post<LoginResponse>(LOGIN_URL, loginRequest);
+      return data;
     } catch ({ response: { data, status } }) {
-      throw Error();
+      throw Error(status as string);
     }
   }
 }
