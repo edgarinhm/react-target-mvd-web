@@ -1,9 +1,8 @@
 import { Navigate } from 'react-router';
-import { MenuItem } from 'components/common';
+import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
-import { LoginForm } from './LoginForm';
-import { FormStatus } from './FormStatus';
+import { LoginForm } from './components/LoginForm';
 import { useSession } from 'hooks';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
@@ -26,7 +25,7 @@ const Login = () => {
         <h2>Find people near you & Connect</h2>
         <p className="login-p">
           Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
-          start conecting with others who share your interest.
+          start connecting with others who share your interest.
         </p>
         <LoginForm onSubmit={handleSubmit} />
       </div>
