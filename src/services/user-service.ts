@@ -6,6 +6,7 @@ import LoginResponse from 'interfaces/user/login-response-interface';
 
 const USER_BASE_URL = '/users';
 const LOGIN_URL = `${USER_BASE_URL}/sign_in`;
+const LOGOUT_URL = `${USER_BASE_URL}/sign_out`;
 
 class UserService {
   static async signUp(user: User): Promise<User> {
@@ -35,6 +36,14 @@ class UserService {
         data: { data },
       } = await httpClient.post<LoginResponse>(LOGIN_URL, loginRequest);
       return data;
+    } catch ({ response: { data, status } }) {
+      throw Error(status as string);
+    }
+  }
+
+  static async logout() {
+    try {
+      return await httpClient.delete(LOGOUT_URL);
     } catch ({ response: { data, status } }) {
       throw Error(status as string);
     }
