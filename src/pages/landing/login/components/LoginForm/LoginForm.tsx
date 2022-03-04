@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, SubmitButton } from 'components/common';
 import { UserLogin } from 'interfaces/user/user-interface';
 import routes from 'constants/routes-paths-constant';
+import loginValidation from 'validation/user/login-validation';
 import './login-form.scss';
 
 export interface LoginFormProps {
@@ -19,6 +21,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
     formState: { errors },
   } = useForm<UserLogin>({
     defaultValues: initialValues,
+    resolver: yupResolver(loginValidation),
   });
 
   return (
