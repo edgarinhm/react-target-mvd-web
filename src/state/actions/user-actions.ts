@@ -18,6 +18,14 @@ export const login = createAsyncThunk('user/login', async (user: User) => {
   }
 });
 
+export const logout = createAsyncThunk('user/logout', async () => {
+  try {
+    return await userService.logout();
+  } catch ({ response: { data } }) {
+    throw data;
+  }
+});
+
 export const updateSession = createAction<object | undefined>('session/update');
 export const setLoading = createAction<boolean | undefined>('interceptor/setLoading');
 export const setErrors = createAction<string | undefined>('interceptor/setErrors');
