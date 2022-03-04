@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  padding: 0.625rem;
+  border-radius: 0.5rem;
+  align-self: center;
+
+  h2 {
+    font-size: 1.125rem;
+  }
+}
+
+.margin-facebook {
+  margin-bottom: 5px;
+}
+
+.margin-forgot-password {
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+.margin-login {
+  margin-top: 10px;
+}

@@ -8,8 +8,8 @@ import MockAdapter from 'axios-mock-adapter';
 
 import reducer from 'state/reducers';
 import { httpClient } from 'http-client';
-import { StoreType } from 'state/store';
 import { applyDefaultInterceptor } from 'interceptors';
+import { StoreType } from 'state/store';
 
 export const configureStore = (initialState = {}) => {
   return createStore(reducer, initialState, applyMiddleware(...getDefaultMiddleware()));

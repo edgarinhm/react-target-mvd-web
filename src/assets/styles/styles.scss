@@ -101,3 +101,108 @@ body {
 .rectangle {
   background: $blue;
 }
+
+/* Two column Layout Wrap */
+.two-column-layout-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Left */
+.two-column-layout-wrap .left {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+  justify-content: center;
+}
+
+/* right */
+.two-column-layout-wrap .right {
+  flex-basis: 50%;
+}
+
+.two-column-layout-wrap .menu-item {
+  top: 28.5px;
+}
+
+h1 {
+  font-size: $fontSizeH1;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: $fontSizeH2;
+  text-transform: capitalize;
+}
+
+/* smilies */
+.smilies {
+  position: absolute;
+  width: 133px;
+  height: 78px;
+  left: 265px;
+  top: 70px;
+}
+
+/* Oval 2 */
+.oval-left {
+  width: 78px;
+  height: 78px;
+  background: $yellow;
+  border-radius: 50%;
+}
+
+/* Oval 2 Copy */
+.oval-right {
+  width: 78px;
+  height: 78px;
+  background: $blue;
+  border-radius: 50%;
+  background-blend-mode: multiply;
+}
+
+/* TARGET MVD */
+.target-mvd {
+  position: absolute;
+  width: 180px;
+  height: 27px;
+  left: 245px;
+  top: 164px;
+  font-family: OpenSans;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 3px;
+  color: #000000;
+}
+p {
+  font-size: $fontSizeMedium;
+}
+.upper-case {
+  text-transform: uppercase;
+}
+.capital-case {
+  text-transform: capitalize;
+}
+
+/* smilies */
+.smiles {
+  margin-top: 40px;
+  background-blend-mode: multiply;
+}
+
+/* Oval left */
+.smile-oval-left {
+  background: $yellow;
+  border-radius: 50%;
+}
+
+/* Oval right */
+.smile-oval-right {
+  background: $blue;
+  border-radius: 50%;
+}
+
+.letter-spacing {
+  letter-spacing: 3px;
+}

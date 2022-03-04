@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
-import { MenuItem } from 'components/common';
+import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
-import { FormStatus, SignupForm } from './components';
+import { SignupForm } from './components';
 import { useDispatch, useSession } from 'hooks';
 import { signUp } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths-constant';
@@ -13,7 +13,7 @@ const SignUp = () => {
   const { authenticated } = useSession();
 
   if (authenticated) {
-    return <Navigate to={routesPaths.home} />;
+    return <Navigate to={routesPaths.index} />;
   }
 
   return (
