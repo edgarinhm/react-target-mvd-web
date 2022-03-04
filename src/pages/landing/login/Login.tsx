@@ -2,14 +2,15 @@ import { Navigate } from 'react-router';
 import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
+import { useDispatch, useSession } from 'hooks';
+import { login } from 'state/actions/user-actions';
 import { LoginForm } from './components/LoginForm';
-import { useSession } from 'hooks';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
 import './login.scss';
 
 const Login = () => {
-  const handleSubmit = (e: any) => console.log('handleSubmit', e);
+  const handleSubmit = useDispatch(login);
   const { authenticated } = useSession();
 
   if (authenticated) {

@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
 import PrivateRoute from './private-route';
-import { Routes } from 'interfaces/routes-interface';
+import { Routes } from 'interfaces/route/routes-interface';
 
 const RouteFromPath = ({ element, ...route }: Routes) =>
   route.private ? (
