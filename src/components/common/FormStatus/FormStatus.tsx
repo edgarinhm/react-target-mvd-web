@@ -1,13 +1,9 @@
+import { Spinner } from '../Spinner';
+import useInterceptor from 'hooks/useInterceptor';
 import './form-status-styles.scss';
 
-import { Spinner } from '../Spinner';
-
-interface FormStatusProps {
-  isLoading: boolean;
-  errors?: string;
-}
-
-const FormStatus = ({ isLoading, errors }: FormStatusProps) => {
+const FormStatus = () => {
+  const { isLoading, errors } = useInterceptor();
   return (
     <div data-test-id="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}

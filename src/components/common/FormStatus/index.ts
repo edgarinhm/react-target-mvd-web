@@ -1,1 +1,1 @@
-export { default as FormStatusBase } from './FormStatus';
+export { default as FormStatus } from './FormStatus';

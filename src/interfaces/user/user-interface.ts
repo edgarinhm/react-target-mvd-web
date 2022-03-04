@@ -3,12 +3,7 @@ export interface User {
   password: string;
   username?: string;
   id?: string;
-}
-
-export interface UserLogin extends User {}
-
-export interface UserSignUp extends User {
-  name: string;
-  passwordConfirm: string;
-  gender: string;
+  name?: string;
+  passwordConfirm?: string;
+  gender?: string;
 }
