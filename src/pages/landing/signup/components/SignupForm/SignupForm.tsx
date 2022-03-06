@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, Dropdown, Button } from 'components/common';
@@ -7,6 +8,8 @@ import signupValidation from 'validation/user/signup-validation';
 import routes from 'constants/routes-paths-constant';
 import { GENDER_OPTIONS } from 'constants/gender-options-constant';
 import './signup-form.scss';
+import { signupFormI18n } from 'constants/i18n-constant';
+
 export interface SignupFormProps {
   onSubmit: (values: User) => void;
 }
@@ -27,49 +30,50 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     resolver: yupResolver(signupValidation),
   });
 
+  const { t } = useTranslation();
+
   return (
     <section>
       <form data-testid="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <InputText
           type="text"
-          label="name"
-          placeholder="write your name"
+          label={t(signupFormI18n.FORM_NAME)}
+          placeholder={t(signupFormI18n.FORM_NAME_PLACEHOLDER)}
           error={errors.name?.message}
           {...register('name')}
         />
         <InputText
           type="email"
-          label="email"
-          placeholder="write your e-mail"
+          label={t(signupFormI18n.FORM_EMAIL)}
+          placeholder={t(signupFormI18n.FORM_EMAIL_PLACEHOLDER)}
           error={errors.email?.message}
           {...register('email')}
         />
         <InputText
           type="password"
-          label="password"
-          placeholder="min. 8 characters long"
+          label={t(signupFormI18n.FORM_PASSWORD)}
+          placeholder={t(signupFormI18n.FORM_PASSWORD_PLACEHOLDER)}
           error={errors.password?.message}
           {...register('password')}
         />
         <InputText
           type="password"
-          label="confirm password"
-          placeholder="confirm your password"
+          label={t(signupFormI18n.FORM_CONFIRM_PASSWORD)}
+          placeholder={t(signupFormI18n.FORM_CONFIRM_PASSWORD_PLACEHOLDER)}
           error={errors.passwordConfirm?.message}
           {...register('passwordConfirm')}
         />
         <Dropdown
           options={GENDER_OPTIONS}
-          defaultOption={'select your gender'}
-          label="gender"
-          placeholder="select your gender"
+          defaultOption={t(signupFormI18n.FORM_GENDER_DEFAULT)}
+          label={t(signupFormI18n.FORM_GENDER)}
           error={errors.gender?.message}
           {...register('gender')}
         />
-        <Button type="submit" label="sign up" />
+        <Button type="submit" label={t(signupFormI18n.FORM_SUBMIT)} />
         <div className="line"></div>
         <Link data-testid="signup-form-link" to={routes.index} className="link">
-          SIGN IN
+          {t(signupFormI18n.FORM_LOGIN)}
         </Link>
       </form>
     </section>

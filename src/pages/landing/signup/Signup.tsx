@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { SignupForm } from './components';
@@ -6,11 +7,13 @@ import { useDispatch, useSession } from 'hooks';
 import { signUp } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
+import { signupI18n } from 'constants/i18n-constant';
 import './signup.scss';
 
 const SignUp = () => {
   const handleSubmit = useDispatch(signUp);
   const { authenticated } = useSession();
+  const { t } = useTranslation();
 
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;
@@ -21,7 +24,7 @@ const SignUp = () => {
       <div className="left">
         <MenuItem />
         <FormStatus />
-        <h1>Sign Up</h1>
+        <h1>{t(signupI18n.PAGE_TITLE)}</h1>
         <SignupForm onSubmit={handleSubmit} />
       </div>
       <div className="right">

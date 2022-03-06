@@ -1,0 +1,45 @@
+{
+  "login": {
+    "page": {
+      "title": "target mvd",
+      "subtitle": "find people near you & connect",
+      "text": "create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and start connecting with others who share your interest."
+    },
+    "form": {
+      "email": "email",
+      "password": "password",
+      "submit": "sign in",
+      "forgot-password": "forgot your password?",
+      "connect-facebook": "connect with facebook",
+      "signup": "sign up"
+    }
+  },
+  "validations": {
+    "email": "email is invalid",
+    "invalid": "field is invalid",
+    "invalidType": "must be a {{type}}",
+    "required": "field is required",
+    "stringMin": "must be at least {{min}} characters",
+    "stringMax": "must be at most {{max}} characters",
+    "oneOf": "must match {{ref}}"
+  },
+  "signup": {
+    "page": {
+      "title": "sign up"
+    },
+    "form": {
+      "name": "name",
+      "name-placeholder": "write your name",
+      "email": "email",
+      "email-placeholder": "write your email",
+      "password": "password",
+      "password-placeholder": "write your password",
+      "password-confirm": "confirm password",
+      "password-confirm-placeholder": "write your password",
+      "gender": "gender",
+      "gender-default": "select your gender",
+      "submit": "sign up",
+      "login": "sign in"
+    }
+  }
+}

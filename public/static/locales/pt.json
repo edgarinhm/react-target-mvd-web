@@ -1,0 +1,45 @@
+{
+  "login": {
+    "page": {
+      "title": "alvo mvd",
+      "subtitle": "encontre pessoas perto de você e conecte-se",
+      "text": "crie um alvo em qualquer lugar do mapa, especifique seu interesse: Viagem, Namoro, Música, etc e comece a se conectar com outras pessoas que compartilham seu interesse."
+    },
+    "form": {
+      "email": "e-mail",
+      "password": "senha",
+      "submit": "entrar",
+      "forgot-password": "esqueceu sua senha?",
+      "connect-facebook": "conectar com o facebook",
+      "signup": "registar-se"
+    }
+  },
+  "validations": {
+    "email": "O e-mail é inválido",
+    "invalid": "O campo não é válido",
+    "invalidType": "Deve ser um {{type}}",
+    "required": "O campo é obrigatório",
+    "stringMin": "Deve ter pelo menos {{min}} caracteres",
+    "stringMax": "Deve ter no máximo {{max}} caracteres",
+    "oneOf": "deve combinar {{ref}}"
+  },
+  "signup": {
+    "page": {
+      "title": "entrar"
+    },
+    "form": {
+      "name": "nome",
+      "name-placeholder": "escreva seu nome",
+      "email": "e-mail",
+      "email-placeholder": "escreva seu e-mail",
+      "password": "senha",
+      "password-placeholder": "escreva sua senha",
+      "password-confirm": "confirmar senha",
+      "password-confirm-placeholder": "escreva sua senha",
+      "gender": "gênero",
+      "gender-default": "selecione seu sexo",
+      "submit": "inscrever-se",
+      "login": "entrar"
+    }
+  }
+}

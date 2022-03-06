@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, SubmitButton } from 'components/common';
@@ -7,7 +8,7 @@ import routes from 'constants/routes-paths-constant';
 import loginValidation from 'validation/user/login-validation';
 import './login-form.scss';
 import testIds from 'constants/test-ids-constant';
-
+import { loginFormI18n } from 'constants/i18n-constant';
 export interface LoginFormProps {
   onSubmit: (values: User) => void;
 }
@@ -16,6 +17,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
     email: '',
     password: '',
   };
+
   const {
     handleSubmit,
     register,
@@ -24,6 +26,8 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
     defaultValues: initialValues,
     resolver: yupResolver(loginValidation),
   });
+
+  const { t } = useTranslation();
 
   return (
     <section>
@@ -35,32 +39,32 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
       >
         <InputText
           type="email"
-          label="email"
+          label={t(loginFormI18n.FORM_EMAIL)}
           placeholder=""
           error={errors.email?.message}
           {...register('email')}
         />
         <InputText
           type="password"
-          label="password"
+          label={t(loginFormI18n.FORM_PASSWORD)}
           placeholder=""
           error={errors.password?.message}
           {...register('password')}
         />
-        <SubmitButton label="sign in" />
+        <SubmitButton label={t(loginFormI18n.FORM_SUBMIT)} />
         <Link
           data-testid="password-reset-form-link"
           to={routes.passwordReset}
           className="link capital-case margin-forgot-password"
         >
-          forgot your password?
+          {t(loginFormI18n.FORM_FORGOT_PASSWORD)}
         </Link>
         <Link
           data-testid={testIds.FACEBOOK_LINK}
           to={routes.signupFacebook}
           className="link upper-case margin-facebook"
         >
-          connect with facebook
+          {t(loginFormI18n.FORM_CONNECT_FACEBOOK)}
         </Link>
         <div className="line"></div>
         <Link
@@ -68,7 +72,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
           to={routes.signup}
           className="link upper-case margin-sign-up"
         >
-          sign up
+          {t(loginFormI18n.FORM_SIGNUP)}
         </Link>
       </form>
     </section>

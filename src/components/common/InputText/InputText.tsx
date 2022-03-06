@@ -2,6 +2,8 @@ import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames/bind';
 
 import inputStyle from './input-text.scss';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { ValidationError } from 'interfaces/validation/validation-error-interface';
 
 export interface InputProps {
   name: string;
@@ -11,7 +13,7 @@ export interface InputProps {
   placeholder?: string;
   className?: string;
   required?: boolean;
-  error?: string;
+  error?: string | ValidationError;
   type?: string;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
@@ -52,7 +54,7 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
             disabled={disabled}
             ref={ref}
           />
-          {error && <div className={style('input-error')}>{error}</div>}
+          <ErrorMessage error={error} />
         </div>
       </div>
     );

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -9,12 +10,15 @@ import { httpClient } from 'http-client';
 import { applyDefaultInterceptor } from 'interceptors';
 import './assets/themes/mvd/theme.scss';
 import './assets/styles/styles.scss';
+import './i18n';
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
-        <App />
+        <Suspense fallback={<div>...</div>}>
+          <App />
+        </Suspense>
       </BrowserRouter>
     </PersistGate>
   </Provider>,
