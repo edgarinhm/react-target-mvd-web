@@ -12,14 +12,14 @@ const Mobile = () => {
     <div className="rectangle">
       <img className="mobile" src={mobileLayout} alt="signup mobile version" />
       <img className="play" src={playMedia} alt="mobil version" />
-      <Link data-test-id="signup-appstore-link" to={routesPaths.login} className="link">
+      <Link data-testid="signup-appstore-link" to={routesPaths.login} className="link">
         <img src={appStoreMedia} alt="go to app store" />
       </Link>
       <div className="social-media">
-        <Link data-test-id="signup-facebook-link" to={routesPaths.login} className="link">
+        <Link data-testid="signup-facebook-link" to={routesPaths.login} className="link">
           <img src={facebookMedia} alt="go to facebook" />
         </Link>
-        <Link data-test-id="signup-twitter-link" to={routesPaths.login} className="link">
+        <Link data-testid="signup-twitter-link" to={routesPaths.login} className="link">
           <img src={twitterMedia} alt="go to twitter" />
         </Link>
       </div>

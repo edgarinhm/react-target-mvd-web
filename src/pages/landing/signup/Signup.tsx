@@ -17,7 +17,7 @@ const SignUp = () => {
   }
 
   return (
-    <article className="signup-wrap" data-test-id={testIds.SIGNUP_PAGE}>
+    <article className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
       <div className="left">
         <MenuItem />
         <FormStatus />

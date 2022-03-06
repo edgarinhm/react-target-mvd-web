@@ -1,6 +1,6 @@
 import { configureStore, renderWithRedux } from 'utils/test-helpers';
-import { Login } from 'pages/landing/login/Login';
 import testIds from 'constants/test-ids-constant';
+import Login from 'pages/landing/login';
 
 describe('LoginPage', () => {
   let store: any;

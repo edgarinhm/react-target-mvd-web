@@ -16,7 +16,7 @@ const Profile = () => {
       </p>
       <div className="profile-links">
         <Link
-          data-test-id={testIds.PROFILE_LINK}
+          data-testid={testIds.PROFILE_LINK}
           to={routes.profile}
           className="link capital-case link-color"
         >
@@ -25,7 +25,7 @@ const Profile = () => {
         <span> / </span>
         <Link
           onClick={handleLogout}
-          data-test-id={testIds.LOGOUT_LINK}
+          data-testid={testIds.LOGOUT_LINK}
           to={routes.index}
           className="link capital-case"
         >

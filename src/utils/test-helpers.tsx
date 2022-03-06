@@ -18,7 +18,7 @@ export const configureStore = (initialState = {}) => {
 export const configureAuthenticatedStore = (initialState = {}) =>
   configureStore({
     session: {
-      token: 'token',
+      accessToken: 'accessToken',
       authenticated: true,
     },
     ...initialState,
@@ -37,6 +37,5 @@ export const renderWithRedux = (Component: () => ReactElement, store: StoreType)
 
 export const mockedHttpClient = (store: StoreType, options = {}) => {
   applyDefaultInterceptor(store, httpClient);
-
   return new MockAdapter(httpClient, options);
 };
