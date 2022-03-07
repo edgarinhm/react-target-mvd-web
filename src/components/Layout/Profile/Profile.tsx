@@ -21,7 +21,7 @@ const Profile = () => {
           edit
         </Link>
         <span> / </span>
-        <Link data-test-id={testIds.LOGOUT_LINK} to={routes.logout} className="link capital-case">
+        <Link data-test-id={testIds.LOGOUT_LINK} to={routes.login} className="link capital-case">
           logout
         </Link>
       </div>

@@ -4,9 +4,8 @@ const routesPaths = {
   login: '/login',
   signup: '/sign-up',
   profile: '/profile',
-  logout: '/logout',
   passwordReset: '/password-reset',
-  signupFacebook: 'sign-up-facebook',
+  signupFacebook: '/sign-up-facebook',
 };
 
 export default routesPaths;

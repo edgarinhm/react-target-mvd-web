@@ -1,7 +1,6 @@
-import footballIcon from 'assets/layout/icons/football-icon.svg';
-import travelIcon from 'assets/layout/icons/travel-icon.svg';
-import musicIcon from 'assets/layout/icons/music-icon.svg';
 import './home-empty-state.scss';
+import TargetList from '../TargetList';
+import targets from 'data/targets.json';
 
 const HomeEmptyState = () => {
   return (
@@ -12,20 +11,7 @@ const HomeEmptyState = () => {
       <p className="home-empty-state-h3 home-empty-state-p">
         Psss!, these are the most popular targets:
       </p>
-      <div className="list">
-        <li className="list-details">
-          <img src={footballIcon} alt="football icon" />
-          <span>Football</span>
-        </li>
-        <li className="list-details">
-          <img src={travelIcon} alt="travel icon" />
-          <span>Travel</span>
-        </li>
-        <li className="list-details">
-          <img src={musicIcon} alt="music icon" />
-          <span>Music</span>
-        </li>
-      </div>
+      <TargetList targets={targets} />
     </>
   );
 };
