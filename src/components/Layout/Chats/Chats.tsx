@@ -1,74 +1,38 @@
-import avartarOne from 'assets/layout/avatars/avatar1.png';
-import avartarTwo from 'assets/layout/avatars/avatar2.png';
-import avartarThree from 'assets/layout/avatars/avatar3.png';
-import avartarFour from 'assets/layout/avatars/avatar4.png';
-import travelIcon from 'assets/layout/icons/travel-icon.svg';
-import filmIcon from 'assets/layout/icons/film-icon.svg';
-import tvIcon from 'assets/layout/icons/tv-icon.svg';
 import './chats.scss';
+import Conversations from 'interfaces/chat/conversations-interface';
+import { CONVERSATIONS } from 'constants/chats-constants';
 
 const Chats = () => {
+  const conversations: Conversations[] = CONVERSATIONS;
+  const chats = conversations.map((conversation, index) => (
+    <div key={conversation.match_id}>
+      <div className="grid chats">
+        <div className={!index ? 'chat-details chat-details-first' : 'chat-details'}>
+          <img
+            className="avatar-chat"
+            src={conversation.user.avatar.normal_url}
+            alt={'avatar ' + conversation.user.full_name}
+          />
+          <div className="group-chats">
+            <span>
+              <strong>{conversation.user.full_name}</strong>
+            </span>
+            <span>{conversation.last_message}</span>
+          </div>
+          <div className="group-icon">
+            <img className="icon" src={conversation.topic_icon} alt={'topic icon'} />
+            {conversation.unread_messages && (
+              <div className="icon-badge">{conversation.unread_messages}</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  ));
   return (
     <>
       <h3 className="chat-title">Chat</h3>
-      <div className="grid chats">
-        <div className="chat-details chat-details-first">
-          <img className="avatar-chat" src={avartarOne} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>José Gazzano</strong>
-            </span>
-            <span>¡Hola! A dónde querés viajar?</span>
-          </div>
-          <div className="group-icon">
-            <img className="icon" src={travelIcon} alt="world icon" />
-            <div className="icon-badge">2</div>
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarTwo} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>Karen Bauer</strong>
-            </span>
-            <span>¿Alguna película para recomendar?</span>
-          </div>
-          <div>
-            <img className="icon" src={filmIcon} alt="film icon" />
-            <div className="icon-badge">2</div>
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarThree} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>JP Mazza</strong>
-            </span>
-            <span>¡Hola! ¿Cuál es tu serie de TV favorita?</span>
-          </div>
-          <div>
-            <img className="icon" src={tvIcon} alt="film icon" />
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarFour} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>Belu Iglesias</strong>
-            </span>
-            <span>Te gustó el último disco de NOFX?</span>
-          </div>
-          <div>
-            <img className="icon" src={tvIcon} alt="film icon" />
-          </div>
-        </div>
-      </div>
+      {chats}
     </>
   );
 };
