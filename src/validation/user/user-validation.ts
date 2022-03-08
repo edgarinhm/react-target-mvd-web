@@ -1,4 +1,4 @@
-import { yupLocale } from 'validation/yup-locale/yup-loacale';
+import yupLocale from 'config/yup-locale';
 import { string, ref, setLocale } from 'yup';
 
 setLocale(yupLocale);

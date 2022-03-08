@@ -1,6 +1,6 @@
 import { validationI18n } from 'constants/i18n-constant';
 
-export const yupLocale = {
+const yupLocale = {
   mixed: {
     default: {
       key: validationI18n.INVALID,
@@ -42,3 +42,5 @@ export const yupLocale = {
   },
   boolean: {},
 };
+
+export default yupLocale;

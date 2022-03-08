@@ -10,7 +10,7 @@ import { httpClient } from 'http-client';
 import { applyDefaultInterceptor } from 'interceptors';
 import './assets/themes/mvd/theme.scss';
 import './assets/styles/styles.scss';
-import './i18n';
+import './config/i18n';
 
 ReactDOM.render(
   <Provider store={store}>
