@@ -3,7 +3,7 @@ import { Maps } from 'components/Layout/Maps';
 import Profile from 'components/Layout/Profile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
-import HomeEmtpyState from './components/HomeEmtpyState';
+import HomeEmtpyState from './components/EmptyHomeSidebar';
 import './home.scss';
 
 const Home = () => {

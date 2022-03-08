@@ -1,38 +1,41 @@
-import conversations from 'data/conversations.json';
 import { MEDIA_AVATARS, MEDIA_ICONS } from 'constants/assets-constants';
 import { validateLocalSrc } from 'utils/url-util';
+import Conversations from 'interfaces/chat/conversations-interface';
+import { default as data } from 'data/conversations.json';
+import humps from 'humps';
 import './chats.scss';
 
 const Chats = () => {
+  const conversations = humps.camelizeKeys(data) as Conversations[];
   const chats = conversations.map((conversation, index) => (
-    <div key={conversation.match_id}>
+    <div key={conversation.matchId}>
       <div className="grid chats">
         <div className={!index ? 'chat-details chat-details-first' : 'chat-details'}>
           <img
             className="avatar-chat"
             src={validateLocalSrc(
-              conversation.user.avatar.normal_url,
-              process.env.PUBLIC_URL + MEDIA_AVATARS + conversation.user.avatar.normal_url
+              conversation.user.avatar.normalUrl,
+              process.env.PUBLIC_URL + MEDIA_AVATARS + conversation.user.avatar.normalUrl
             )}
-            alt={'avatar ' + conversation.user.full_name}
+            alt={'avatar ' + conversation.user.fullName}
           />
           <div className="group-chats">
             <span>
-              <strong>{conversation.user.full_name}</strong>
+              <strong>{conversation.user.fullName}</strong>
             </span>
-            <span>{conversation.last_message}</span>
+            <span>{conversation.lastMessage}</span>
           </div>
           <div className="group-icon">
             <img
               className="icon"
               src={validateLocalSrc(
-                conversation.topic_icon,
-                process.env.PUBLIC_URL + MEDIA_ICONS + conversation.topic_icon
+                conversation.topicIcon,
+                process.env.PUBLIC_URL + MEDIA_ICONS + conversation.topicIcon
               )}
-              alt={'topic icon'}
+              alt="topic icon"
             />
-            {conversation.unread_messages > 0 && (
-              <div className="icon-badge">{conversation.unread_messages}</div>
+            {conversation.unreadMessages > 0 && (
+              <div className="icon-badge">{conversation.unreadMessages}</div>
             )}
           </div>
         </div>

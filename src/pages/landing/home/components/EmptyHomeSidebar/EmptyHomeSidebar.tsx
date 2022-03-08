@@ -1,19 +1,19 @@
-import './home-empty-state.scss';
+import './empty-home-sidebar.scss';
 import TargetList from '../TargetList';
 import targets from 'data/targets.json';
 
-const HomeEmptyState = () => {
+const EmptyHomeSidebar = () => {
   return (
     <>
-      <p className="home-empty-state-h2 home-empty-state-p">
+      <div className=" empty-sidebar empty-sidebar-h2">
         Create your first target by clicking wherever on the map.
-      </p>
-      <p className="home-empty-state-h3 home-empty-state-p">
+      </div>
+      <div className=" empty-sidebar empty-sidebar-h3">
         Psss!, these are the most popular targets:
-      </p>
+      </div>
       <TargetList targets={targets} />
     </>
   );
 };
 
-export default HomeEmptyState;
+export default EmptyHomeSidebar;
