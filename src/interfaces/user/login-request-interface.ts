@@ -1,6 +1,6 @@
 export default interface LoginRequest {
   user: {
-    email: string;
-    password: string;
+    email?: string;
+    password?: string;
   };
 }

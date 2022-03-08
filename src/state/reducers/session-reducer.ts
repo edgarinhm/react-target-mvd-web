@@ -11,11 +11,11 @@ export interface SessionState {
 }
 
 const initialState: SessionState = {
-  accessToken: undefined,
+  accessToken: '',
   authenticated: false,
-  user: undefined,
-  clientToken: undefined,
-  uid: undefined,
+  user: {},
+  clientToken: '',
+  uid: '',
 };
 
 const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<SessionState>) => {

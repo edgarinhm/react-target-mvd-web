@@ -7,7 +7,7 @@ interface InterceptorState {
 }
 
 const initialState: InterceptorState = {
-  errors: undefined,
+  errors: '',
   isLoading: false,
 };
 
