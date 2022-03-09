@@ -1,11 +1,11 @@
 import happySmiles from 'assets/layout/media/happy-smiles.png';
 
 export interface HappySmileProp {
-  small?: string;
+  styleClass?: string;
 }
 
-const HappySmile = ({ small = 'smiles' }: HappySmileProp) => {
-  return <img className={small} src={happySmiles} alt="happy smile"></img>;
+const HappySmile = ({ styleClass = 'smiles' }: HappySmileProp) => {
+  return <img className={styleClass} src={happySmiles} alt="happy smile"></img>;
 };
 
 export default HappySmile;
