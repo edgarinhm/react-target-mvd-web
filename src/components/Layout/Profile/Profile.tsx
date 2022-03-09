@@ -4,13 +4,14 @@ import profileMedia from 'assets/layout/media/profile.svg';
 import testIds from 'constants/test-ids-constant';
 import { useDispatch, useSession } from 'hooks';
 import { logout } from 'state/actions/user-actions';
+import Avatar from '../Avatar';
 
 const Profile = () => {
   const { user } = useSession();
   const handleLogout = useDispatch(logout);
   return (
     <>
-      <img src={profileMedia} alt="profile avatar" />
+      <Avatar icon={profileMedia} />
       <p id="profile-name">
         <strong>{user?.username}</strong>
       </p>
