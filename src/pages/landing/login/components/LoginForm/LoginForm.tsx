@@ -28,7 +28,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
   return (
     <section>
       <form
-        data-test-id={testIds.FORM}
+        data-testid={testIds.FORM}
         className="form"
         onSubmit={handleSubmit(onSubmit)}
         noValidate
@@ -49,14 +49,14 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
         />
         <SubmitButton label="sign in" />
         <Link
-          data-test-id="password-reset-form-link"
+          data-testid="password-reset-form-link"
           to={routes.passwordReset}
           className="link capital-case margin-forgot-password"
         >
           forgot your password?
         </Link>
         <Link
-          data-test-id={testIds.FACEBOOK_LINK}
+          data-testid={testIds.FACEBOOK_LINK}
           to={routes.signupFacebook}
           className="link upper-case margin-facebook"
         >
@@ -64,7 +64,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
         </Link>
         <div className="line"></div>
         <Link
-          data-test-id={testIds.SIGNUP_LINK}
+          data-testid={testIds.SIGNUP_LINK}
           to={routes.signup}
           className="link upper-case margin-sign-up"
         >

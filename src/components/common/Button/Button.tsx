@@ -17,7 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <button
-        data-test-id={type}
+        data-testid={type}
         disabled={disabled}
         onClick={onClick}
         type={type}

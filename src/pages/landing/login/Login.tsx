@@ -18,7 +18,7 @@ const Login = () => {
   }
 
   return (
-    <article className="two-column-layout-wrap" data-test-id={testIds.LOGIN_PAGE}>
+    <article className="two-column-layout-wrap" data-testid={testIds.LOGIN_PAGE}>
       <div className="left">
         <MenuItem />
         <HappySmile />

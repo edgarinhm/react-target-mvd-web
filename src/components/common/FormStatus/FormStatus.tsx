@@ -5,7 +5,7 @@ import './form-status-styles.scss';
 const FormStatus = () => {
   const { isLoading, error } = useInterceptor();
   return (
-    <div data-test-id="error-wrap" className="error-wrap">
+    <div data-testid="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}
       {error && (
         <span data-test-id="main-error" className="error">

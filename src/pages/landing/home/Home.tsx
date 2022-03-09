@@ -8,7 +8,7 @@ import './home.scss';
 
 const Home = () => {
   return (
-    <article className="home-wrap" data-test-id={testIds.HOME_PAGE}>
+    <article className="home-wrap" data-testid={testIds.HOME_PAGE}>
       <section className="left">
         <div>
           <MenuItem />

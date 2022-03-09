@@ -29,7 +29,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
 
   return (
     <section>
-      <form data-test-id="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form data-testid="form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <InputText
           type="text"
           label="name"
@@ -68,7 +68,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Button type="submit" label="sign up" />
         <div className="line"></div>
-        <Link data-test-id="signup-form-link" to={routes.index} className="link">
+        <Link data-testid="signup-form-link" to={routes.index} className="link">
           SIGN IN
         </Link>
       </form>
