@@ -6,6 +6,8 @@ export interface SessionState {
   authenticated: boolean;
   accessToken?: string;
   user?: User;
+  clientToken?: string;
+  uid?: string;
 }
 
 const initialState: SessionState = {
@@ -13,8 +15,10 @@ const initialState: SessionState = {
   authenticated: false,
 };
 
-const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<string>) => {
-  state.accessToken = payload;
+const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<SessionState>) => {
+  state.accessToken = payload.accessToken;
+  state.clientToken = payload.clientToken;
+  state.uid = payload.uid;
 };
 
 const handleSignupFulfilled = (state: SessionState, { payload }: PayloadAction<User>) => {

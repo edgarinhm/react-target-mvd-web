@@ -4,9 +4,7 @@ import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
 import { ErrorApiResponse } from 'interfaces/api/error-api-response-interface';
 import ErrorApi from 'interfaces/api/error-api-interface';
-
-const ACCESS_TOKEN = 'access-token';
-const UNAUTHORIZED = 401;
+import { ACCESS_TOKEN, CLIENT, UID, UNAUTHORIZED } from 'constants/api-constants';
 
 const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
   const dispatch: AppDispatch = store.dispatch;
@@ -14,12 +12,14 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
   client.interceptors.request.use(config => {
     dispatch(setLoading(true));
     dispatch(setErrors());
-    const { accessToken } = store.getState().session;
+    const { accessToken, clientToken, uid } = store.getState().session;
     const { headers } = config;
     if (accessToken) {
       config.headers = {
         ...headers,
         [ACCESS_TOKEN]: accessToken,
+        [CLIENT]: clientToken,
+        [UID]: uid,
       };
     }
     return config;
@@ -30,8 +30,15 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
       dispatch(setLoading(false));
       const { headers } = response;
       const accessToken = headers[ACCESS_TOKEN];
+      const clientToken = headers[CLIENT];
+      const uid = headers[UID];
       if (accessToken) {
-        dispatch(updateSession(accessToken));
+        const session = {
+          accessToken,
+          clientToken,
+          uid,
+        };
+        dispatch(updateSession(session));
       }
       return response;
     },
