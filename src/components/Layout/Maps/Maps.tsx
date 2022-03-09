@@ -6,13 +6,11 @@ import './maps.scss';
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 
-// Center
 export const defaultCenter = {
   lat: 3.43722,
   lng: -76.5225,
 };
 
-// Disable default UI
 export const defaultOptions: MapOptions = {
   disableDefaultUI: true,
   zoomControl: true,
@@ -25,8 +23,6 @@ const Maps = () => {
   });
 
   const options = useMemo<MapOptions>(() => defaultOptions, []);
-
-  // Save map in ref if we want to access the map
   const mapRef = useRef<GoogleMap | null>();
   const center = useMemo<LatLngLiteral>(() => defaultCenter, []);
 
@@ -41,7 +37,7 @@ const Maps = () => {
       center={center}
       zoom={12}
       onLoad={onLoad}
-    ></GoogleMap>
+    />
   );
 };
 
