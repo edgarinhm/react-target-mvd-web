@@ -3,9 +3,9 @@ import { RootState } from 'state/reducers';
 
 const useInterceptor = () =>
   useSelector(
-    ({ interceptorReducer: { isLoading, errors } }: RootState) => ({
+    ({ interceptorReducer: { isLoading, error } }: RootState) => ({
       isLoading,
-      errors,
+      error,
     }),
     shallowEqual
   );
