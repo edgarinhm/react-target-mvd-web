@@ -1,5 +1,5 @@
 import { MenuItem } from 'components/common';
-import { Maps } from 'components/Layout/Maps';
+import { Maps } from 'components/Layout/Map';
 import Profile from 'components/Layout/Profile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';

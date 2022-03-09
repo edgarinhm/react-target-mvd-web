@@ -1,5 +1,5 @@
-import Home from 'pages/landing/home/Home';
-import SignUp from 'pages/landing/signup/Signup';
+import Home from 'pages/landing/Home';
+import SignUp from 'pages/landing/Signup';
 import routesPaths from 'constants/routes-paths-constant';
 import { Routes } from 'interfaces/route/routes-interface';
 

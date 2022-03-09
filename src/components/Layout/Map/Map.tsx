@@ -1,7 +1,7 @@
 import { useMemo, useCallback, useRef } from 'react';
 import { useLoadScript, GoogleMap } from '@react-google-maps/api';
 import mapMedia from 'assets/layout/media/map.png';
-import './maps.scss';
+import './map.scss';
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -17,7 +17,7 @@ export const defaultOptions: MapOptions = {
   clickableIcons: false,
 };
 
-const Maps = () => {
+const Map = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
   });
@@ -41,4 +41,4 @@ const Maps = () => {
   );
 };
 
-export default Maps;
+export default Map;
