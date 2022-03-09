@@ -3,12 +3,13 @@ import routes from 'constants/routes-paths-constant';
 import profileMedia from 'assets/layout/media/profile.svg';
 import testIds from 'constants/test-ids-constant';
 import { useSession } from 'hooks';
+import Avatar from '../Avatar';
 
 const Profile = () => {
   const { user } = useSession();
   return (
     <>
-      <img src={profileMedia} alt="profile avatar" />
+      <Avatar icon={profileMedia} />
       <p id="profile-name">
         <strong>{user?.username}</strong>
       </p>

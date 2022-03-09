@@ -246,11 +246,11 @@ input.error {
   margin-top: -0.5em;
 }
 
-.chat-details {
+.chat__details {
   border-bottom: 1px solid $black;
   width: inherit;
-}
-.chat-details-first {
-  border-top: 1px solid $black;
+  &--first {
+    border-top: 1px solid $black;
+  }
 }
 /* Add your customizations of theme here */

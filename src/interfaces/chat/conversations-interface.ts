@@ -3,13 +3,15 @@ export default interface Conversations {
   topicIcon: string;
   lastMessage: string;
   unreadMessages: number;
-  user: {
-    id: number;
-    fullName: string;
-    avatar: {
-      originalUrl: string;
-      normalUrl: string;
-      smallThumbUrl: string;
-    };
+  user: chatUser;
+}
+
+interface chatUser {
+  id: number;
+  fullName: string;
+  avatar: {
+    originalUrl: string;
+    normalUrl: string;
+    smallThumbUrl: string;
   };
 }

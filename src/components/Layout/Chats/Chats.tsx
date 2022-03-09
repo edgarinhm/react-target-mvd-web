@@ -10,7 +10,7 @@ const Chats = () => {
   const chats = conversations.map((conversation, index) => (
     <div key={conversation.matchId}>
       <div className="grid chats">
-        <div className={!index ? 'chat-details chat-details-first' : 'chat-details'}>
+        <div className={!index ? 'chat__details chat__details-first' : 'chat__details'}>
           <img
             className="avatar-chat"
             src={validateLocalSrc(
