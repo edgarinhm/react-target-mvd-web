@@ -43,7 +43,10 @@ class UserService {
 
   static async logout() {
     try {
-      return await httpClient.delete(LOGOUT_URL, { data: {} });
+      const {
+        data: { success },
+      } = await httpClient.delete(LOGOUT_URL, { data: {} });
+      return success;
     } catch ({ response: { data, status } }) {
       throw Error(status as string);
     }

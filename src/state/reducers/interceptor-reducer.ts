@@ -3,11 +3,11 @@ import { setErrors, setLoading } from 'state/actions/user-actions';
 
 interface InterceptorState {
   isLoading: boolean;
-  errors?: string;
+  error?: string;
 }
 
 const initialState: InterceptorState = {
-  errors: undefined,
+  error: '',
   isLoading: false,
 };
 
@@ -22,7 +22,7 @@ const handleSetErrorsInterceptor = (
   state: InterceptorState,
   { payload }: PayloadAction<string>
 ) => {
-  state.errors = payload;
+  state.error = payload;
 };
 
 export default createReducer(initialState, {
