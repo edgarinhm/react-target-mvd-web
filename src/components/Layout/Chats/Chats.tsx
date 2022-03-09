@@ -1,74 +1,51 @@
-import avartarOne from 'assets/layout/avatars/avatar1.png';
-import avartarTwo from 'assets/layout/avatars/avatar2.png';
-import avartarThree from 'assets/layout/avatars/avatar3.png';
-import avartarFour from 'assets/layout/avatars/avatar4.png';
-import travelIcon from 'assets/layout/icons/travel-icon.svg';
-import filmIcon from 'assets/layout/icons/film-icon.svg';
-import tvIcon from 'assets/layout/icons/tv-icon.svg';
+import { MEDIA_AVATARS, MEDIA_ICONS } from 'constants/assets-constants';
+import { validateLocalSrc } from 'utils/url-util';
+import Conversations from 'interfaces/chat/conversations-interface';
+import { default as data } from 'data/conversations.json';
+import humps from 'humps';
 import './chats.scss';
 
 const Chats = () => {
+  const conversations = humps.camelizeKeys(data) as Conversations[];
+  const chats = conversations.map((conversation, index) => (
+    <div key={conversation.matchId}>
+      <div className="grid chats">
+        <div className={!index ? 'chat__details chat__details-first' : 'chat__details'}>
+          <img
+            className="avatar-chat"
+            src={validateLocalSrc(
+              conversation.user.avatar.normalUrl,
+              process.env.PUBLIC_URL + MEDIA_AVATARS + conversation.user.avatar.normalUrl
+            )}
+            alt={'avatar ' + conversation.user.fullName}
+          />
+          <div className="group-chats">
+            <span>
+              <strong>{conversation.user.fullName}</strong>
+            </span>
+            <span>{conversation.lastMessage}</span>
+          </div>
+          <div className="group-icon">
+            <img
+              className="icon"
+              src={validateLocalSrc(
+                conversation.topicIcon,
+                process.env.PUBLIC_URL + MEDIA_ICONS + conversation.topicIcon
+              )}
+              alt="topic icon"
+            />
+            {conversation.unreadMessages > 0 && (
+              <div className="icon-badge">{conversation.unreadMessages}</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  ));
   return (
     <>
       <h3 className="chat-title">Chat</h3>
-      <div className="grid chats">
-        <div className="chat-details chat-details-first">
-          <img className="avatar-chat" src={avartarOne} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>José Gazzano</strong>
-            </span>
-            <span>¡Hola! A dónde querés viajar?</span>
-          </div>
-          <div className="group-icon">
-            <img className="icon" src={travelIcon} alt="world icon" />
-            <div className="icon-badge">2</div>
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarTwo} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>Karen Bauer</strong>
-            </span>
-            <span>¿Alguna película para recomendar?</span>
-          </div>
-          <div>
-            <img className="icon" src={filmIcon} alt="film icon" />
-            <div className="icon-badge">2</div>
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarThree} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>JP Mazza</strong>
-            </span>
-            <span>¡Hola! ¿Cuál es tu serie de TV favorita?</span>
-          </div>
-          <div>
-            <img className="icon" src={tvIcon} alt="film icon" />
-          </div>
-        </div>
-      </div>
-      <div className="grid chats">
-        <div className="chat-details">
-          <img className="avatar-chat" src={avartarFour} alt="avatar one" />
-          <div className="group-chats">
-            <span>
-              <strong>Belu Iglesias</strong>
-            </span>
-            <span>Te gustó el último disco de NOFX?</span>
-          </div>
-          <div>
-            <img className="icon" src={tvIcon} alt="film icon" />
-          </div>
-        </div>
-      </div>
+      {chats}
     </>
   );
 };

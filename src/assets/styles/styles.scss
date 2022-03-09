@@ -221,26 +221,25 @@ p {
 }
 
 .group-chats {
-  font-size: $chatFontSize;
+  font-size: $fontSizeH4;
   color: $black;
 }
 
 .icon {
   width: 18px;
   height: 23px;
-}
 
-.icon-badge {
-  min-width: 16px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  background-color: $iconBadgeColor;
-  color: $white;
+  &-badge {
+    min-width: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: $iconBadgeColor;
+    color: $white;
+  }
 }
-
 /* smilies small */
 .smiles-small {
   width: 48px;
@@ -255,18 +254,18 @@ p {
   width: 100%;
 }
 .chat-title {
-  font-size: $chatTitleSize;
+  font-size: $fontSizeH4;
 }
 
-.home-empty-state-p {
+.empty-sidebar {
   color: $homeEmptyTextColor;
 }
 
-.home-empty-state-h2 {
+.empty-sidebar-h2 {
   font-size: $fontSizeH2;
   width: 70%;
 }
-.home-empty-state-h3 {
+.empty-sidebar-h3 {
   font-size: $fontSizeH3;
 }
 

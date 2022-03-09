@@ -3,13 +3,13 @@ import useInterceptor from 'hooks/useInterceptor';
 import './form-status-styles.scss';
 
 const FormStatus = () => {
-  const { isLoading, errors } = useInterceptor();
+  const { isLoading, error } = useInterceptor();
   return (
     <div data-testid="error-wrap" className="error-wrap">
       {isLoading && <Spinner className="spinner" />}
-      {errors && (
-        <span data-testid="main-error" className="error">
-          {errors}
+      {error && (
+        <span data-test-id="main-error" className="error">
+          {error}
         </span>
       )}
     </div>

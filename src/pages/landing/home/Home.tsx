@@ -3,21 +3,21 @@ import { Maps } from 'components/Layout/Map';
 import Profile from 'components/Layout/Profile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
-import HomeEmtpyState from './components/HomeEmtpyState';
+import HomeEmtpyState from './components/EmptyHomeSidebar';
 import './home.scss';
 
 const Home = () => {
   return (
     <article className="home-wrap" data-testid={testIds.HOME_PAGE}>
       <section className="left">
-        <div className="">
+        <div>
           <MenuItem />
           <h1 className="letter-spacing">target</h1>
         </div>
         <Profile />
         <HomeEmtpyState />
         <div className="footer">
-          <HappySmile small="smiles-small" />
+          <HappySmile styleClass="smiles-small" />
         </div>
       </section>
       <section className="right">

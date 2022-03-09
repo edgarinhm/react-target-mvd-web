@@ -1,0 +1,14 @@
+[
+  {
+    "icon": "football-icon.svg",
+    "description": "Football"
+  },
+  {
+    "icon": "travel-icon.svg",
+    "description": "Travel"
+  },
+  {
+    "icon": "music-icon.svg",
+    "description": "Music"
+  }
+]
