@@ -64,7 +64,6 @@ body {
   }
 
   .link {
-    text-transform: uppercase;
     font-size: 11px;
     text-align: center;
     letter-spacing: 1.65px;
@@ -205,4 +204,71 @@ p {
 
 .letter-spacing {
   letter-spacing: 3px;
+}
+
+.link-color {
+  color: $blue;
+}
+
+.profile-links {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 1.8px;
+}
+
+.line-chat {
+  border: 0.5px solid $black;
+}
+
+.group-chats {
+  font-size: $fontSizeH4;
+  color: $black;
+}
+
+.icon {
+  width: 18px;
+  height: 23px;
+
+  &-badge {
+    min-width: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: $iconBadgeColor;
+    color: $white;
+  }
+}
+/* smilies small */
+.smiles-small {
+  width: 48px;
+  height: 28px;
+}
+
+.footer {
+  margin-top: 10%;
+}
+
+.chats {
+  width: 100%;
+}
+.chat-title {
+  font-size: $fontSizeH4;
+}
+
+.empty-sidebar {
+  color: $homeEmptyTextColor;
+}
+
+.empty-sidebar-h2 {
+  font-size: $fontSizeH2;
+  width: 70%;
+}
+.empty-sidebar-h3 {
+  font-size: $fontSizeH3;
+}
+
+.list-details span {
+  font-size: $fontSizeH4;
 }

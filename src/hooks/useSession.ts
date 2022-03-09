@@ -3,9 +3,10 @@ import { RootState } from 'state/reducers';
 
 const useSession = () =>
   useSelector(
-    ({ session: { authenticated, accessToken } }: RootState) => ({
+    ({ session: { authenticated, accessToken, user } }: RootState) => ({
       authenticated,
       accessToken,
+      user,
     }),
     shallowEqual
   );

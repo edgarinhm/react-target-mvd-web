@@ -1,9 +1,11 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { updateSession, signUp, loginFulfilled } from 'state/actions/user-actions';
+import { User } from 'interfaces/user/user-interface';
+import { updateSession, signUp, login } from 'state/actions/user-actions';
 
 export interface SessionState {
-  accessToken?: string;
   authenticated: boolean;
+  accessToken?: string;
+  user?: User;
 }
 
 const initialState: SessionState = {
@@ -15,17 +17,18 @@ const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<str
   state.accessToken = payload;
 };
 
-const handleSignupFulfilled = (state: SessionState) => {
+const handleSignupFulfilled = (state: SessionState, { payload }: PayloadAction<User>) => {
+  state.user = payload;
   state.authenticated = true;
 };
 
-const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<string>) => {
-  state.accessToken = payload;
+const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<User>) => {
+  state.user = payload;
   state.authenticated = true;
 };
 
 export default createReducer(initialState, {
   [updateSession.type]: handleUpdateSession,
   [signUp.fulfilled.type]: handleSignupFulfilled,
-  [loginFulfilled.type]: handleLoginFulfilled,
+  [login.fulfilled.type]: handleLoginFulfilled,
 });

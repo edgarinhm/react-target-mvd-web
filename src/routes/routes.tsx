@@ -9,7 +9,7 @@ const routes: Routes[] = [
     element: <Home />,
   },
   {
-    path: routesPaths.signUp,
+    path: routesPaths.signup,
     element: <SignUp />,
   },
 ];
