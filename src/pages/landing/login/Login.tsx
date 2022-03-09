@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
@@ -7,11 +8,13 @@ import { login } from 'state/actions/user-actions';
 import { LoginForm } from './components/LoginForm';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
+import { loginI18n } from 'constants/i18n-constant';
 import './login.scss';
 
 const Login = () => {
   const handleSubmit = useDispatch(login);
   const { authenticated } = useSession();
+  const { t } = useTranslation();
 
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;
@@ -23,12 +26,9 @@ const Login = () => {
         <MenuItem />
         <HappySmile />
         <FormStatus />
-        <h1 className="letter-spacing">Target MVD</h1>
-        <h2>Find people near you & Connect</h2>
-        <p className="login-p">
-          Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
-          start connecting with others who share your interest.
-        </p>
+        <h1 className="letter-spacing">{t(loginI18n.PAGE_TITLE)}</h1>
+        <h2>{t(loginI18n.PAGE_SUB_TITLE)}</h2>
+        <p className="login-p">{t(loginI18n.PAGE_TEXT)}</p>
         <LoginForm onSubmit={handleSubmit} />
       </div>
       <div className="right">

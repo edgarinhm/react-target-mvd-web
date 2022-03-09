@@ -1,0 +1,45 @@
+{
+  "login": {
+    "page": {
+      "title": "objetivo mvd",
+      "subtitle": "busca gente cerca de ti y conéctate",
+      "text": "cree un objetivo en cualquier parte del mapa, especifique su interés: viajes, citas, música, etc. y comience a conectarse con otras personas que comparten su interés."
+    },
+    "form": {
+      "email": "correo",
+      "password": "contrasena",
+      "submit": "iniciar session",
+      "forgot-password": "olvido su contrasena?",
+      "connect-facebook": "connectar con facebook",
+      "signup": "registrarse"
+    }
+  },
+  "validations": {
+    "email": "El correo electrónico es invalido",
+    "invalid": "El campo no es válido",
+    "invalidType": "Tiene que ser un {{type}}",
+    "required": "Se requiere campo",
+    "stringMin": "Debe tener al menos {{min}} caracteres",
+    "stringMax": "Debe tener como máximo {{max}} caracteres",
+    "oneOf": "Debe coincidir {{ref}}"
+  },
+  "signup": {
+    "page": {
+      "title": "registro"
+    },
+    "form": {
+      "name": "nombre",
+      "name-placeholder": "escriba su nombre",
+      "email": "correo",
+      "email-placeholder": "escriba su correo",
+      "password": "contrasena",
+      "password-placeholder": "escriba su contrasena",
+      "password-confirm": "confirmar contrasena",
+      "password-confirm-placeholder": "confirme su contrasena",
+      "gender": "genero",
+      "gender-default": "seleccione su genero",
+      "submit": "registro",
+      "login": "iniciar session"
+    }
+  }
+}

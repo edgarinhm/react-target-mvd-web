@@ -2,6 +2,8 @@ import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames/bind';
 
 import dropdownStyle from './dropdown.scss';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { ValidationError } from 'interfaces/validation/validation-error-interface';
 
 const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
   (
@@ -44,7 +46,7 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
             ))}
           </select>
         </div>
-        {error && <div className={style('input-error')}>{error}</div>}
+        <ErrorMessage error={error} />
       </div>
     );
   }
@@ -64,7 +66,7 @@ export interface DropdownProps {
   placeholder?: string;
   className?: string;
   required?: boolean;
-  error?: string;
+  error?: string | ValidationError;
   onFocus?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
