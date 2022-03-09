@@ -86,21 +86,21 @@
 /* menu icon */
 .menu-item {
   position: absolute;
-  width: 20.25px;
-  height: 13.5px;
-  top: 28.5px;
+  width: 1.27rem;
+  height: 0.84rem;
+  top: 1.38rem;
   left: 22px;
 
   /* Line */
   .path {
-    border: 0.5px solid $primaryColor;
+    border: 0.03rem solid $primaryColor;
     background: $primaryColor;
   }
 }
 
 .form {
   background-color: $white;
-  box-shadow: 0px 1px 3px -1px $black;
+  box-shadow: 0rem 0.06rem 0.06rem -0.06rem $black;
 
   h2 {
     color: $primaryDarkColor;
@@ -108,9 +108,9 @@
 }
 
 .line {
-  width: 121px;
-  height: 0.5px;
-  border: 0.5px solid $primaryColor;
+  width: 7.56rem;
+  height: 0.03rem;
+  border: 0.03rem solid $primaryColor;
   margin: 2rem;
 }
 
@@ -188,7 +188,6 @@
 
 select[multiple] {
   option {
-    // Only affects Chrome
     outline-color: var($inputFocusBorderColor);
   }
 }
@@ -230,10 +229,10 @@ input.error {
 
 .header-wrap {
   position: absolute;
-  width: 20.25px;
-  height: 13.5px;
-  top: 28.5px;
-  left: 22px;
+  width: 1.27rem;
+  height: 0.84rem;
+  top: 1.78rem;
+  left: 1.38rem;
   display: flex;
   flex-direction: row;
 }
@@ -247,10 +246,10 @@ input.error {
 }
 
 .chat__details {
-  border-bottom: 1px solid $black;
+  border-bottom: 0.06rem solid $black;
   width: inherit;
   &--first {
-    border-top: 1px solid $black;
+    border-top: 0.06rem solid $black;
   }
 }
 /* Add your customizations of theme here */
