@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import routes from 'constants/routes-paths-constant';
 import profileMedia from 'assets/layout/media/profile.svg';
 import testIds from 'constants/test-ids-constant';
-import { useSession } from 'hooks';
+import { useDispatch, useSession } from 'hooks';
+import { logout } from 'state/actions/user-actions';
 import Avatar from '../Avatar';
 
 const Profile = () => {
   const { user } = useSession();
+  const handleLogout = useDispatch(logout);
   return (
     <>
       <Avatar icon={profileMedia} />
@@ -22,7 +24,12 @@ const Profile = () => {
           edit
         </Link>
         <span> / </span>
-        <Link data-test-id={testIds.LOGOUT_LINK} to={routes.login} className="link capital-case">
+        <Link
+          onClick={handleLogout}
+          data-test-id={testIds.LOGOUT_LINK}
+          to={routes.index}
+          className="link capital-case"
+        >
           logout
         </Link>
       </div>
