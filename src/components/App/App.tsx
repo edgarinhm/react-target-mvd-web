@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Login from 'pages/landing/login/Login';
-import SignUp from 'pages/landing/signup/Signup';
-import Home from 'pages/landing/home/Home';
+import Login from 'pages/landing/Login/Login';
+import SignUp from 'pages/landing/Signup/Signup';
+import Home from 'pages/landing/Home/Home';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
 

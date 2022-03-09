@@ -19,7 +19,7 @@ describe('Login Service', () => {
         const userLoged = await userService.login(user);
         await expect(userLoged.email).toEqual(userLoged.email);
       } catch (error) {
-        await expect(Promise.reject(error)).rejects.toThrow(`${UNAUTHORIZED}`);
+        await expect(Promise.reject(error)).rejects.toThrow(UNAUTHORIZED);
       }
     });
   });
@@ -30,7 +30,7 @@ describe('Login Service', () => {
         const userLoged = await userService.login(user);
         await expect(userLoged.email).toEqual(userLoged.email);
       } catch (error) {
-        await expect(Promise.reject(error)).rejects.toThrow(`${NOTFOUND}`);
+        await expect(Promise.reject(error)).rejects.toThrow(NOTFOUND);
       }
     });
   });
