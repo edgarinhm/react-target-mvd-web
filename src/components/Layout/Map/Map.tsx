@@ -9,7 +9,7 @@ import { AppDispatch, store } from 'state/store';
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 
-export const deafultCenter = {
+export const defaultCenter = {
   lat: 3.43722,
   lng: -76.5225,
 };
@@ -51,7 +51,7 @@ const Map = () => {
     <GoogleMap
       mapContainerClassName="map-container"
       options={options}
-      center={deafultCenter}
+      center={defaultCenter}
       zoom={12}
       onLoad={onLoad}
     />
