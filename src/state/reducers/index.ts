@@ -6,6 +6,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import statusReducer from './status-reducer';
 import session, { SessionState } from './session-reducer';
 import interceptorReducer from './interceptor-reducer';
+import placeReducer from './place-reducer';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   session: persistReducer<SessionState>(sessionPersistConfig, session),
   statusReducer,
   interceptorReducer,
+  placeReducer,
 });
 
 export default rootReducer;

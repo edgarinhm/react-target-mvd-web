@@ -1,5 +1,5 @@
 import { MEDIA_AVATARS, MEDIA_ICONS } from 'constants/assets-constants';
-import { validateLocalSrc } from 'utils/url-util';
+import { validateLocalSrc } from 'utils';
 import Conversations from 'interfaces/chat/conversations-interface';
 import { default as data } from 'data/conversations.json';
 import humps from 'humps';
