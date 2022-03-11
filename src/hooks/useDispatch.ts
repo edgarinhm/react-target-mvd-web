@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch as useReduxDispatch } from 'react-redux';
-
-import { GenericAsyncThunk } from 'state/reducers/status-reducer';
+import { GenericAsyncThunk } from 'state/reducers/features/status-reducer';
 
 const useDispatch = (action: GenericAsyncThunk, ...dependencies: any) => {
   const dispatch = useReduxDispatch();

@@ -35,6 +35,7 @@ const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<Us
 };
 
 const handleLogoutFulfilled = () => {
+  localStorage.clear();
   return initialState;
 };
 

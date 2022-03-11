@@ -3,10 +3,10 @@ import localForage from 'localforage';
 import { persistReducer } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
-import statusReducer from './status-reducer';
-import session, { SessionState } from './session-reducer';
-import interceptorReducer from './interceptor-reducer';
-import placeReducer from './place-reducer';
+import statusReducer from './features/status-reducer';
+import session, { SessionState } from './features/session-reducer';
+import interceptorReducer from './features/interceptor-reducer';
+import placeReducer from './features/place-reducer';
 
 const sessionPersistConfig = {
   key: 'session',
