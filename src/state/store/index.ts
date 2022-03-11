@@ -11,7 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import AppReducer from 'state/reducers';
+import AppReducer from 'state/reducers/root-reducer';
 import { useDispatch } from 'react-redux';
 
 const persistConfig = {

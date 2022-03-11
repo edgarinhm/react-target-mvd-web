@@ -1,5 +1,5 @@
 import { useSelector, shallowEqual } from 'react-redux';
-import { RootState } from 'state/reducers';
+import { RootState } from 'state/reducers/root-reducer';
 
 const useInterceptor = () =>
   useSelector(

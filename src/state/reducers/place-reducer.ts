@@ -3,18 +3,18 @@ import Geolocation from 'interfaces/geolocation/geolocation-interface';
 import { getCurrentLocation, setUserLocation } from 'state/actions/place-actions';
 
 export interface PlaceState {
-  isLoading: boolean;
-  userLocation: Geolocation;
+  lng: number;
+  lat: number;
 }
 
 const initialState: PlaceState = {
-  isLoading: true,
-  userLocation: {},
+  lng: 0,
+  lat: 0,
 };
 
 const handleSetLocation = (state: PlaceState, { payload }: PayloadAction<Geolocation>) => {
-  state.isLoading = false;
-  state.userLocation = payload;
+  state.lng = payload.lng;
+  state.lat = payload.lat;
 };
 
 export default createReducer(initialState, {

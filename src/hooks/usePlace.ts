@@ -1,11 +1,11 @@
 import { useSelector, shallowEqual } from 'react-redux';
-import { RootState } from 'state/reducers';
+import { RootState } from 'state/reducers/root-reducer';
 
 const usePlace = () =>
   useSelector(
-    ({ placeReducer: { isLoading, userLocation } }: RootState) => ({
-      isLoading,
-      userLocation,
+    ({ placeReducer: { lng, lat } }: RootState) => ({
+      lng,
+      lat,
     }),
     shallowEqual
   );

@@ -34,17 +34,14 @@ const Map = () => {
 
   const dispatch: AppDispatch = store.dispatch;
 
-  const moveTo = (position: LatLngLiteral) => {
-    if (mapRef.current) {
-      mapRef.current?.panTo({ lat: position.lat, lng: position.lng });
-    }
+  const moveTo = (location: LatLngLiteral) => {
+    mapRef.current?.panTo({ lat: location.lat, lng: location.lng });
   };
 
-  const location = getUserLocation();
-  location.then(([lng, lat]) => {
-    const position: LatLngLiteral = { lng, lat };
-    moveTo(position);
-    dispatch(setUserLocation(position));
+  getUserLocation().then(([lng, lat]) => {
+    const location: LatLngLiteral = { lng, lat };
+    moveTo(location);
+    dispatch(setUserLocation(location));
   });
 
   return (
