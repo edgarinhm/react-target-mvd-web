@@ -30,7 +30,9 @@ const Map = () => {
   const onLoad = useCallback(map => (mapRef.current = map), []);
 
   const moveTo = (location: LatLngLiteral) => {
-    mapRef.current?.panTo({ lat: location.lat, lng: location.lng });
+    if (mapRef.current) {
+      mapRef.current.panTo({ lat: location.lat, lng: location.lng });
+    }
   };
 
   const dispatch = useAppDispatch();
