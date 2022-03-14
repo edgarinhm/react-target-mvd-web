@@ -1,10 +1,10 @@
 import { useMemo, useCallback, useRef, useEffect } from 'react';
 import { useLoadScript, GoogleMap } from '@react-google-maps/api';
 import { setUserLocation } from 'state/actions/place-actions';
-import { useAppDispatch } from 'state/store';
 import { getUserLocation } from 'utils';
 import mapMedia from 'assets/layout/media/map.png';
 import './map.scss';
+import { useAppDispatch } from 'hooks/useDispatch';
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
