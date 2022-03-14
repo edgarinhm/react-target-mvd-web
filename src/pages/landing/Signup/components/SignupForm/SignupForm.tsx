@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'hooks';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, Dropdown, Button } from 'components/common';
@@ -30,7 +30,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
     resolver: yupResolver(signupValidation),
   });
 
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <section>

@@ -1,9 +1,8 @@
 import { Navigate } from 'react-router';
-import { useTranslation } from 'react-i18next';
 import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { HappySmile } from 'components/Layout/HappySmile';
-import { useDispatch, useSession } from 'hooks';
+import { useDispatch, useSession, useTranslation } from 'hooks';
 import { login } from 'state/actions/user-actions';
 import { LoginForm } from './components/LoginForm';
 import routesPaths from 'constants/routes-paths-constant';
@@ -14,7 +13,7 @@ import './login.scss';
 const Login = () => {
   const handleSubmit = useDispatch(login);
   const { authenticated } = useSession();
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;

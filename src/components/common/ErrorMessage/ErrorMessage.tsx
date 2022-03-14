@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import useTranslation from 'hooks/useTranslation';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
 
 export interface ErrorMessageProps {
@@ -6,7 +6,7 @@ export interface ErrorMessageProps {
 }
 
 export const ErrorMessage = ({ error }: ErrorMessageProps) => {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   if (error === undefined) {
     return null;
