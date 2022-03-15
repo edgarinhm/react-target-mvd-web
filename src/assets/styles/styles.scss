@@ -44,12 +44,15 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.65px;
     box-shadow: none;
+    font-size: $fontSize;
     .input-label {
-      font-size: 11px;
       line-height: 13px;
     }
     .input-container {
       margin-bottom: 1rem;
+    }
+    &--text-left {
+      text-align: left;
     }
   }
 
@@ -88,11 +91,31 @@ body {
 }
 
 .header {
-  padding: 1rem;
   text-align: center;
-
+  width: 100%;
+  display: flex;
+  height: 3rem;
+  &--back {
+    background: $blue;
+    color: $white;
+    align-items: center;
+    .menu-item .path {
+      border: 0.03rem solid $white;
+      background: $white;
+    }
+  }
   &__logo {
     width: 150px;
+  }
+  &__item {
+    width: 10%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    width: 80%;
   }
 }
 
@@ -105,25 +128,15 @@ body {
 .two-column-layout-wrap {
   display: flex;
   justify-content: space-between;
-}
-
-/* Left */
-.two-column-layout-wrap .left {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-basis: 50%;
-  justify-content: center;
-}
-
-/* right */
-.two-column-layout-wrap .right {
-  flex-basis: 50%;
-}
-
-.two-column-layout-wrap .menu-item {
-  top: 28.5px;
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 50%;
+  }
+  .right {
+    flex-basis: 50%;
+  }
 }
 
 h1 {
@@ -172,7 +185,7 @@ h2 {
   font-size: 20px;
   line-height: 23px;
   letter-spacing: 3px;
-  color: #000000;
+  color: $black;
 }
 p {
   font-size: $fontSizeMedium;

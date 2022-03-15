@@ -19,9 +19,13 @@ const SignUp = () => {
   }
 
   return (
-    <article className="signup-wrap" data-testid={testIds.SIGNUP_PAGE}>
+    <article className="two-column-layout-wrap" data-testid={testIds.SIGNUP_PAGE}>
       <div className="left">
-        <MenuItem />
+        <div className="header">
+          <div className="header__item">
+            <MenuItem />
+          </div>
+        </div>
         <FormStatus />
         <h1>{t(signupI18n.PAGE_TITLE)}</h1>
         <SignupForm onSubmit={handleSubmit} />

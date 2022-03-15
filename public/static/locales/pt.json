@@ -41,5 +41,24 @@
       "submit": "inscrever-se",
       "login": "entrar"
     }
+  },
+  "target": {
+    "page": {
+      "title": "criar destino",
+      "subtitle": "criar novo alvo"
+    },
+    "form": {
+      "radius": "especifique o comprimento da área",
+      "title": "título de destino",
+      "title-placeholder": "escolha um título para o seu destino",
+      "topic": "selecione um tópico",
+      "topic-default": "Sobre o que você quer falar?",
+      "submit": "salvar destino"
+    }
+  },
+  "home": {
+    "page": {
+      "title": "destino"
+    }
   }
 }

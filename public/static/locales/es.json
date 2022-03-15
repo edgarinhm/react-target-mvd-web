@@ -41,5 +41,24 @@
       "submit": "registro",
       "login": "iniciar session"
     }
+  },
+  "target": {
+    "page": {
+      "title": "crear destino",
+      "subtitle": "crear nuevo objetivo"
+    },
+    "form": {
+      "radius": "especificar la longitud del área",
+      "title": "título objetivo",
+      "title-placeholder": "elige un título para tu objetivo",
+      "topic": "seleccione un tema",
+      "topic-default": "¿De qué quieres hablar?",
+      "submit": "guardar objetivo"
+    }
+  },
+  "home": {
+    "page": {
+      "title": "Objetivo"
+    }
   }
 }

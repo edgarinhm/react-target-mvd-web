@@ -22,7 +22,11 @@ const Login = () => {
   return (
     <article className="two-column-layout-wrap" data-testid={testIds.LOGIN_PAGE}>
       <div className="left">
-        <MenuItem />
+        <div className="header">
+          <div className="header__item">
+            <MenuItem />
+          </div>
+        </div>
         <HappySmile />
         <FormStatus />
         <h1 className="letter-spacing">{t(loginI18n.PAGE_TITLE)}</h1>

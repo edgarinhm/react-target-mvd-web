@@ -41,5 +41,24 @@
       "submit": "sign up",
       "login": "sign in"
     }
+  },
+  "target": {
+    "page": {
+      "title": "create target",
+      "subtitle": "create new target"
+    },
+    "form": {
+      "radius": "specify area lenght",
+      "title": "target title",
+      "title-placeholder": "choose a title for your target",
+      "topic": "select a topic",
+      "topic-default": "What do you want to talk about?",
+      "submit": "save target"
+    }
+  },
+  "home": {
+    "page": {
+      "title": "target"
+    }
   }
 }

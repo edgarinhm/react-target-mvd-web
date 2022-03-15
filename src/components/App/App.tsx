@@ -4,17 +4,27 @@ import SignUp from 'pages/landing/Signup';
 import Home from 'pages/landing/Home';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
+import Target from 'pages/landing/Target';
+import routesPaths from 'constants/routes-paths-constant';
 
 function App() {
   return (
     <Routes>
-      <Route path="/sign-up" element={<SignUp />}></Route>
-      <Route path="/login" element={<Login />}></Route>
+      <Route path={routesPaths.signup} element={<SignUp />}></Route>
+      <Route path={routesPaths.login} element={<Login />}></Route>
       <Route
-        path="/"
+        path={routesPaths.index}
         element={
           <RequireAuth>
             <Home />
+          </RequireAuth>
+        }
+      ></Route>
+      <Route
+        path={routesPaths.target}
+        element={
+          <RequireAuth>
+            <Target />
           </RequireAuth>
         }
       ></Route>
