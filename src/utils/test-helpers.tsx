@@ -6,7 +6,7 @@ import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { createStore, applyMiddleware } from 'redux';
 import MockAdapter from 'axios-mock-adapter';
 
-import reducer from 'state/reducers';
+import reducer from 'state/reducers/root-reducer';
 import { httpClient } from 'http-client';
 import { applyDefaultInterceptor } from 'interceptors';
 import { StoreType } from 'state/store';

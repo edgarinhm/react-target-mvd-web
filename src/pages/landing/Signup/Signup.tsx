@@ -1,9 +1,8 @@
 import { Navigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { MenuItem, FormStatus } from 'components/common';
 import { Mobile } from 'components/Layout/Mobile';
 import { SignupForm } from './components';
-import { useDispatch, useSession } from 'hooks';
+import { useDispatch, useSession, useTranslation } from 'hooks';
 import { signUp } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
@@ -13,7 +12,7 @@ import './signup.scss';
 const SignUp = () => {
   const handleSubmit = useDispatch(signUp);
   const { authenticated } = useSession();
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'hooks';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputText, SubmitButton } from 'components/common';
@@ -27,7 +27,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
     resolver: yupResolver(loginValidation),
   });
 
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <section>

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { RootState } from 'state/reducers';
-import { GenericAsyncThunk } from 'state/reducers/status-reducer';
+import { RootState } from 'state/reducers/root-reducer';
+import { GenericAsyncThunk } from 'state/reducers/features/status-reducer';
 
 const useStatus = (action: GenericAsyncThunk) =>
   useSelector(({ statusReducer }: RootState) => {

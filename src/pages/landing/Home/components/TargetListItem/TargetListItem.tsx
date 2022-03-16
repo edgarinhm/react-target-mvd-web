@@ -1,6 +1,6 @@
 import { MEDIA_ICONS } from 'constants/assets-constants';
 import { Target } from 'interfaces/target/target-interface';
-import { validateLocalSrc } from 'utils/url-util';
+import { validateLocalSrc } from 'utils';
 import './target-list-item.scss';
 
 const TargetListItem = ({ icon, description }: Target) => {
