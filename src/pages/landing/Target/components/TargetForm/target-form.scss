@@ -6,6 +6,20 @@
   .dropdown {
     width: 100%;
   }
+  .input-lower-case {
+    input {
+      text-transform: lowercase;
+    }
+  }
+
+  .input-none-case {
+    input {
+      text-transform: none;
+    }
+    select {
+      text-transform: none;
+    }
+  }
 }
 .submit {
   display: flex;

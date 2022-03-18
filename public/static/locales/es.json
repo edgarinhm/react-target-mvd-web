@@ -49,6 +49,7 @@
     },
     "form": {
       "radius": "especificar la longitud del área",
+      "radius-placeholder": "200 m",
       "title": "título objetivo",
       "title-placeholder": "elige un título para tu objetivo",
       "topic": "seleccione un tema",
@@ -59,6 +60,12 @@
   "home": {
     "page": {
       "title": "Objetivo"
+    }
+  },
+  "sidebar": {
+    "page": {
+      "title": "crea tu primer objetivo haciendo clic en cualquier parte del mapa.",
+      "subtitle": "¡psss!, estos son los objetivos más populares:"
     }
   }
 }

@@ -1,15 +1,33 @@
-import './empty-home-sidebar.scss';
 import TargetList from '../TargetList';
+import { useTranslation } from 'hooks';
+import { sidebarI18n } from 'constants/i18n-constant';
+import { capitalizeFirstLetter, getUserLocation } from 'utils';
+import './empty-home-sidebar.scss';
 import targets from 'data/targets.json';
+import { useAppDispatch } from 'hooks/useDispatch';
+import { useEffect } from 'react';
+import { setMapLocation } from 'state/actions/place-actions';
+import locationIcon from 'assets/layout/icons/location-icon.svg';
 
 const EmptyHomeSidebar = () => {
+  const t = useTranslation();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    getUserLocation()
+      .then(coords => {
+        const position = { lng: coords[0], lat: coords[1], icon: locationIcon };
+        dispatch(setMapLocation(position));
+      })
+      .catch(error => alert(error.message));
+  }, [dispatch]);
+
   return (
     <>
       <div className=" empty-sidebar empty-sidebar-h2">
-        Create your first target by clicking wherever on the map.
+        {capitalizeFirstLetter(t(sidebarI18n.PAGE_TITLE))}
       </div>
       <div className=" empty-sidebar empty-sidebar-h3">
-        Psss!, these are the most popular targets:
+        {capitalizeFirstLetter(t(sidebarI18n.PAGE_SUBTITLE))}
       </div>
       <TargetList targets={targets} />
     </>

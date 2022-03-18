@@ -1,13 +1,20 @@
-import { useMemo, useCallback, useRef, useEffect } from 'react';
-import { useLoadScript, GoogleMap } from '@react-google-maps/api';
-import { setUserLocation } from 'state/actions/place-actions';
-import { getUserLocation } from 'utils';
+import { useMemo, useCallback, useRef } from 'react';
+import { useLoadScript, GoogleMap, Marker } from '@react-google-maps/api';
+import { setMapLocation } from 'state/actions/place-actions';
+import { useAppDispatch } from 'hooks/useDispatch';
+import { useAppSelector } from 'hooks/useSelector';
 import mapMedia from 'assets/layout/media/map.png';
 import './map.scss';
-import { useAppDispatch } from 'hooks/useDispatch';
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
+type MapMouseEvent = google.maps.MapMouseEvent;
+export interface MapMarker {
+  location: LatLngLiteral;
+  id?: string;
+  name?: string;
+  icon?: string;
+}
 
 export const defaultCenter = {
   lat: 3.43722,
@@ -18,9 +25,18 @@ export const defaultOptions: MapOptions = {
   disableDefaultUI: true,
   zoomControl: true,
   clickableIcons: false,
+  zoom: 12,
 };
 
-const Map = () => {
+interface MapProps {
+  onMapClick?: () => void;
+  marker?: MapMarker;
+}
+
+const Map = ({ onMapClick }: MapProps) => {
+  const { lat, lng, icon } = useAppSelector(state => state.placeReducer);
+  const selectedMarker: MapMarker = { location: { lat, lng }, icon: icon ? icon : '' };
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
   });
@@ -35,15 +51,24 @@ const Map = () => {
     }
   };
 
+  const markerIcon = (url: string) => {
+    return {
+      url,
+      origin: new window.google.maps.Point(0, 0),
+      anchor: new window.google.maps.Point(15, 15),
+      scaledSize: new window.google.maps.Size(30, 30),
+    };
+  };
+
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    getUserLocation().then(([lng, lat]) => {
-      const location: LatLngLiteral = { lng, lat };
-      moveTo(location);
-      dispatch(setUserLocation(location));
-    });
-  }, [dispatch]);
+  const handleMapClick = (e: MapMouseEvent) => {
+    moveTo({ lat: e.latLng!.lat(), lng: e.latLng!.lng() });
+    dispatch(setMapLocation({ lat: e.latLng!.lat(), lng: e.latLng!.lng(), icon }));
+    if (onMapClick) {
+      onMapClick();
+    }
+  };
 
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
 
@@ -51,10 +76,14 @@ const Map = () => {
     <GoogleMap
       mapContainerClassName="map-container"
       options={options}
-      center={defaultCenter}
-      zoom={12}
       onLoad={onLoad}
-    />
+      onClick={handleMapClick}
+      center={defaultCenter}
+    >
+      {selectedMarker && (
+        <Marker position={selectedMarker.location} icon={markerIcon(selectedMarker.icon!)} />
+      )}
+    </GoogleMap>
   );
 };
 

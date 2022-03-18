@@ -1,6 +1,5 @@
 import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames/bind';
-
 import dropdownStyle from './dropdown.scss';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
@@ -55,6 +54,7 @@ const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
 interface DropDownOption {
   value: string;
   text: string;
+  icon?: string;
 }
 export interface DropdownProps {
   name: string;

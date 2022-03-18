@@ -49,6 +49,7 @@
     },
     "form": {
       "radius": "specify area lenght",
+      "radius-placeholder": "200 m",
       "title": "target title",
       "title-placeholder": "choose a title for your target",
       "topic": "select a topic",
@@ -59,6 +60,12 @@
   "home": {
     "page": {
       "title": "target"
+    }
+  },
+  "sidebar": {
+    "page": {
+      "title": "create your first target by clicking wherever on the map.",
+      "subtitle": "psss!, these are the most popular targets:"
     }
   }
 }

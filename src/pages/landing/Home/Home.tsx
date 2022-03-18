@@ -3,13 +3,20 @@ import { Maps } from 'components/Layout/Map';
 import Profile from 'components/Layout/Profile';
 import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
+import { useNavigate } from 'react-router';
 import HomeEmtpyState from './components/EmptyHomeSidebar';
 import { homeI18n } from 'constants/i18n-constant';
+import routesPaths from 'constants/routes-paths-constant';
 import { useTranslation } from 'hooks';
 import './home.scss';
 
 const Home = () => {
   const t = useTranslation();
+  const navigate = useNavigate();
+  const handleMapClick = () => {
+    navigate(routesPaths.target);
+  };
+
   return (
     <article className="two-column-layout-wrap" data-testid={testIds.HOME_PAGE}>
       <section className="left">
@@ -26,7 +33,7 @@ const Home = () => {
         </div>
       </section>
       <section className="right">
-        <Maps />
+        <Maps onMapClick={handleMapClick} />
       </section>
     </article>
   );
