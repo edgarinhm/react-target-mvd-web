@@ -27,6 +27,10 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
   });
   const t = useTranslation();
 
+  const handleChange = (selectedOption: any) => {
+    console.log(`- handleChange selected:`, selectedOption);
+  };
+
   return (
     <section className="section">
       <form
@@ -56,10 +60,11 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
         <div className="input-none-case">
           <Dropdown
             options={topicOptions}
-            defaultOption={capitalizeFirstLetter(t(targetFormI18n.FORM_TOPIC_DEFAULT))}
+            placeholder={capitalizeFirstLetter(t(targetFormI18n.FORM_TOPIC_DEFAULT))}
             label={t(targetFormI18n.FORM_TOPIC)}
             error={errors.topic?.message}
             {...register('topic')}
+            onChange={handleChange}
           />
         </div>
         <div className="submit">
