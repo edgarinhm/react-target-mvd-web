@@ -5,16 +5,17 @@ const yupLocale = {
     default: {
       key: validationI18n.INVALID,
     },
-    required: {
+    required: ({ path, type, value, originalValue, ref }: any) => ({
       key: validationI18n.REQUIRED,
-    },
-    notType: ({ type }: any) => ({
-      key: validationI18n.INVALIDTYPE,
-      values: { type },
+      values: { path, type, value, originalValue, ref },
     }),
-    oneOf: ({ ref }: any) => ({
+    notType: ({ path, type, value: { text }, originalValue, ref }: any) => ({
+      key: validationI18n.INVALIDTYPE,
+      values: { path, type, text, originalValue, ref },
+    }),
+    oneOf: ({ path, type, value, originalValue, ref }: any) => ({
       key: validationI18n.ONEOF,
-      values: { ref },
+      values: { path, type, value, originalValue, ref },
     }),
   },
   string: {

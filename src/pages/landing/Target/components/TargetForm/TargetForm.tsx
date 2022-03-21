@@ -1,4 +1,4 @@
-import { Button, Dropdown, InputText } from 'components/common';
+import { Button, InputText, Dropdown } from 'components/common';
 import { targetFormI18n } from 'constants/i18n-constant';
 import { useTranslation } from 'hooks';
 import { Target } from 'interfaces/target/target-interface';
@@ -21,15 +21,12 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
   const {
     handleSubmit,
     register,
+    control,
     formState: { errors },
   } = useForm<Target>({
     defaultValues: initialValues,
   });
   const t = useTranslation();
-
-  const handleChange = (selectedOption: any) => {
-    console.log(`- handleChange selected:`, selectedOption);
-  };
 
   return (
     <section className="section">
@@ -45,7 +42,9 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
             label={t(targetFormI18n.FORM_RADIUS)}
             placeholder={t(targetFormI18n.FORM_RADIUS_PLACEHOLDER)}
             error={errors.radius?.message}
-            {...register('radius')}
+            name="radius"
+            required={true}
+            {...register}
           />
         </div>
         <div className="input-none-case">
@@ -54,7 +53,8 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
             label={t(targetFormI18n.FORM_TITLE)}
             placeholder={capitalizeFirstLetter(t(targetFormI18n.FORM_TITLE_PLACEHOLDER))}
             error={errors.title?.message}
-            {...register('title')}
+            name="title"
+            {...register}
           />
         </div>
         <div className="input-none-case">
@@ -63,8 +63,8 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
             placeholder={capitalizeFirstLetter(t(targetFormI18n.FORM_TOPIC_DEFAULT))}
             label={t(targetFormI18n.FORM_TOPIC)}
             error={errors.topic?.message}
-            {...register('topic')}
-            onChange={handleChange}
+            name="topic"
+            control={control}
           />
         </div>
         <div className="submit">

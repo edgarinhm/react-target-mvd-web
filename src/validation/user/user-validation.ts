@@ -1,5 +1,5 @@
 import yupLocale from 'config/yup-locale';
-import { string, ref, setLocale } from 'yup';
+import { string, ref, setLocale, mixed } from 'yup';
 
 setLocale(yupLocale);
 
@@ -22,5 +22,9 @@ export const passwordConfirm = {
 };
 
 export const gender = {
-  gender: string().required(),
+  gender: mixed()
+    .transform((value: any) => {
+      return value && value !== null ? value : null;
+    })
+    .required(),
 };
