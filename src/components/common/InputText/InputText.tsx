@@ -17,6 +17,7 @@ export interface InputProps {
   type?: string;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
+  autocomplete?: string;
 }
 
 const InputText = forwardRef<HTMLInputElement, InputProps>(
@@ -33,6 +34,7 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
       type = 'text',
       onFocus,
       disabled = false,
+      autocomplete = 'off',
     },
     ref
   ) => {
@@ -53,6 +55,7 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
             required={required}
             disabled={disabled}
             ref={ref}
+            autoComplete={autocomplete}
           />
           <ErrorMessage error={error} />
         </div>
