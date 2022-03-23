@@ -4,7 +4,7 @@ import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
 import { ErrorApiResponse } from 'interfaces/api/error-api-response-interface';
 import ErrorApi from 'interfaces/api/error-api-interface';
-import { ACCESS_TOKEN, CLIENT, UID, UNAUTHORIZED } from 'constants/api-constants';
+import { ACCESS_TOKEN, CLIENT, UID } from 'constants/api-constants';
 import humps from 'humps';
 
 const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
