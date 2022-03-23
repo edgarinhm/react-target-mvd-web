@@ -4,8 +4,9 @@ import SignUp from 'pages/landing/Signup';
 import Home from 'pages/landing/Home';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
-import Target from 'pages/landing/Target';
+
 import routesPaths from 'constants/routes-paths-constant';
+import { Target } from 'pages/landing/Target';
 
 function App() {
   return (

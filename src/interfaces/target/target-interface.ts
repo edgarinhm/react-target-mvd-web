@@ -1,6 +1,8 @@
-export interface Target {
-  icon: string;
+export default interface Target {
   title: string;
-  topic?: string;
-  radius?: string;
+  radius: number;
+  lat: number;
+  lng: number;
+  topicId: number;
+  id?: number;
 }

@@ -1,14 +1,17 @@
 [
   {
     "icon": "football-icon.svg",
-    "title": "Football"
+    "title": "Football",
+    "topic_id": 1
   },
   {
     "icon": "travel-icon.svg",
-    "title": "Travel"
+    "title": "Travel",
+    "topic_id": 2
   },
   {
     "icon": "music-icon.svg",
-    "title": "Music"
+    "title": "Music",
+    "topic_id": 3
   }
 ]

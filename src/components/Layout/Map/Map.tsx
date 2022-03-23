@@ -1,8 +1,7 @@
 import { useMemo, useCallback, useRef } from 'react';
 import { useLoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 import { setMapLocation } from 'state/actions/place-actions';
-import { useAppDispatch } from 'hooks/useDispatch';
-import { useAppSelector } from 'hooks/useSelector';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import mapMedia from 'assets/layout/media/map.png';
 import './map.scss';
 

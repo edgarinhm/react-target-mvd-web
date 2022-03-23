@@ -9,6 +9,7 @@ const testIds = {
   SIGNUP_LINK: 'sign-up-form-link',
   LOGOUT_LINK: 'logout-form-link',
   PROFILE_LINK: 'profile-link',
+  FORM_ERROR: 'error-wrap',
 };
 
 export default testIds;

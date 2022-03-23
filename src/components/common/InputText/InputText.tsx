@@ -7,7 +7,7 @@ import { ValidationError } from 'interfaces/validation/validation-error-interfac
 
 export interface InputProps {
   name: string;
-  value?: string;
+  value?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   placeholder?: string;

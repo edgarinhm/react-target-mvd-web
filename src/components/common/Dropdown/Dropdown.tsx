@@ -10,7 +10,7 @@ import './dropdown.scss';
 
 export type isMultiType = true | false;
 export interface DropdownOption {
-  value: string;
+  value: string | number;
   text: string;
   icon?: string;
 }
@@ -30,7 +30,6 @@ interface DropdownProps {
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
   isSearchable?: boolean;
-  isDisabled?: boolean;
   isClearable?: boolean;
 }
 
@@ -46,10 +45,13 @@ const Dropdown = ({
   onFocus,
   error = '',
   isSearchable = false,
-  isDisabled = false,
+  disabled = false,
   isClearable = true,
   control,
 }: DropdownProps) => {
+  const hanldeOnChange = (selected: DropdownOption) => {
+    return selected;
+  };
   return (
     <div className={classNames('input-container')}>
       {label && <div className={classNames('input-label')}>{label}</div>}
@@ -69,6 +71,7 @@ const Dropdown = ({
             }}
             value={value}
             defaultValue={defaultOption}
+            //onChange={hanldeOnChange}
             onFocus={onFocus}
             onBlur={onBlur}
             formatOptionLabel={option =>
@@ -97,8 +100,8 @@ const Dropdown = ({
                 primary: 'black',
               },
             })}
+            isDisabled={disabled}
             isSearchable={isSearchable}
-            isDisabled={isDisabled}
             isClearable={isClearable}
           />
         )}
