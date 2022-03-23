@@ -48,7 +48,7 @@
       "subtitle": "create new target"
     },
     "form": {
-      "radius": "specify area lenght",
+      "radius": "specify area length",
       "radius-placeholder": "200 m",
       "title": "target title",
       "title-placeholder": "choose a title for your target",
