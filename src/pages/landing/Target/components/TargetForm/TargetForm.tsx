@@ -93,7 +93,11 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
         <input {...register('lat')} type="hidden" name="lat" />
         <input {...register('lng')} type="hidden" name="lng" />
         <div className="submit">
-          <Button type="submit" label={t(targetFormI18n.FORM_SUBMIT)} />
+          <Button
+            type="submit"
+            label={t(targetFormI18n.FORM_SUBMIT)}
+            disabled={errors ? true : false}
+          />
         </div>
       </form>
     </section>
