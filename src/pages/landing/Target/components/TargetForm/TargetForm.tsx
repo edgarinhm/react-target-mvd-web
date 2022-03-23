@@ -7,6 +7,8 @@ import './target-form.scss';
 import { capitalizeFirstLetter } from 'utils';
 import TargetFormData from 'interfaces/target/target-form-data-interface';
 import { useEffect } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import createValidation from 'validation/target/create-validation';
 
 export interface TargetFormProps {
   onSubmit: (values: TargetFormData) => void;
@@ -17,7 +19,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
 
   const initialValues: TargetFormData = {
     title: '',
-    topic: { id: 0, label: '', icon: '' },
+    topic: '',
     lat,
     lng,
     radius: 200,
@@ -31,6 +33,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
     setValue,
   } = useForm<TargetFormData>({
     defaultValues: initialValues,
+    resolver: yupResolver(createValidation),
   });
 
   const t = useTranslation();
@@ -45,6 +48,8 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
     setValue('lat', lat);
     setValue('lng', lng);
   }, [lat, lng, setValue]);
+
+  console.log('errors', errors);
 
   return (
     <section className="section">
@@ -80,9 +85,9 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
             options={topicOptions}
             placeholder={capitalizeFirstLetter(t(targetFormI18n.FORM_TOPIC_DEFAULT))}
             label={t(targetFormI18n.FORM_TOPIC)}
-            error={errors.topic?.id?.message}
-            name="topic"
+            error={errors.topic?.message}
             control={control}
+            name="topic"
           />
         </div>
         <input {...register('lat')} type="hidden" name="lat" />

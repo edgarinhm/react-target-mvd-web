@@ -14,14 +14,16 @@ import { setMapLocation } from 'state/actions/place-actions';
 import topics from 'data/topics.json';
 import { FormStatus } from 'components/common';
 import { setErrors } from 'state/actions/user-actions';
+import { Topic } from 'interfaces/target/topic-interface';
 
 const TargetPage = () => {
   const t = useTranslation();
   const dispatch = useAppDispatch();
   const handleSubmit = (formData: TargetFormData) => {
+    const topic: Topic = JSON.parse(formData.topic);
     const targetRequest: Target = {
       ...formData,
-      topicId: formData.topic.value!,
+      topicId: topic.value!,
     };
     TargetService.createTarget(targetRequest)
       .then(response => {

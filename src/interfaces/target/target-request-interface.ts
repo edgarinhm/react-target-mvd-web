@@ -4,6 +4,6 @@ export default interface TargetRequest {
     lat: number;
     lng: number;
     radius: number;
-    topicId: number;
+    topicId: number | string;
   };
 }
