@@ -29,7 +29,7 @@ export const defaultOptions: MapOptions = {
 };
 
 interface MapProps {
-  onMapClick?: () => void;
+  onMapClick: () => void;
   marker?: MapMarker;
 }
 
@@ -65,9 +65,7 @@ const Map = ({ onMapClick }: MapProps) => {
   const handleMapClick = (e: MapMouseEvent) => {
     moveTo({ lat: e.latLng!.lat(), lng: e.latLng!.lng() });
     dispatch(setMapLocation({ lat: e.latLng!.lat(), lng: e.latLng!.lng(), icon }));
-    if (onMapClick) {
-      onMapClick();
-    }
+    onMapClick();
   };
 
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;

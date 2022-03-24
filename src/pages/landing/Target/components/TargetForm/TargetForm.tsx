@@ -29,7 +29,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
   const t = useTranslation();
 
   return (
-    <section className="section">
+    <>
       <form
         data-testid="form"
         className="form form--text-left"
@@ -71,7 +71,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
           <Button type="submit" label={t(targetFormI18n.FORM_SUBMIT)} />
         </div>
       </form>
-    </section>
+    </>
   );
 };
 
