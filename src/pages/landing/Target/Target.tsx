@@ -5,16 +5,22 @@ import targetIcon from 'assets/layout/media/target.svg';
 import TargetForm from './components';
 import BackNavigation from 'components/Layout/BackNavigation';
 import './target.scss';
+import routesPaths from 'constants/routes-paths-constant';
+import { useHome } from '../Home/useHome';
 
 const Target = () => {
   const t = useTranslation();
+  const { handleMapClick } = useHome();
   const handleSubmit = () => {};
+  const handleBackMap = () => {
+    handleMapClick(2);
+  };
 
   return (
     <>
       <div className="header header--back" data-testid={testIds.TARGET_PAGE}>
         <div className="header__item">
-          <BackNavigation />
+          <BackNavigation to={routesPaths.index} onClick={handleBackMap} />
         </div>
         <h1 className="header__title letter-spacing">{t(targetI18n.PAGE_TITLE)}</h1>
       </div>

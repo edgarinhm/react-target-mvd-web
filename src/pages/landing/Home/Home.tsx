@@ -1,25 +1,14 @@
-import { useState } from 'react';
-import { Maps } from 'components/Layout/Map';
-import { HappySmile } from 'components/Layout/HappySmile';
 import HomeEmptyState from './components/EmptyHomeSidebar';
 import Target from 'pages/landing/Target';
 import { Chats } from 'components/Layout/Chats';
+import { Maps } from 'components/Layout/Map';
+import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
+import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
 
 const Home = () => {
-  enum HomeContent {
-    Empty,
-    NewTarget,
-    ViewChat,
-  }
-  const [activeContent, setActiveContent] = useState(HomeContent.Empty);
-
-  interface HomeContentElement {
-    content: JSX.Element;
-  }
-
-  type homeContentDictionary = Record<HomeContent, HomeContentElement>;
+  const { activeContent, handleMapClick } = useHome();
 
   const homeContent: homeContentDictionary = {
     [HomeContent.Empty]: {
@@ -32,12 +21,7 @@ const Home = () => {
       content: <Chats />,
     },
   };
-
   const activeHomeContent = homeContent[activeContent];
-
-  const handleMapClick = () => {
-    setActiveContent(HomeContent.NewTarget);
-  };
 
   return (
     <article className="two-column-layout-wrap" data-testid={testIds.HOME_PAGE}>
@@ -48,7 +32,7 @@ const Home = () => {
         </div>
       </section>
       <section className="right">
-        <Maps onMapClick={handleMapClick} />
+        <Maps onMapClick={() => handleMapClick(HomeContent.NewTarget)} />
       </section>
     </article>
   );
