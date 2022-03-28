@@ -1,9 +1,8 @@
 import { useCallback, useMemo, useRef } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
-import { useAppSelector } from 'hooks/useSelector';
+import useAppSelector, { useAppDispatch } from 'hooks';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import { defaultCenter, defaultOptions } from 'config/google-maps';
-import { useAppDispatch } from 'hooks/useDispatch';
 import { setMapLocation } from 'state/actions/place-actions';
 
 export const useMap = () => {

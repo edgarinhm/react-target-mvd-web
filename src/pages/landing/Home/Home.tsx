@@ -1,5 +1,5 @@
 import HomeEmptyState from './components/EmptyHomeSidebar';
-import Target from 'pages/landing/Target';
+import Target from 'pages/landing/Home/components/Target';
 import { Chats } from 'components/Layout/Chats';
 import { Maps } from 'components/Layout/Map';
 import { HappySmile } from 'components/Layout/HappySmile';

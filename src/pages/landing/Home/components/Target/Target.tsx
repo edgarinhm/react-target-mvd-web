@@ -6,14 +6,14 @@ import TargetForm from './components';
 import BackNavigation from 'components/Layout/BackNavigation';
 import './target.scss';
 import routesPaths from 'constants/routes-paths-constant';
-import { useHome } from '../Home/useHome';
+import { HomeContent, useHome } from 'pages/landing/Home/useHome';
 
 const Target = () => {
   const t = useTranslation();
   const { handleMapClick } = useHome();
   const handleSubmit = () => {};
   const handleBackMap = () => {
-    handleMapClick(2);
+    handleMapClick(HomeContent.Empty);
   };
 
   return (

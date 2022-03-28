@@ -5,7 +5,7 @@ import { capitalizeFirstLetter, getUserLocation } from 'utils';
 import './empty-home-sidebar.scss';
 import targets from 'data/targets.json';
 import { useAppDispatch } from 'hooks/useDispatch';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { setMapLocation } from 'state/actions/place-actions';
 import locationIcon from 'assets/layout/icons/location-icon.svg';
 import { MenuItem } from 'components/common';
@@ -14,7 +14,7 @@ import Profile from 'components/Layout/Profile';
 const EmptyHomeSidebar = () => {
   const t = useTranslation();
   const dispatch = useAppDispatch();
-  useEffect(() => {
+  useLayoutEffect(() => {
     getUserLocation()
       .then(coords => {
         const position = { lng: coords[0], lat: coords[1], icon: locationIcon };

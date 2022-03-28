@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import useAppSelector, { useAppDispatch } from 'hooks';
+
+import { setHomeContent } from 'state/actions/home-actions';
 
 export enum HomeContent {
   Empty,
@@ -12,15 +14,15 @@ interface HomeContentElement {
 export type homeContentDictionary = Record<HomeContent, HomeContentElement>;
 
 export const useHome = () => {
-  const [activeContent, setActiveContent] = useState(HomeContent.Empty);
+  const { activeContent } = useAppSelector(state => state.homeReducer);
+  const dispatch = useAppDispatch();
 
-  const handleMapClick = (content: number) => {
-    setActiveContent(content);
+  const handleMapClick = (content: HomeContent) => {
+    dispatch(setHomeContent(content));
   };
 
   return {
     activeContent,
-    setActiveContent,
     handleMapClick,
   };
 };
