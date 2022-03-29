@@ -3,11 +3,13 @@ import Geolocation from 'interfaces/geolocation/geolocation-interface';
 import { setMapLocation } from 'state/actions/place-actions';
 
 export interface PlaceState {
+  id: string;
   lng: number;
   lat: number;
   icon?: string;
 }
 const initialState: PlaceState = {
+  id: '',
   lng: 0,
   lat: 0,
   icon: '',

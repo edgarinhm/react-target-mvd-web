@@ -47,7 +47,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
   }, [lat, lng, setValue]);
 
   return (
-    <section className="section">
+    <>
       <form
         data-testid="form"
         className="form form--text-left"
@@ -91,7 +91,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
           <Button type="submit" label={t(targetFormI18n.FORM_SUBMIT)} />
         </div>
       </form>
-    </section>
+    </>
   );
 };
 
