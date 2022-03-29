@@ -1,4 +1,4 @@
-import useAppSelector, { useAppDispatch } from 'hooks';
+import { useAppSelector, useAppDispatch } from 'hooks';
 
 import { setHomeContent } from 'state/actions/home-actions';
 

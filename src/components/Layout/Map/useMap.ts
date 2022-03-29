@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
-import useAppSelector, { useAppDispatch } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import { defaultCenter, defaultOptions } from 'config/google-maps';
 import { setMapLocation } from 'state/actions/place-actions';
