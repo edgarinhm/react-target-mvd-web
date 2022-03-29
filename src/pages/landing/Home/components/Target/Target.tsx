@@ -12,6 +12,7 @@ import TargetService from 'services/target-service';
 import topics from 'data/topics.json';
 import { setMapLocation } from 'state/actions/place-actions';
 import { setErrors } from 'state/actions/user-actions';
+import { FormStatus } from 'components/common/FormStatus';
 
 const Target = () => {
   const t = useTranslation();
@@ -47,6 +48,7 @@ const Target = () => {
       <div className="target__content">
         <img src={targetIcon} alt="target icon" />
         <h3 className="letter-spacing">{t(targetI18n.PAGE_SUBTITLE)}</h3>
+        <FormStatus />
       </div>
       <TargetForm onSubmit={handleSubmit} />
     </>
