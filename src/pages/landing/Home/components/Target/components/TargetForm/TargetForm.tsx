@@ -52,7 +52,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
   console.log('errors', errors);
 
   return (
-    <section className="section">
+    <>
       <form
         data-testid="form"
         className="form form--text-left"
@@ -100,7 +100,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
           />
         </div>
       </form>
-    </section>
+    </>
   );
 };
 

@@ -1,12 +1,13 @@
 import { FocusEventHandler } from 'react';
 import { Controller, FieldValues, UseFormRegister, Control } from 'react-hook-form';
 import Select from 'react-select';
+import classNames from 'classnames';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
 import { validateLocalSrc } from 'utils';
 import { MEDIA_ICONS } from 'constants/assets-constants';
-import classNames from 'classnames';
 import './dropdown.scss';
+import themeConfig from 'config/react-select';
 
 export type isMultiType = true | false;
 export interface DropdownOption {
@@ -90,17 +91,7 @@ const Dropdown = ({
                 <span>{option.text}</span>
               )
             }
-            theme={theme => ({
-              ...theme,
-              borderRadius: 0,
-              colors: {
-                ...theme.colors,
-                text: 'orangered',
-                primary25: '#F4F4F4',
-                primary: 'black',
-              },
-            })}
-            isDisabled={disabled}
+            theme={themeConfig}
             isSearchable={isSearchable}
             isClearable={isClearable}
           />
