@@ -1,5 +1,5 @@
 import targetService from 'services/target-service';
-import { UNAUTHORIZED, NOTFOUND } from 'constants/api-constants';
+import { UNAUTHORIZED } from 'constants/api-constants';
 import Target from 'interfaces/target/target-interface';
 import {} from '../../constants/api-constants';
 
