@@ -1,55 +1,16 @@
 import { Button, InputText, Dropdown } from 'components/common';
 import { targetFormI18n } from 'constants/i18n-constant';
-import { useAppSelector, useTranslation } from 'hooks';
-import { useForm } from 'react-hook-form';
-import topics from 'data/topics.json';
-import './target-form.scss';
 import { capitalizeFirstLetter } from 'utils';
 import TargetFormData from 'interfaces/target/target-form-data-interface';
-import { useEffect } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import createValidation from 'validation/target/create-validation';
+import { useTargetForm } from './useTargetForm';
+import './target-form.scss';
 
 export interface TargetFormProps {
   onSubmit: (values: TargetFormData) => void;
 }
 
 const TargetForm = ({ onSubmit }: TargetFormProps) => {
-  const { lat, lng } = useAppSelector(state => state.placeReducer);
-
-  const initialValues: TargetFormData = {
-    title: '',
-    topic: '',
-    lat,
-    lng,
-    radius: 200,
-  };
-
-  const {
-    handleSubmit,
-    register,
-    control,
-    formState: { errors },
-    setValue,
-  } = useForm<TargetFormData>({
-    defaultValues: initialValues,
-    resolver: yupResolver(createValidation),
-  });
-
-  const t = useTranslation();
-
-  const topicOptions = topics.map(topic => ({
-    value: topic.id,
-    text: topic.label,
-    icon: topic.icon,
-  }));
-
-  useEffect(() => {
-    setValue('lat', lat);
-    setValue('lng', lng);
-  }, [lat, lng, setValue]);
-
-  console.log('errors', errors);
+  const { handleSubmit, register, control, errors, t, topicOptions, disabled } = useTargetForm();
 
   return (
     <>
@@ -93,11 +54,7 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
         <input {...register('lat')} type="hidden" name="lat" />
         <input {...register('lng')} type="hidden" name="lng" />
         <div className="submit">
-          <Button
-            type="submit"
-            label={t(targetFormI18n.FORM_SUBMIT)}
-            disabled={errors ? true : false}
-          />
+          <Button type="submit" label={t(targetFormI18n.FORM_SUBMIT)} disabled={disabled()} />
         </div>
       </form>
     </>

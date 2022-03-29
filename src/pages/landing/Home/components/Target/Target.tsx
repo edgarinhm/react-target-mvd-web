@@ -1,17 +1,19 @@
-import { targetI18n } from 'constants/i18n-constant';
-import testIds from 'constants/test-ids-constant';
-import { useTranslation } from 'hooks';
-import targetIcon from 'assets/layout/media/target.svg';
 import TargetForm from './components';
 import BackNavigation from 'components/Layout/BackNavigation';
-import './target.scss';
-import routesPaths from 'constants/routes-paths-constant';
+import FormStatus from 'components/common/FormStatus/FormStatus';
+import { useTranslation, useDispatch } from 'hooks';
 import { HomeContent, useHome } from 'pages/landing/Home/useHome';
+import { targetI18n } from 'constants/i18n-constant';
+import testIds from 'constants/test-ids-constant';
+import targetIcon from 'assets/layout/media/target.svg';
+import routesPaths from 'constants/routes-paths-constant';
+import { createTarget } from 'state/actions/target-actions';
+import './target.scss';
 
 const Target = () => {
   const t = useTranslation();
   const { handleMapClick } = useHome();
-  const handleSubmit = () => {};
+  const handleSubmit = useDispatch(createTarget);
   const handleBackMap = () => {
     handleMapClick(HomeContent.Empty);
   };
@@ -27,6 +29,7 @@ const Target = () => {
       <div className="target__content">
         <img src={targetIcon} alt="target icon" />
         <h3 className="letter-spacing">{t(targetI18n.PAGE_SUBTITLE)}</h3>
+        <FormStatus />
       </div>
       <TargetForm onSubmit={handleSubmit} />
     </>

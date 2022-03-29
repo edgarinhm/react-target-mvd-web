@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
-
+import { AsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from 'state/reducers/root-reducer';
-import { GenericAsyncThunk } from 'state/reducers/features/status-reducer';
+import { StatusResponse } from 'state/reducers/features/status-reducer';
 
-const useStatus = (action: GenericAsyncThunk) =>
+const useStatus = (action: AsyncThunk<any, any, any>) =>
   useSelector(({ statusReducer }: RootState) => {
-    return {};
+    const { status, error, payload }: StatusResponse = statusReducer[action?.typePrefix] || {};
+    return { status, error, payload };
   });
 
 export default useStatus;
