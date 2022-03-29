@@ -1,0 +1,17 @@
+[
+  {
+    "value": "1",
+    "text": "Football",
+    "icon": "football-icon.svg"
+  },
+  {
+    "value": "2",
+    "text": "Travel",
+    "icon": "travel-icon.svg"
+  },
+  {
+    "value": "3",
+    "text": "Music",
+    "icon": "music-icon.svg"
+  }
+]

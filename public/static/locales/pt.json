@@ -41,5 +41,31 @@
       "submit": "inscrever-se",
       "login": "entrar"
     }
+  },
+  "target": {
+    "page": {
+      "title": "criar destino",
+      "subtitle": "criar novo alvo"
+    },
+    "form": {
+      "radius": "especifique o comprimento da área",
+      "radius-placeholder": "200 m",
+      "title": "título de destino",
+      "title-placeholder": "escolha um título para o seu destino",
+      "topic": "selecione um tópico",
+      "topic-default": "Sobre o que você quer falar?",
+      "submit": "salvar destino"
+    }
+  },
+  "home": {
+    "page": {
+      "title": "destino"
+    }
+  },
+  "sidebar": {
+    "page": {
+      "title": "crie seu primeiro alvo clicando em qualquer lugar no mapa.",
+      "subtitle": "psss!, estes são os alvos mais populares:"
+    }
   }
 }

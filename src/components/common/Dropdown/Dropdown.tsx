@@ -1,73 +1,103 @@
-import { ChangeEvent, forwardRef } from 'react';
-import classNames from 'classnames/bind';
-
-import dropdownStyle from './dropdown.scss';
+import { FocusEventHandler } from 'react';
+import { Controller, FieldValues, UseFormRegister, Control } from 'react-hook-form';
+import Select from 'react-select';
+import classNames from 'classnames';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
+import { validateLocalSrc } from 'utils';
+import { MEDIA_ICONS } from 'constants/assets-constants';
+import './dropdown.scss';
+import themeConfig from 'config/react-select';
 
-const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
-  (
-    {
-      name,
-      value,
-      options,
-      defaultOption,
-      onChange,
-      label,
-      placeholder,
-      className,
-      required = false,
-      error,
-      onFocus,
-    },
-    ref
-  ) => {
-    const style = classNames.bind(dropdownStyle);
-
-    return (
-      <div className={style('input-container', className)}>
-        {label && <div className={style('input-label')}>{label}</div>}
-        <div className="dropdown">
-          <select
-            name={name}
-            value={value}
-            onChange={onChange}
-            onFocus={onFocus}
-            placeholder={placeholder}
-            className={style('select')}
-            required={required}
-            ref={ref}
-          >
-            <option value="">{defaultOption}</option>
-            {options?.map(option => (
-              <option value={option.value} key={option.value}>
-                {option.text}
-              </option>
-            ))}
-          </select>
-        </div>
-        <ErrorMessage error={error} />
-      </div>
-    );
-  }
-);
-
-interface DropDownOption {
+export type isMultiType = true | false;
+export interface DropdownOption {
   value: string;
   text: string;
+  icon?: string;
 }
-export interface DropdownProps {
-  name: string;
-  value?: string;
-  options?: DropDownOption[];
-  defaultOption?: string;
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
-  label?: string;
-  placeholder?: string;
+
+interface DropdownProps {
   className?: string;
-  required?: boolean;
+  disabled?: boolean;
+  label?: string;
+  name?: string;
+  placeholder?: string;
+  options: DropdownOption[];
+  value?: DropdownOption;
+  defaultOption?: DropdownOption;
   error?: string | ValidationError;
-  onFocus?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  register?: UseFormRegister<FieldValues>;
+  control: Control<any>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
+  isSearchable?: boolean;
+  isDisabled?: boolean;
+  isClearable?: boolean;
 }
+
+const Dropdown = ({
+  className = '',
+  name = '',
+  placeholder = '',
+  label = '',
+  value,
+  options,
+  defaultOption,
+  onBlur,
+  onFocus,
+  error = '',
+  isSearchable = false,
+  isDisabled = false,
+  isClearable = true,
+  control,
+}: DropdownProps) => {
+  return (
+    <div className={classNames('input-container')}>
+      {label && <div className={classNames('input-label')}>{label}</div>}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { ref, ...field } }) => (
+          <Select
+            ref={ref}
+            {...field}
+            className={classNames('dropdown', className)}
+            options={options}
+            placeholder={placeholder}
+            components={{
+              IndicatorSeparator: () => null,
+              DropdownIndicator: () => null,
+            }}
+            value={value}
+            defaultValue={defaultOption}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            formatOptionLabel={option =>
+              option.icon ? (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src={validateLocalSrc(
+                      option.icon,
+                      process.env.PUBLIC_URL + MEDIA_ICONS + option.icon
+                    )}
+                    alt={`icon ${option.text}`}
+                  />
+                  <span style={{ marginLeft: 5 }}>{option.text}</span>
+                </div>
+              ) : (
+                <span>{option.text}</span>
+              )
+            }
+            theme={themeConfig}
+            isSearchable={isSearchable}
+            isDisabled={isDisabled}
+            isClearable={isClearable}
+          />
+        )}
+      />
+      <ErrorMessage error={error} />
+    </div>
+  );
+};
 
 export default Dropdown;

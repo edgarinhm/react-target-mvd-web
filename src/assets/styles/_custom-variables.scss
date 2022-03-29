@@ -12,3 +12,8 @@ $fontSizeMedium: 0.875rem;
 $fontSizeH1: 1.25rem;
 $fontSizeH2: 1.125rem;
 $fontSizeLink: 0.6875rem;
+$hoverDropdown: #f4f4f4;
+
+:export {
+  hoverDropdown: $hoverDropdown;
+}

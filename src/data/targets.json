@@ -1,14 +1,14 @@
 [
   {
     "icon": "football-icon.svg",
-    "description": "Football"
+    "title": "Football"
   },
   {
     "icon": "travel-icon.svg",
-    "description": "Travel"
+    "title": "Travel"
   },
   {
     "icon": "music-icon.svg",
-    "description": "Music"
+    "title": "Music"
   }
 ]

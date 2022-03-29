@@ -4,7 +4,7 @@ import './target-list.scss';
 
 const TargetList = ({ targets }: TargetListProps) => {
   const targetItems = targets.map((target, index) => (
-    <TargetListItem key={index} icon={target.icon} description={target.description} />
+    <TargetListItem key={index} icon={target.icon} title={target.title} />
   ));
 
   return <div className="list">{targetItems}</div>;

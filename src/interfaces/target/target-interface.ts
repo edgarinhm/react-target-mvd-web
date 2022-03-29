@@ -1,4 +1,6 @@
 export interface Target {
   icon: string;
-  description: string;
+  title: string;
+  topic?: string;
+  radius?: string;
 }

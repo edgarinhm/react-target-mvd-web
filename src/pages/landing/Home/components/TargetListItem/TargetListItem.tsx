@@ -3,12 +3,12 @@ import { Target } from 'interfaces/target/target-interface';
 import { validateLocalSrc } from 'utils';
 import './target-list-item.scss';
 
-const TargetListItem = ({ icon, description }: Target) => {
+const TargetListItem = ({ icon, title }: Target) => {
   const image = validateLocalSrc(icon, process.env.PUBLIC_URL + MEDIA_ICONS + icon);
   return (
     <li className="list-details">
-      <img src={image} alt={description + ' icon'} />
-      <span>{description}</span>
+      <img src={image} alt={title + ' icon'} />
+      <span>{title}</span>
     </li>
   );
 };

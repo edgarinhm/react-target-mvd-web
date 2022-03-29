@@ -3,6 +3,7 @@ export const loginI18n = {
   PAGE_SUB_TITLE: 'login.page.subtitle',
   PAGE_TEXT: 'login.page.text',
 };
+
 export const loginFormI18n = {
   FORM_EMAIL: 'login.form.email',
   FORM_PASSWORD: 'login.form.password',
@@ -39,4 +40,28 @@ export const signupFormI18n = {
   FORM_GENDER_DEFAULT: 'signup.form.gender-default',
   FORM_SUBMIT: 'signup.form.submit',
   FORM_LOGIN: 'signup.form.login',
+};
+
+export const targetI18n = {
+  PAGE_TITLE: 'target.page.title',
+  PAGE_SUBTITLE: 'target.page.subtitle',
+};
+
+export const targetFormI18n = {
+  FORM_RADIUS: 'target.form.radius',
+  FORM_RADIUS_PLACEHOLDER: 'target.form.radius-placeholder',
+  FORM_TITLE: 'target.form.title',
+  FORM_TITLE_PLACEHOLDER: 'target.form.title-placeholder',
+  FORM_TOPIC: 'target.form.topic',
+  FORM_TOPIC_DEFAULT: 'target.form.topic-default',
+  FORM_SUBMIT: 'target.form.submit',
+};
+
+export const homeI18n = {
+  PAGE_TITLE: 'home.page.title',
+};
+
+export const sidebarI18n = {
+  PAGE_TITLE: 'sidebar.page.title',
+  PAGE_SUBTITLE: 'sidebar.page.subtitle',
 };

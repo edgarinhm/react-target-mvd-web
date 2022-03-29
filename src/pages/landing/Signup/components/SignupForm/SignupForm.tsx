@@ -24,6 +24,7 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
   const {
     handleSubmit,
     register,
+    control,
     formState: { errors },
   } = useForm<User>({
     defaultValues: initialValues,
@@ -65,10 +66,11 @@ const SignupForm = ({ onSubmit }: SignupFormProps) => {
         />
         <Dropdown
           options={GENDER_OPTIONS}
-          defaultOption={t(signupFormI18n.FORM_GENDER_DEFAULT)}
+          placeholder={t(signupFormI18n.FORM_GENDER_DEFAULT)}
           label={t(signupFormI18n.FORM_GENDER)}
           error={errors.gender?.message}
-          {...register('gender')}
+          control={control}
+          name="gender"
         />
         <Button type="submit" label={t(signupFormI18n.FORM_SUBMIT)} />
         <div className="line"></div>

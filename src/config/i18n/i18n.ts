@@ -8,7 +8,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'es',
+    fallbackLng: 'en',
     debug: true,
     interpolation: {
       escapeValue: false,
@@ -17,7 +17,13 @@ i18n
       loadPath: 'static/locales/{{lng}}.json',
     },
     load: 'languageOnly',
-    // ns: ['home'], // common default dir mandatory
   });
+
+i18n.services.formatter!.add('lowercase', value => {
+  return value.toLowerCase();
+});
+i18n.services.formatter!.add('underscore', value => {
+  return value.replace(/\s+/g, '_');
+});
 
 export default i18n;

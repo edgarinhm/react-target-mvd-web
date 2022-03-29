@@ -85,11 +85,8 @@
 
 /* menu icon */
 .menu-item {
-  position: absolute;
   width: 1.27rem;
   height: 0.84rem;
-  top: 1.38rem;
-  left: 22px;
 
   /* Line */
   .path {
@@ -101,7 +98,9 @@
 .form {
   background-color: $white;
   box-shadow: 0rem 0.06rem 0.06rem -0.06rem $black;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h2 {
     color: $primaryDarkColor;
   }
@@ -137,7 +136,6 @@
 
 .dropdown {
   width: 100%;
-  padding: 0.5em;
   font-size: $fontSize;
   cursor: pointer;
   line-height: 1.1;
