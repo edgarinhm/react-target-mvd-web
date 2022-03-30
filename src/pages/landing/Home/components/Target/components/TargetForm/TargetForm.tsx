@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Button, InputText, Dropdown } from 'components/common';
 import { targetFormI18n } from 'constants/i18n-constant';
 import { useAppSelector, useTranslation } from 'hooks';
@@ -6,7 +7,6 @@ import topics from 'data/topics.json';
 import './target-form.scss';
 import { capitalizeFirstLetter } from 'utils';
 import TargetFormData from 'interfaces/target/target-form-data-interface';
-import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import createValidation from 'validation/target/create-validation';
 

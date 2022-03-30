@@ -50,9 +50,6 @@ const Dropdown = ({
   isClearable = true,
   control,
 }: DropdownProps) => {
-  const hanldeOnChange = (selected: DropdownOption) => {
-    return selected;
-  };
   return (
     <div className={classNames('input-container')}>
       {label && <div className={classNames('input-label')}>{label}</div>}
@@ -72,7 +69,6 @@ const Dropdown = ({
             }}
             value={value}
             defaultValue={defaultOption}
-            //onChange={hanldeOnChange}
             onFocus={onFocus}
             onBlur={onBlur}
             formatOptionLabel={option =>

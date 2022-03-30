@@ -5,7 +5,7 @@ import './target-list.scss';
 const TargetList = ({ targets }: TargetListProps) => {
   const targetItems = targets.map((target, index) => (
     <TargetListItem
-      key={index}
+      key={target.title + index}
       title={target.title}
       topicId={target.topicId}
       lat={target.lat}
