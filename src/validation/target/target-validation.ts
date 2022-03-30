@@ -12,8 +12,8 @@ export const title = {
   title: string().required(),
 };
 
-export const topic = {
-  topic: mixed()
+export const topicId = {
+  topicId: mixed()
     .transform((topic: Topic) => {
       return topic && topic.value !== '' ? topic.value : null;
     })

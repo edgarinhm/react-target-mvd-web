@@ -2,22 +2,22 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAppSelector, useStatus, useTranslation } from 'hooks';
-import TargetFormData from 'interfaces/target/target-form-data-interface';
+import Target from 'interfaces/target/target-interface';
 import createValidation from 'validation/target/create-validation';
-import topics from 'data/topics.json';
 import { createTarget } from 'state/actions/target-actions';
-import { PENDING } from 'constants/action-status-constant';
 import { setErrors } from 'state/actions/user-actions';
 import { useAppDispatch } from 'hooks/useDispatch';
+import { PENDING } from 'constants/action-status-constant';
+import topics from 'data/topics.json';
 
 export const useTargetForm = () => {
   const { lat, lng } = useAppSelector(state => state.placeReducer);
   const { status, error } = useStatus(createTarget);
   const dispatch = useAppDispatch();
 
-  const initialValues: TargetFormData = {
+  const initialValues: Target = {
     title: '',
-    topic: '',
+    topicId: '',
     lat,
     lng,
     radius: 200,
@@ -29,7 +29,7 @@ export const useTargetForm = () => {
     control,
     formState: { errors, isValid },
     setValue,
-  } = useForm<TargetFormData>({
+  } = useForm<Target>({
     mode: 'onChange',
     defaultValues: initialValues,
     resolver: yupResolver(createValidation),
@@ -46,6 +46,8 @@ export const useTargetForm = () => {
   const disabled = () => {
     return isValid ? status === PENDING : !isValid;
   };
+
+  console.log('errors', errors);
 
   useEffect(() => {
     setValue('lat', lat);

@@ -1,12 +1,12 @@
 import { Button, InputText, Dropdown } from 'components/common';
 import { targetFormI18n } from 'constants/i18n-constant';
 import { capitalizeFirstLetter } from 'utils';
-import TargetFormData from 'interfaces/target/target-form-data-interface';
+import Target from 'interfaces/target/target-interface';
 import { useTargetForm } from './useTargetForm';
 import './target-form.scss';
 
 export interface TargetFormProps {
-  onSubmit: (values: TargetFormData) => void;
+  onSubmit: (values: Target) => void;
 }
 
 const TargetForm = ({ onSubmit }: TargetFormProps) => {
@@ -46,9 +46,9 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
             options={topicOptions}
             placeholder={capitalizeFirstLetter(t(targetFormI18n.FORM_TOPIC_DEFAULT))}
             label={t(targetFormI18n.FORM_TOPIC)}
-            error={errors.topic?.message}
+            error={errors.topicId?.message}
             control={control}
-            name="topic"
+            name="topicId"
           />
         </div>
         <input {...register('lat')} type="hidden" name="lat" />
