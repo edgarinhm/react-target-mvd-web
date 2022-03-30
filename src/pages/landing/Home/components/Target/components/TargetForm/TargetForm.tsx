@@ -49,8 +49,6 @@ const TargetForm = ({ onSubmit }: TargetFormProps) => {
     setValue('lng', lng);
   }, [lat, lng, setValue]);
 
-  console.log('errors', errors);
-
   return (
     <>
       <form
