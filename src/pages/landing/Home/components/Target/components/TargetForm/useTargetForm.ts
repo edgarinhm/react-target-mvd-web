@@ -47,8 +47,6 @@ export const useTargetForm = () => {
     return isValid ? status === PENDING : !isValid;
   };
 
-  console.log('errors', errors);
-
   useEffect(() => {
     setValue('lat', lat);
     setValue('lng', lng);
