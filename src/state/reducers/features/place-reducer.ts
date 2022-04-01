@@ -1,18 +1,20 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 import Geolocation from 'interfaces/geolocation/geolocation-interface';
-import { setMapLocation } from 'state/actions/place-actions';
+import { setMapLocation, setCurrentLocation } from 'state/actions/place-actions';
 
 export interface PlaceState {
-  id: string;
+  id: number;
   lng: number;
   lat: number;
-  icon?: string;
+  icon: string;
+  currentLocation: { id: number; lng: number; lat: number; icon: string };
 }
 const initialState: PlaceState = {
-  id: '',
+  id: 0,
   lng: 0,
   lat: 0,
   icon: '',
+  currentLocation: { id: 0, lng: 0, lat: 0, icon: '' },
 };
 
 const handleMapLocation = (state: PlaceState, { payload }: PayloadAction<Geolocation>) => {
@@ -21,6 +23,13 @@ const handleMapLocation = (state: PlaceState, { payload }: PayloadAction<Geoloca
   state.icon = payload.icon;
 };
 
+const handleCurrentLocation = (state: PlaceState, { payload }: PayloadAction<Geolocation>) => {
+  state.currentLocation.lng = payload.lng;
+  state.currentLocation.lat = payload.lat;
+  state.currentLocation.icon = payload.icon;
+};
+
 export default createReducer(initialState, {
   [setMapLocation.type]: handleMapLocation,
+  [setCurrentLocation.type]: handleCurrentLocation,
 });

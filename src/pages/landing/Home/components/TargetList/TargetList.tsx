@@ -11,6 +11,7 @@ const TargetList = ({ targets }: TargetListProps) => {
       lat={target.lat}
       lng={target.lng}
       radius={target.radius}
+      id={target.id}
     />
   ));
 

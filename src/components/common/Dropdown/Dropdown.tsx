@@ -73,7 +73,7 @@ const Dropdown = ({
             onBlur={onBlur}
             formatOptionLabel={option =>
               option.icon ? (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className={classNames('dropdown__option')}>
                   <img
                     src={validateLocalSrc(
                       option.icon,

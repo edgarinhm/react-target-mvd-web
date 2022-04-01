@@ -16,6 +16,7 @@ export const useTargetForm = () => {
   const dispatch = useAppDispatch();
 
   const initialValues: Target = {
+    id: 0,
     title: '',
     topicId: '',
     lat,
@@ -47,11 +48,13 @@ export const useTargetForm = () => {
     return isValid ? status === PENDING : !isValid;
   };
 
+  const errorMessage = error ? `record not created` : error;
+
   useEffect(() => {
     setValue('lat', lat);
     setValue('lng', lng);
-    dispatch(setErrors(error ? `record not created` : error));
-  }, [lat, lng, setValue, dispatch, error]);
+    dispatch(setErrors(errorMessage));
+  }, [lat, lng, setValue, dispatch, errorMessage]);
 
   return {
     handleSubmit,

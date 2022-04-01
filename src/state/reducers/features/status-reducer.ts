@@ -35,8 +35,8 @@ export default createReducer(initialState, (builder: ActionReducerMapBuilder<any
     )
     .addMatcher(
       (action): action is FulfilledAction => action.type.endsWith(`/${FULFILLED}`),
-      (state, { type }) => {
-        state[getActionKey(type)] = { status: FULFILLED };
+      (state, { type, payload }) => {
+        state[getActionKey(type)] = { status: FULFILLED, payload: payload };
       }
     )
     .addMatcher(

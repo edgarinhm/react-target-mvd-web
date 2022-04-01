@@ -8,7 +8,7 @@ import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
 
 const Home = () => {
-  const { activeContent, handleMapClick } = useHome();
+  const { activeContent, handleMapClick, markerTargets, currentLocation } = useHome();
 
   const homeContent: homeContentDictionary = {
     [HomeContent.Empty]: {
@@ -32,7 +32,11 @@ const Home = () => {
         </div>
       </section>
       <section className="right">
-        <Maps onMapClick={() => handleMapClick(HomeContent.NewTarget)} />
+        <Maps
+          onMapClick={() => handleMapClick(HomeContent.NewTarget)}
+          markerContainer={markerTargets}
+          marker={currentLocation}
+        />
       </section>
     </article>
   );

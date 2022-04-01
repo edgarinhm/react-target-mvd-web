@@ -1,31 +1,13 @@
 import TargetList from '../TargetList';
-import { useTranslation } from 'hooks';
-import { homeI18n, sidebarI18n } from 'constants/i18n-constant';
-import { capitalizeFirstLetter, getUserLocation } from 'utils';
-import './empty-home-sidebar.scss';
-import dataTargets from 'data/targets.json';
-import { useAppDispatch } from 'hooks/useDispatch';
-import { useLayoutEffect } from 'react';
-import { setMapLocation } from 'state/actions/place-actions';
-import locationIcon from 'assets/layout/icons/location-icon.svg';
-import humps from 'humps';
-import Target from 'interfaces/target/target-interface';
 import { MenuItem } from 'components/common';
 import Profile from 'components/Layout/Profile';
+import { homeI18n, sidebarI18n } from 'constants/i18n-constant';
+import { capitalizeFirstLetter } from 'utils';
+import { useEmptyHomeState } from './useEmptyHomeState';
+import './empty-home-sidebar.scss';
 
 const EmptyHomeSidebar = () => {
-  const t = useTranslation();
-  const dispatch = useAppDispatch();
-  useLayoutEffect(() => {
-    getUserLocation()
-      .then(coords => {
-        const position = { lng: coords[0], lat: coords[1], icon: locationIcon };
-        dispatch(setMapLocation(position));
-      })
-      .catch(error => alert(error.message));
-  }, [dispatch]);
-
-  const targets = humps.camelizeKeys(dataTargets) as Target[];
+  const { t, targets } = useEmptyHomeState();
 
   return (
     <>

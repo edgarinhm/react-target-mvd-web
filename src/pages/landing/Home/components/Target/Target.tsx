@@ -1,22 +1,15 @@
 import TargetForm from './components';
 import BackNavigation from 'components/Layout/BackNavigation';
 import { FormStatus } from 'components/common/FormStatus';
-import { useTranslation, useDispatch } from 'hooks';
-import { HomeContent, useHome } from 'pages/landing/Home/useHome';
-import { createTarget } from 'state/actions/target-actions';
 import { targetI18n } from 'constants/i18n-constant';
 import testIds from 'constants/test-ids-constant';
 import routesPaths from 'constants/routes-paths-constant';
 import targetIcon from 'assets/layout/media/target.svg';
+import { useTarget } from './useTarget';
 import './target.scss';
 
 const Target = () => {
-  const t = useTranslation();
-  const { handleMapClick } = useHome();
-  const handleSubmit = useDispatch(createTarget);
-  const handleBackMap = () => {
-    handleMapClick(HomeContent.Empty);
-  };
+  const { t, handleSubmit, handleBackMap } = useTarget();
 
   return (
     <>

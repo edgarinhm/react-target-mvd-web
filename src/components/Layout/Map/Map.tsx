@@ -7,9 +7,10 @@ import './map.scss';
 interface MapProps {
   onMapClick: () => void;
   marker?: MapMarker;
+  markerContainer?: MapMarker[];
 }
 
-const Map = ({ onMapClick }: MapProps) => {
+const Map = ({ onMapClick, markerContainer, marker }: MapProps) => {
   const { selectedMarker, isLoaded, options, onLoad, markerIcon, handleMapClick, defaultCenter } =
     useMap();
 
@@ -17,6 +18,14 @@ const Map = ({ onMapClick }: MapProps) => {
     handleMapClick(e);
     onMapClick();
   };
+
+  const markers = markerContainer?.map(contaniner => (
+    <Marker
+      key={contaniner.id}
+      position={contaniner.location}
+      icon={markerIcon(contaniner.icon!)}
+    />
+  ));
 
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
 
@@ -31,6 +40,9 @@ const Map = ({ onMapClick }: MapProps) => {
       {selectedMarker && (
         <Marker position={selectedMarker.location} icon={markerIcon(selectedMarker.icon!)} />
       )}
+
+      {marker && <Marker position={marker.location} icon={markerIcon(marker.icon!)} />}
+      {markers}
     </GoogleMap>
   );
 };

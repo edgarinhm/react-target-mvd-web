@@ -8,6 +8,7 @@ import session, { SessionState } from './features/session-reducer';
 import interceptorReducer from './features/interceptor-reducer';
 import placeReducer from './features/place-reducer';
 import homeReducer from './features/home-reducer';
+import targetReducer from './features/target-reducer';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   interceptorReducer,
   placeReducer,
   homeReducer,
+  targetReducer,
 });
 
 export default rootReducer;
