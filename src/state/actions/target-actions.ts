@@ -1,6 +1,7 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import Target from 'interfaces/target/target-interface';
 import TargetService from 'services/target-service';
+import { setMapLocation } from './place-actions';
 
 export const createTarget = createAsyncThunk(
   'target/create',
@@ -8,6 +9,14 @@ export const createTarget = createAsyncThunk(
     try {
       const data = await TargetService.createTarget(target);
       dispatch(setTargets(data));
+      dispatch(
+        setMapLocation({
+          id: 0,
+          lng: 0,
+          lat: 0,
+          icon: '',
+        })
+      );
       return data;
     } catch ({ response: { data } }) {
       throw data;
