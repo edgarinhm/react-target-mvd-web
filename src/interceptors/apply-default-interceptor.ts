@@ -4,7 +4,8 @@ import { AppDispatch } from 'state/store';
 import { HttpClient } from 'http-client';
 import { ErrorApiResponse } from 'interfaces/api/error-api-response-interface';
 import ErrorApi from 'interfaces/api/error-api-interface';
-import { ACCESS_TOKEN, CLIENT, UID, UNAUTHORIZED } from 'constants/api-constants';
+import { ACCESS_TOKEN, CLIENT, UID } from 'constants/api-constants';
+import humps from 'humps';
 
 const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
   const dispatch: AppDispatch = store.dispatch;
@@ -22,6 +23,7 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
         [UID]: uid,
       };
     }
+    config.data = humps.decamelizeKeys(config.data);
     return config;
   });
 
@@ -40,13 +42,15 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
         };
         dispatch(updateSession(session));
       }
+
+      response.data = humps.camelizeKeys(response.data);
       return response;
     },
     error => {
       dispatch(setLoading(false));
-      const unauthorizedError = (error.response.data as ErrorApi)?.errors || '';
-      if (error.response && error.response.status === UNAUTHORIZED) {
-        dispatch(setErrors(unauthorizedError.at(0)));
+      const globalErrors = (error.response.data as ErrorApi)?.errors || '';
+      if (error.response && globalErrors.length > 0) {
+        dispatch(setErrors(globalErrors.at(0)));
       } else {
         const errorApi = (error.response.data as ErrorApi)?.error;
         if (errorApi) {

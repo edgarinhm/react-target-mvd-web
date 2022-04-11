@@ -3,11 +3,13 @@ import { useTranslation } from 'hooks';
 import { homeI18n, sidebarI18n } from 'constants/i18n-constant';
 import { capitalizeFirstLetter, getUserLocation } from 'utils';
 import './empty-home-sidebar.scss';
-import targets from 'data/targets.json';
+import dataTargets from 'data/targets.json';
 import { useAppDispatch } from 'hooks/useDispatch';
 import { useLayoutEffect } from 'react';
 import { setMapLocation } from 'state/actions/place-actions';
 import locationIcon from 'assets/layout/icons/location-icon.svg';
+import humps from 'humps';
+import Target from 'interfaces/target/target-interface';
 import { MenuItem } from 'components/common';
 import Profile from 'components/Layout/Profile';
 
@@ -22,6 +24,8 @@ const EmptyHomeSidebar = () => {
       })
       .catch(error => alert(error.message));
   }, [dispatch]);
+
+  const targets = humps.camelizeKeys(dataTargets) as Target[];
 
   return (
     <>

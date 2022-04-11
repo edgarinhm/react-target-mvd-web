@@ -11,7 +11,7 @@ import themeConfig from 'config/react-select';
 
 export type isMultiType = true | false;
 export interface DropdownOption {
-  value: string;
+  value: string | number;
   text: string;
   icon?: string;
 }
@@ -31,7 +31,6 @@ interface DropdownProps {
   onBlur?: FocusEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
   isSearchable?: boolean;
-  isDisabled?: boolean;
   isClearable?: boolean;
 }
 
@@ -47,7 +46,7 @@ const Dropdown = ({
   onFocus,
   error = '',
   isSearchable = false,
-  isDisabled = false,
+  disabled = false,
   isClearable = true,
   control,
 }: DropdownProps) => {
@@ -90,7 +89,6 @@ const Dropdown = ({
             }
             theme={themeConfig}
             isSearchable={isSearchable}
-            isDisabled={isDisabled}
             isClearable={isClearable}
           />
         )}
