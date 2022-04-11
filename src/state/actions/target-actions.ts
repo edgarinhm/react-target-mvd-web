@@ -24,4 +24,12 @@ export const createTarget = createAsyncThunk(
   }
 );
 
+export const findAllTargets = createAsyncThunk('target/all', async () => {
+  try {
+    return await TargetService.findAllTargets();
+  } catch ({ response: { data } }) {
+    throw data;
+  }
+});
+
 export const setTargets = createAction<Target | undefined>('target/setTargets');
