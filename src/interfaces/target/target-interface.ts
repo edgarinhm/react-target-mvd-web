@@ -3,6 +3,6 @@ export default interface Target {
   radius: number;
   lat: number;
   lng: number;
-  topicId: number;
+  topicId: number | string;
   id?: number;
 }

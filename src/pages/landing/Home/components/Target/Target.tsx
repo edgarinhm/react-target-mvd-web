@@ -21,7 +21,7 @@ const Target = () => {
   const handleSubmit = (formData: TargetFormData) => {
     const targetRequest = {
       ...formData,
-      topicId: formData.topic.value!,
+      topicId: formData.topic,
     };
     TargetService.createTarget(targetRequest)
       .then(response => {

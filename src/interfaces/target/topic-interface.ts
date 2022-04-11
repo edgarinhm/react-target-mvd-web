@@ -1,6 +1,6 @@
 export interface Topic {
-  id: number;
+  id: number | string;
   label: string;
   icon: string;
-  value?: number;
+  value?: number | string;
 }
