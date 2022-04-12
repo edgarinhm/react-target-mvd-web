@@ -1,9 +1,9 @@
 import Target from './target-interface';
 
-export default interface TargetResponse {
+export interface TargetColletion {
   target: Target;
 }
 
-export interface TargetsResponse {
-  targets: Target[];
+export interface TargetColletionResponse {
+  targets: TargetColletion[];
 }
