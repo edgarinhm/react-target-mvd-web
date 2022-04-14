@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAppSelector, useStatus, useTranslation } from 'hooks';
@@ -8,7 +8,9 @@ import { createTarget } from 'state/actions/target-actions';
 import { setErrors } from 'state/actions/user-actions';
 import { useAppDispatch } from 'hooks/useDispatch';
 import { PENDING } from 'constants/action-status-constant';
-import topics from 'data/topics.json';
+import TopicService from 'services/topic-service';
+import { TopicColletion } from 'interfaces/topic/topic-response-interface';
+import { DropdownOption } from 'components/common/Dropdown/Dropdown';
 
 export const useTargetForm = () => {
   const { lat, lng } = useAppSelector(state => state.placeReducer);
@@ -38,11 +40,7 @@ export const useTargetForm = () => {
 
   const t = useTranslation();
 
-  const topicOptions = topics.map(topic => ({
-    value: topic.id,
-    text: topic.label,
-    icon: topic.icon,
-  }));
+  const [topicOptions, setTopicsOptions] = useState<DropdownOption[]>([]);
 
   const disabled = () => {
     return isValid ? status === PENDING : !isValid;
@@ -55,6 +53,20 @@ export const useTargetForm = () => {
     setValue('lng', lng);
     dispatch(setErrors(errorMessage));
   }, [lat, lng, setValue, dispatch, errorMessage]);
+
+  const loadData = async () => {
+    const topicsCollection: TopicColletion[] = await TopicService.findAllTopics();
+    const topics: DropdownOption[] = topicsCollection.map(option => ({
+      value: option.topic.id,
+      text: option.topic.label,
+      icon: option.topic.icon,
+    }));
+    setTopicsOptions(topics);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return {
     handleSubmit,
