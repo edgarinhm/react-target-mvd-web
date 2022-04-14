@@ -7,24 +7,24 @@ import routesPaths from 'constants/routes-paths-constant';
 import targetIcon from 'assets/layout/media/target.svg';
 import { useTarget } from './useTarget';
 import './target.scss';
+import Header from 'components/Layout/Header';
 
 const Target = () => {
   const { t, handleSubmit, handleBackMap } = useTarget();
 
   return (
     <>
-      <div className="header header--back" data-testid={testIds.TARGET_PAGE}>
-        <div className="header__item">
-          <BackNavigation to={routesPaths.index} onClick={handleBackMap} />
+      <Header variant="header--back" title={t(targetI18n.PAGE_TITLE)}>
+        <BackNavigation to={routesPaths.index} onClick={handleBackMap} />
+      </Header>
+      <div data-testid={testIds.TARGET_PAGE}>
+        <div className="target__content">
+          <img src={targetIcon} alt="target icon" />
+          <h3 className="letter-spacing">{t(targetI18n.PAGE_SUBTITLE)}</h3>
+          <FormStatus />
         </div>
-        <h1 className="header__title letter-spacing">{t(targetI18n.PAGE_TITLE)}</h1>
+        <TargetForm onSubmit={handleSubmit} />
       </div>
-      <div className="target__content">
-        <img src={targetIcon} alt="target icon" />
-        <h3 className="letter-spacing">{t(targetI18n.PAGE_SUBTITLE)}</h3>
-        <FormStatus />
-      </div>
-      <TargetForm onSubmit={handleSubmit} />
     </>
   );
 };
