@@ -1,17 +1,17 @@
 [
   {
-    "icon": "football-icon.svg",
+    "icon": "https://target-mvd.s3.amazonaws.com/topic/icon/2/ba73d061-ddbf-4863-8edf-f93c621a6e19.jpg",
     "title": "Football",
-    "topic_id": 1
-  },
-  {
-    "icon": "travel-icon.svg",
-    "title": "Travel",
     "topic_id": 2
   },
   {
-    "icon": "music-icon.svg",
+    "icon": "https://target-mvd.s3.amazonaws.com/topic/icon/15/c1bfe7d0-855a-4d7d-be89-8a339340734f.jpg",
+    "title": "Dating",
+    "topic_id": 15
+  },
+  {
+    "icon": "https://target-mvd.s3.amazonaws.com/topic/icon/16/fc340e5d-5569-443e-9e71-8696a879d6d0.jpg",
     "title": "Music",
-    "topic_id": 3
+    "topic_id": 16
   }
 ]

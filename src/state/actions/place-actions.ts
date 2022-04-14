@@ -1,4 +1,4 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const setUserLocation = createAction<object | undefined>('location/setUserLocation');
+export const setCurrentLocation = createAction<object | undefined>('location/setCurrentLocation');
 export const setMapLocation = createAction<object | undefined>('location/setMapLocation');

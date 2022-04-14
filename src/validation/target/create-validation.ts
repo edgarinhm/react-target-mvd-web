@@ -1,10 +1,10 @@
 import { object } from 'yup';
-import { radius, title, topic, lat, lng } from './target-validation';
+import { radius, title, topicId, lat, lng } from './target-validation';
 
 const createValidation = object().shape({
   ...radius,
   ...title,
-  ...topic,
+  ...topicId,
   ...lat,
   ...lng,
 });

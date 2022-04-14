@@ -1,6 +1,6 @@
 export interface MapMarker {
   location: google.maps.LatLngLiteral;
-  id: string;
+  id: number;
   name?: string;
   icon?: string;
 }

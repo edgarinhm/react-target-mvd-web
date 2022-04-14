@@ -1,41 +1,15 @@
-import { targetI18n } from 'constants/i18n-constant';
-import testIds from 'constants/test-ids-constant';
-import { useAppDispatch, useTranslation } from 'hooks';
-import targetIcon from 'assets/layout/media/target.svg';
 import TargetForm from './components';
 import BackNavigation from 'components/Layout/BackNavigation';
-import './target.scss';
-import routesPaths from 'constants/routes-paths-constant';
-import { HomeContent, useHome } from 'pages/landing/Home/useHome';
-import TargetFormData from 'interfaces/target/target-form-data-interface';
-import TargetService from 'services/target-service';
-import topics from 'data/topics.json';
-import { setMapLocation } from 'state/actions/place-actions';
-import { setErrors } from 'state/actions/user-actions';
 import { FormStatus } from 'components/common/FormStatus';
+import { targetI18n } from 'constants/i18n-constant';
+import testIds from 'constants/test-ids-constant';
+import routesPaths from 'constants/routes-paths-constant';
+import targetIcon from 'assets/layout/media/target.svg';
+import { useTarget } from './useTarget';
+import './target.scss';
 
 const Target = () => {
-  const t = useTranslation();
-  const dispatch = useAppDispatch();
-  const { handleMapClick } = useHome();
-  const handleSubmit = (formData: TargetFormData) => {
-    const targetRequest = {
-      ...formData,
-      topicId: formData.topic,
-    };
-    TargetService.createTarget(targetRequest)
-      .then(response => {
-        const topic = topics.find(opt => opt.id === response.topicId);
-        dispatch(setMapLocation({ lat: response.lat, lng: response.lng, icon: topic?.icon }));
-        dispatch(setErrors(`target succesfully created`));
-      })
-      .catch(error => {
-        dispatch(setErrors(`target not created ${error.message}`));
-      });
-  };
-  const handleBackMap = () => {
-    handleMapClick(HomeContent.Empty);
-  };
+  const { t, handleSubmit, handleBackMap } = useTarget();
 
   return (
     <>

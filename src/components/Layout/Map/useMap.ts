@@ -7,7 +7,7 @@ import { setMapLocation } from 'state/actions/place-actions';
 
 export const useMap = () => {
   const { id, lat, lng, icon } = useAppSelector(state => state.placeReducer);
-  const selectedMarker: MapMarker = { id, location: { lat, lng }, icon: icon ? icon : '' };
+  const selectedMarker: MapMarker = { id, location: { lat, lng }, icon };
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
@@ -24,12 +24,14 @@ export const useMap = () => {
   };
 
   const markerIcon = (url: string) => {
-    return {
-      url,
-      origin: new window.google.maps.Point(0, 0),
-      anchor: new window.google.maps.Point(15, 15),
-      scaledSize: new window.google.maps.Size(30, 30),
-    };
+    return url === ''
+      ? undefined
+      : {
+          url,
+          origin: new window.google.maps.Point(0, 0),
+          anchor: new window.google.maps.Point(15, 15),
+          scaledSize: new window.google.maps.Size(40, 40),
+        };
   };
 
   const dispatch = useAppDispatch();

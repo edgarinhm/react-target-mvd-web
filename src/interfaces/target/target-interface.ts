@@ -4,5 +4,5 @@ export default interface Target {
   lat: number;
   lng: number;
   topicId: number | string;
-  id?: number;
+  id: number;
 }

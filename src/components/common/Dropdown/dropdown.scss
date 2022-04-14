@@ -47,3 +47,14 @@ select[multiple] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
+.dropdown {
+  &__option {
+    display: flex;
+    align-items: center;
+  }
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
+}

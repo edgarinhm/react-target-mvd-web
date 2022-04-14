@@ -1,10 +1,9 @@
-export default interface TargetResponse {
-  target: {
-    id: number;
-    title: string;
-    lat: number;
-    lng: number;
-    radius: number;
-    topicId: number;
-  };
+import Target from './target-interface';
+
+export interface TargetColletion {
+  target: Target;
+}
+
+export interface TargetColletionResponse {
+  targets: TargetColletion[];
 }
