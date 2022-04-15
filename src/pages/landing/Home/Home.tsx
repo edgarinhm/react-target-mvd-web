@@ -6,6 +6,7 @@ import { HappySmile } from 'components/Layout/HappySmile';
 import testIds from 'constants/test-ids-constant';
 import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
+import Footer from 'components/Layout/Footer/Footer';
 
 const Home = () => {
   const { activeContent, handleMapClick, markerTargets, currentLocation } = useHome();
@@ -27,9 +28,9 @@ const Home = () => {
     <article className="two-column-layout-wrap" data-testid={testIds.HOME_PAGE}>
       <section className="left">
         {activeHomeContent.content}
-        <div className="footer">
+        <Footer>
           <HappySmile styleClass="smiles-small" />
-        </div>
+        </Footer>
       </section>
       <section className="right">
         <Maps
