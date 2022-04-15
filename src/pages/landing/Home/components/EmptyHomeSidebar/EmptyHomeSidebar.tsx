@@ -1,5 +1,5 @@
 import TargetList from '../TargetList';
-import { MenuItem } from 'components/common';
+import Header from 'components/Layout/Header/Header';
 import Profile from 'components/Layout/Profile';
 import { homeI18n, sidebarI18n } from 'constants/i18n-constant';
 import { capitalizeFirstLetter } from 'utils';
@@ -11,12 +11,7 @@ const EmptyHomeSidebar = () => {
 
   return (
     <>
-      <div className="header">
-        <div className="header__item">
-          <MenuItem />
-        </div>
-        <h1 className="header__title letter-spacing">{t(homeI18n.PAGE_TITLE)}</h1>
-      </div>
+      <Header title={t(homeI18n.PAGE_TITLE)} />
       <Profile />
       <div className=" empty-sidebar empty-sidebar-h2">
         {capitalizeFirstLetter(t(sidebarI18n.PAGE_TITLE))}

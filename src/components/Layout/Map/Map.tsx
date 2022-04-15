@@ -19,6 +19,8 @@ const Map = ({ onMapClick, markerContainer, marker }: MapProps) => {
     onMapClick();
   };
 
+  if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
+
   const markers = markerContainer?.map(contaniner => (
     <Marker
       key={contaniner.id}
@@ -26,8 +28,6 @@ const Map = ({ onMapClick, markerContainer, marker }: MapProps) => {
       icon={markerIcon(contaniner.icon!)}
     />
   ));
-
-  if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
 
   return (
     <GoogleMap

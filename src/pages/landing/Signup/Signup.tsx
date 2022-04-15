@@ -1,18 +1,16 @@
 import { Navigate } from 'react-router-dom';
-import { MenuItem, FormStatus } from 'components/common';
+import { FormStatus } from 'components/common';
+import Header from 'components/Layout/Header';
 import { Mobile } from 'components/Layout/Mobile';
 import { SignupForm } from './components';
-import { useDispatch, useSession, useTranslation } from 'hooks';
-import { signUp } from 'state/actions/user-actions';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';
 import { signupI18n } from 'constants/i18n-constant';
+import useSignup from './useSignup';
 import './signup.scss';
 
 const SignUp = () => {
-  const handleSubmit = useDispatch(signUp);
-  const { authenticated } = useSession();
-  const t = useTranslation();
+  const { handleSubmit, authenticated, t } = useSignup();
 
   if (authenticated) {
     return <Navigate to={routesPaths.index} />;
@@ -21,13 +19,8 @@ const SignUp = () => {
   return (
     <article className="two-column-layout-wrap" data-testid={testIds.SIGNUP_PAGE}>
       <div className="left">
-        <div className="header">
-          <div className="header__item">
-            <MenuItem />
-          </div>
-        </div>
+        <Header title={t(signupI18n.PAGE_TITLE)} />
         <FormStatus />
-        <h1>{t(signupI18n.PAGE_TITLE)}</h1>
         <SignupForm onSubmit={handleSubmit} />
       </div>
       <div className="right">
