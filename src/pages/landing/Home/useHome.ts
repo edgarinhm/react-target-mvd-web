@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import TargetService from 'services/target-service';
 import TopicService from 'services/topic-service';
