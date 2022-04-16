@@ -28,3 +28,4 @@ export const setTarget = createAction<Target | undefined>('target/setTarget');
 export const setTargetCollection = createAction<TargetColletion[] | undefined>(
   'target/TargetCollection'
 );
+export const removeTarget = createAction<number | undefined>('target/removeTarget');

@@ -27,6 +27,15 @@ class TargetService {
       throw Error(status as string);
     }
   }
+
+  static async deleteTarget(id: number): Promise<string> {
+    try {
+      const { status } = await httpClient.delete(`${TARGET_BASE_URL}/${id}`, { data: {} });
+      return `${status}`;
+    } catch ({ response: { data, status } }) {
+      throw Error(status as string);
+    }
+  }
 }
 
 export default TargetService;
