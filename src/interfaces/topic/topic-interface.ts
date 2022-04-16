@@ -1,5 +1,5 @@
 export default interface Topic {
-  id: number;
+  id: string | number;
   label: string;
   icon: string;
 }

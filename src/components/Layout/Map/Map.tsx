@@ -32,8 +32,6 @@ const Map = ({ onMapClick, marker }: MapProps) => {
 
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
 
-  console.log('locationCollection', locationCollection);
-
   const markers = locationCollection?.map(contaniner => (
     <Marker
       key={contaniner.id}

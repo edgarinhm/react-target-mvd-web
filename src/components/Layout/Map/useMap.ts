@@ -52,21 +52,7 @@ export const useMap = () => {
   const handleDelete = (markerId: number) => {
     dispatch(deleteMarker(markerId));
     const markersCollection = locationCollection.filter(collection => collection.id !== markerId);
-    console.log('markersCollection', markersCollection);
     dispatch(setLocationCollection(markersCollection));
-    // const refreshTargets: MapMarker[] = [];
-    // for (const key in targets) {
-    //   if (Object.prototype.hasOwnProperty.call(targets, key)) {
-    //     const { target } = targets[key];
-    //     if (target.id !== markerId)
-    //       refreshTargets.push({
-    //         location: { lat: target.lat, lng: target.lng },
-    //         id: target.id,
-    //         radius: target.radius,
-    //         topic: target.title,
-    //       });
-    //   }
-    // }
   };
 
   return {

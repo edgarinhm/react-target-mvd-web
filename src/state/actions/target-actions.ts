@@ -2,7 +2,7 @@ import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import Target from 'interfaces/target/target-interface';
 import { TargetColletion } from 'interfaces/target/target-response-interface';
 import TargetService from 'services/target-service';
-import { setMapLocation } from './place-actions';
+import { addLocationToCollection, setMapLocation } from './place-actions';
 
 export const createTarget = createAsyncThunk(
   'target/create',
@@ -15,6 +15,19 @@ export const createTarget = createAsyncThunk(
           lng: 0,
           lat: 0,
           icon: '',
+        })
+      );
+
+      dispatch(
+        addLocationToCollection({
+          id: data.id,
+          name: data.title,
+          icon: target.topicIcon,
+          location: {
+            lat: data.lat,
+            lng: data.lng,
+          },
+          topic: target.topicTitle,
         })
       );
       return data;

@@ -5,6 +5,7 @@ import {
   setMapLocation,
   setCurrentLocation,
   setLocationCollection,
+  addLocationToCollection,
 } from 'state/actions/place-actions';
 
 export interface PlaceState {
@@ -43,8 +44,16 @@ const handlelocationCollection = (state: PlaceState, { payload }: PayloadAction<
   });
 };
 
+const handleAddlocationToCollection = (
+  state: PlaceState,
+  { payload }: PayloadAction<MapMarker>
+) => {
+  state.locationCollection.push(payload);
+};
+
 export default createReducer(initialState, {
   [setMapLocation.type]: handleMapLocation,
   [setCurrentLocation.type]: handleCurrentLocation,
   [setLocationCollection.type]: handlelocationCollection,
+  [addLocationToCollection.type]: handleAddlocationToCollection,
 });

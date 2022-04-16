@@ -15,3 +15,7 @@ export const deleteMarker = createAsyncThunk('location/delete', async (id: numbe
 export const setLocationCollection = createAction<object | undefined>(
   'location/setLocationCollection'
 );
+
+export const addLocationToCollection = createAction<object | undefined>(
+  'location/addLocationToCollection'
+);
