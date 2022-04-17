@@ -3,4 +3,6 @@ export interface MapMarker {
   id: number;
   name?: string;
   icon?: string;
+  radius?: number;
+  topic?: string;
 }

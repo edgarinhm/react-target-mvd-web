@@ -1,4 +1,5 @@
 import { httpClient } from 'http-client';
+import Topic from 'interfaces/topic/topic-interface';
 import { TopicColletion, TopicColletionResponse } from 'interfaces/topic/topic-response-interface';
 
 const TOPIC_BASE_URL = '/topics';
@@ -9,6 +10,15 @@ class TopicService {
       const { data } = await httpClient.get<TopicColletionResponse>(TOPIC_BASE_URL, { data: {} });
       return data.topics;
     } catch ({ response: { data, status } }) {
+      throw Error(status as string);
+    }
+  }
+
+  static findTopicById(id: string | number, topicCollection: TopicColletion[]): Topic | undefined {
+    try {
+      const topicFinded = topicCollection.find(collection => collection.topic.id === id);
+      return topicFinded?.topic;
+    } catch (status) {
       throw Error(status as string);
     }
   }

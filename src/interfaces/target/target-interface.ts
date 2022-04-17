@@ -5,4 +5,6 @@ export default interface Target {
   lng: number;
   topicId: number | string;
   id: number;
+  topicIcon?: string;
+  topicTitle?: string;
 }

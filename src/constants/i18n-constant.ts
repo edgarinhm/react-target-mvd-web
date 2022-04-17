@@ -65,3 +65,13 @@ export const sidebarI18n = {
   PAGE_TITLE: 'sidebar.page.title',
   PAGE_SUBTITLE: 'sidebar.page.subtitle',
 };
+
+export const mapModalI18n = {
+  PAGE_TITLE: 'map.modal.title',
+  PAGE_SUBTITLE: 'map.modal.subtitle',
+};
+
+export const actionButtonsI18n = {
+  ACTION_CONFIRM: 'action.button.confirm',
+  ACTION_CANCEL: 'action.button.cancel',
+};

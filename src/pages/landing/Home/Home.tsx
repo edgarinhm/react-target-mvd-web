@@ -9,7 +9,7 @@ import './home.scss';
 import Footer from 'components/Layout/Footer/Footer';
 
 const Home = () => {
-  const { activeContent, handleMapClick, markerTargets, currentLocation } = useHome();
+  const { activeContent, handleMapClick, currentLocation } = useHome();
 
   const homeContent: homeContentDictionary = {
     [HomeContent.Empty]: {
@@ -33,11 +33,7 @@ const Home = () => {
         </Footer>
       </section>
       <section className="right">
-        <Maps
-          onMapClick={() => handleMapClick(HomeContent.NewTarget)}
-          markerContainer={markerTargets}
-          marker={currentLocation}
-        />
+        <Maps onMapClick={() => handleMapClick(HomeContent.NewTarget)} marker={currentLocation} />
       </section>
     </article>
   );

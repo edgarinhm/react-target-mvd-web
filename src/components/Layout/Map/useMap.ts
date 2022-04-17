@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
@@ -7,7 +7,7 @@ import { setMapLocation } from 'state/actions/place-actions';
 
 export const useMap = () => {
   const { id, lat, lng, icon } = useAppSelector(state => state.placeReducer);
-  const selectedMarker: MapMarker = { id, location: { lat, lng }, icon };
+  const selectedLocation: MapMarker = { id, location: { lat, lng }, icon };
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY!,
@@ -41,13 +41,35 @@ export const useMap = () => {
     dispatch(setMapLocation({ lat: e.latLng!.lat(), lng: e.latLng!.lng(), icon }));
   };
 
+  const [selected, setSelected] = useState<MapMarker | null>(null);
+
+  const handleSelected = (marker: MapMarker | null) => {
+    setSelected(marker);
+  };
+
+  const { locationCollection } = useAppSelector(state => state.placeReducer);
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const handleOnClickModal = () => {
+    setIsMapModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setSelected(null);
+    setIsMapModalOpen(false);
+  };
+
   return {
-    selectedMarker,
+    selectedLocation,
     isLoaded,
     options,
     onLoad,
     markerIcon,
     handleMapClick,
     defaultCenter,
+    selected,
+    handleSelected,
+    locationCollection,
+    isMapModalOpen,
+    handleOnClickModal,
+    handleCloseModal,
   };
 };
