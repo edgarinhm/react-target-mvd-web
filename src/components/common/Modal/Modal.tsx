@@ -1,6 +1,6 @@
 import modalConfig from 'config/modal';
 import ReactModal from 'react-modal';
-import styles from './modal.scss';
+import './modal.scss';
 
 interface ModalProps {
   isOpen: boolean;
@@ -34,15 +34,15 @@ const Modal = ({
       style={modalConfig}
       contentLabel={contentLabel}
     >
-      <div className={styles['modal']} style={bigModal ? { width: '70%' } : {}}>
-        {title && <h1 className={styles['modal__title']}>{title}</h1>}
-        {subtitle && <h2 className={styles['modal__subtitle']}>{subtitle}</h2>}
+      <div className="modal" style={bigModal ? { width: '70%' } : {}}>
+        {title && <h1 className="modal__title">{title}</h1>}
+        {subtitle && <h2 className="modal__subtitle">{subtitle}</h2>}
         {showCloseButton && (
-          <button className={styles['modal__close']} onClick={handleClose}>
-            x
-          </button>
+          <div className="modal__close">
+            <button onClick={handleClose}>x</button>
+          </div>
         )}
-        <div className={styles['modal__body']}>{children}</div>
+        {children}
       </div>
     </ReactModal>
   );
