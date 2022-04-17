@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import { defaultCenter, defaultOptions } from 'config/google-maps';
-import { deleteMarker, setMapLocation, setLocationCollection } from 'state/actions/place-actions';
+import { setMapLocation } from 'state/actions/place-actions';
 
 export const useMap = () => {
   const { id, lat, lng, icon } = useAppSelector(state => state.placeReducer);
@@ -41,18 +41,20 @@ export const useMap = () => {
     dispatch(setMapLocation({ lat: e.latLng!.lat(), lng: e.latLng!.lng(), icon }));
   };
 
-  const [selected, setSelected] = useState<MapMarker | null>();
+  const [selected, setSelected] = useState<MapMarker | null>(null);
 
   const handleSelected = (marker: MapMarker | null) => {
     setSelected(marker);
   };
 
   const { locationCollection } = useAppSelector(state => state.placeReducer);
-
-  const handleDelete = (markerId: number) => {
-    dispatch(deleteMarker(markerId));
-    const markersCollection = locationCollection.filter(collection => collection.id !== markerId);
-    dispatch(setLocationCollection(markersCollection));
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const handleOnClickModal = () => {
+    setIsMapModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setSelected(null);
+    setIsMapModalOpen(false);
   };
 
   return {
@@ -65,7 +67,9 @@ export const useMap = () => {
     defaultCenter,
     selected,
     handleSelected,
-    handleDelete,
     locationCollection,
+    isMapModalOpen,
+    handleOnClickModal,
+    handleCloseModal,
   };
 };

@@ -1,8 +1,9 @@
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
+import MapRemoveMarkerModal from '../MapRemoveMarkerModal';
+import { useMap } from './useMap';
+import { MapMarker } from 'interfaces/map/map-marker-interface';
 import mapMedia from 'assets/layout/media/map.png';
 import trashIcon from 'assets/layout/icons/trash-icon.svg';
-import { MapMarker } from 'interfaces/map/map-marker-interface';
-import { useMap } from './useMap';
 import './map.scss';
 
 interface MapProps {
@@ -21,8 +22,10 @@ const Map = ({ onMapClick, marker }: MapProps) => {
     defaultCenter,
     handleSelected,
     selected,
-    handleDelete,
     locationCollection,
+    isMapModalOpen,
+    handleOnClickModal,
+    handleCloseModal,
   } = useMap();
 
   const onClick = (e: google.maps.MapMouseEvent) => {
@@ -63,16 +66,18 @@ const Map = ({ onMapClick, marker }: MapProps) => {
           <div className="map-container__infoview-marker">
             <h2 className="map-container__infoview-title">{selected.name}</h2>
             <p className="map-container__infoview-topic">{selected.topic}</p>
-            <button
-              className="map-container__trash-button"
-              onClick={() => handleDelete(selected.id)}
-            >
+            <button className="map-container__trash-button" onClick={handleOnClickModal}>
               <img
                 className="map-container__trash-icon"
                 src={trashIcon}
                 alt={`delete ${selected.name}`}
               />
             </button>
+            <MapRemoveMarkerModal
+              marker={selected}
+              isOpen={isMapModalOpen}
+              handleClose={handleCloseModal}
+            />
           </div>
         </InfoWindow>
       )}

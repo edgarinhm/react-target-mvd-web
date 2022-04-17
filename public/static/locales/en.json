@@ -67,5 +67,17 @@
       "title": "create your first target by clicking wherever on the map.",
       "subtitle": "psss!, these are the most popular targets:"
     }
+  },
+  "map": {
+    "modal": {
+      "title": "Remove Target",
+      "subtitle": "Do you really want to delete the target?"
+    }
+  },
+  "action": {
+    "button": {
+      "confirm": "Accept",
+      "cancel": "Cancel"
+    }
   }
 }

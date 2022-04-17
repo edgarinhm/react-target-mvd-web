@@ -67,5 +67,17 @@
       "title": "crie seu primeiro alvo clicando em qualquer lugar no mapa.",
       "subtitle": "psss!, estes são os alvos mais populares:"
     }
+  },
+  "map": {
+    "modal": {
+      "title": "Removedor de destino",
+      "subtitle": "Tem certeza de que deseja excluir o registro?"
+    }
+  },
+  "action": {
+    "button": {
+      "confirm": "OK",
+      "cancel": "Cancelar"
+    }
   }
 }
