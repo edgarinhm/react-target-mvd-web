@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
@@ -6,7 +6,7 @@ import { defaultCenter, defaultOptions } from 'config/google-maps';
 import { setMapLocation } from 'state/actions/place-actions';
 
 export const useMap = () => {
-  const { id, lat, lng, icon } = useAppSelector(state => state.placeReducer);
+  const { id, lat, lng, icon, currentLocation } = useAppSelector(state => state.placeReducer);
   const selectedLocation: MapMarker = { id, location: { lat, lng }, icon };
 
   const { isLoaded } = useLoadScript({
@@ -57,6 +57,12 @@ export const useMap = () => {
     setIsMapModalOpen(false);
   };
 
+  const [center, setCenter] = useState(defaultCenter);
+
+  useEffect(() => {
+    setCenter({ lat: currentLocation.lat, lng: currentLocation.lng });
+  }, [currentLocation.lat, currentLocation.lng]);
+
   return {
     selectedLocation,
     isLoaded,
@@ -64,7 +70,7 @@ export const useMap = () => {
     onLoad,
     markerIcon,
     handleMapClick,
-    defaultCenter,
+    center,
     selected,
     handleSelected,
     locationCollection,
