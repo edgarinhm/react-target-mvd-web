@@ -19,7 +19,7 @@ const Map = ({ onMapClick, marker }: MapProps) => {
     onLoad,
     markerIcon,
     handleMapClick,
-    defaultCenter,
+    center,
     handleSelected,
     selected,
     locationCollection,
@@ -33,7 +33,11 @@ const Map = ({ onMapClick, marker }: MapProps) => {
     onMapClick();
   };
 
+  console.log('antes', center);
+
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
+
+  console.log('despues', center);
 
   const markers = locationCollection?.map(contaniner => (
     <Marker
@@ -50,7 +54,7 @@ const Map = ({ onMapClick, marker }: MapProps) => {
       options={options}
       onLoad={onLoad}
       onClick={onClick}
-      center={defaultCenter}
+      center={center}
     >
       {selectedLocation && (
         <Marker position={selectedLocation.location} icon={markerIcon(selectedLocation.icon!)} />
