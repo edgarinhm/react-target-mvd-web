@@ -1,33 +1,30 @@
 import { ReactFragment } from 'react';
-import { Link } from 'react-router-dom';
-import { MenuItem } from 'components/common';
-import './header.scss';
+import { Button, MenuItem } from 'components/common';
+import useHeader from './useHeader';
+import styles from './header.module.scss';
 
 interface HeaderProps {
   title?: string;
   variant?: string;
   canClose?: boolean;
-  closeTo?: string;
+  closeTo?: () => void;
   children?: ReactFragment | JSX.Element[];
 }
 
-const Header = ({ title, variant = '', canClose = false, closeTo = '', children }: HeaderProps) => {
+const Header = ({ title, variant = '', canClose, closeTo, children }: HeaderProps) => {
+  const { activeSidebar } = useHeader();
   return (
-    <div className={`header ${variant}`}>
-      <div className="header__item">{!variant && <MenuItem />}</div>
-      {children}
-      {title && <h1 className="header__title letter-spacing">{title}</h1>}
-      {canClose && (
-        <div className="close-icon">
-          <Link
-            data-testid="close-head-link"
-            className="link capital-case margin-forgot-password"
-            to={closeTo}
-          >
-            x
-          </Link>
+    <div className={`${styles.header} ${variant}`}>
+      {!canClose && !variant && (
+        <div className={activeSidebar ? ' header__item header__sidebar' : 'header__item'}>
+          <MenuItem />
         </div>
       )}
+      {children}
+      {title && <h1 className="header__title letter-spacing">{title}</h1>}
+      <div className="close-icon">
+        <Button className="button__icon" label={canClose ? 'x' : ''} onClick={closeTo} />
+      </div>
     </div>
   );
 };

@@ -33,11 +33,7 @@ const Map = ({ onMapClick, marker }: MapProps) => {
     onMapClick();
   };
 
-  console.log('antes', center);
-
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
-
-  console.log('despues', center);
 
   const markers = locationCollection?.map(contaniner => (
     <Marker

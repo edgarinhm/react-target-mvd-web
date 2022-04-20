@@ -5,12 +5,13 @@
 }
 
 /* Left */
-.home-wrap .left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-basis: 50%;
-  justify-content: center;
+.left {
+  padding-left: 0;
+
+  &__sidebar {
+    padding-left: 4rem;
+    padding-right: 1rem;
+  }
 }
 
 /* right */

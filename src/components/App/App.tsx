@@ -5,6 +5,7 @@ import Home from 'pages/landing/Home';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
 import routesPaths from 'constants/routes-paths-constant';
+import About from 'pages/landing/Home/components/About/About';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </RequireAuth>
         }
       ></Route>
+      <Route path={routesPaths.about} element={<About />}></Route>
       <Route path="*" element={<NotMatch />} />
     </Routes>
   );

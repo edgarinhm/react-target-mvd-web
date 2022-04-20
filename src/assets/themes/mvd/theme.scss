@@ -81,6 +81,20 @@
   &.button-rounded {
     @include border-radius($roundedButtonBorderRadius);
   }
+
+  &.button-icon {
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $primaryColor;
+    text-transform: capitalize;
+    font-size: 1rem;
+    box-shadow: none;
+    width: auto;
+  }
 }
 
 /* menu icon */
@@ -101,6 +115,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   h2 {
     color: $primaryDarkColor;
   }
@@ -246,8 +261,10 @@ input.error {
 .chat__details {
   border-bottom: 0.06rem solid $black;
   width: inherit;
+
   &--first {
     border-top: 0.06rem solid $black;
   }
 }
+
 /* Add your customizations of theme here */

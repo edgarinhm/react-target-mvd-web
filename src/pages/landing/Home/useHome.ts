@@ -11,8 +11,9 @@ import { setTopicCollection } from 'state/actions/topic-actions';
 
 export enum HomeContent {
   Empty,
-  NewTarget,
-  ViewChat,
+  TargetNewView,
+  ChatView,
+  AboutView,
 }
 
 interface HomeContentElement {
@@ -53,9 +54,12 @@ export const useHome = () => {
     loadData();
   }, [loadData]);
 
+  const { activeSidebar } = useAppSelector(state => state.homeReducer);
+
   return {
     activeContent,
     handleMapClick,
     currentLocation,
+    activeSidebar,
   };
 };

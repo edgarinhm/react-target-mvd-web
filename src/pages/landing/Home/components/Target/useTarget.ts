@@ -26,7 +26,7 @@ export const useTarget = () => {
     if (status !== FULFILLED) {
       handleMapClick(HomeContent.Empty);
     } else {
-      handleMapClick(HomeContent.ViewChat);
+      handleMapClick(HomeContent.ChatView);
     }
   };
 

@@ -79,5 +79,11 @@
       "confirm": "Aceptar",
       "cancel": "Cancelar"
     }
+  },
+  "about": {
+    "page": {
+      "title": "¿Que es Objetivo?",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum erat id hendrerit porta. Sed non nibh ut risus auctor hendrerit. Quisque consequat urna quis leo facilisis, et facilisis enim condimentum. Morbi vel feugiat metus, at ultrices ipsum. Nulla eu purus a nulla aliquam feugiat ac sed sem. Integer sit amet sem faucibus, viverra quam at, laoreet metus. Cras vel mattis dolor, facilisis consectetur arcu. Curabitur viverra dapibus lectus vel semper. Sed quis erat nisi. Maecenas mollis ante ut lorem sagittis interdum. Maecenas in aliquet ante, vitae pretium felis. Proin commodo eleifend neque, ac gravida dolor varius id. Ut at massa sit amet dui pulvinar ultrices. Nunc id bibendum lectus.Aenean lobortis eu felis eget egestas. Maecenas ac tellus ut leo condimentum porttitor. Integer nec pharetra odio, in porttitor arcu. Sed vestibulum nisi vitae porttitor bibendum. Sed volutpat velit et nibh porta, in malesuada est ornare. Etiam vehicula tempus elementum. Nulla tristique ullamcorper justo et viverra. Sed sit amet vehicula odio. Suspendisse a posuere ipsum, a euismod sapien. Etiam pretium auctor ipsum eget interdum. Praesent sed justo ultricies, blandit massa et, faucibus quam. Integer aliquet, turpis non tempus molestie, turpis dolor mattis odio, ut venenatis odio diam in ipsum. Quisque sagittis non dui sit amet bibendum. Vestibulum feugiat, leo eu rutrum tempus, leo augue volutpat risus, id ornare ex nunc in est.Nam semper, augue id posuere facilisis, nisl sem consequat leo, ac tempus metus felis vitae velit. Proin non leo a massa condimentum malesuada ut in turpis. Aenean auctor semper tellus a tristique. Praesent vel bibendum purus. Quisque vehicula lacus vel scelerisque varius."
+    }
   }
 }
