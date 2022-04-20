@@ -9,13 +9,8 @@ interface BackNavigationProps {
 
 const BackNavigation = ({ to, onClick }: BackNavigationProps) => {
   return (
-    <div>
-      <Link
-        onClick={onClick}
-        data-testid="back-head-link"
-        to={to}
-        className="link capital-case margin-forgot-password"
-      >
+    <div className="link-icon">
+      <Link onClick={onClick} data-testid="back-head-link" to={to} className="link capital-case">
         <img className="back-item" src={backIcon} alt="back icon" />
       </Link>
     </div>

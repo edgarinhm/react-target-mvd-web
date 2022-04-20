@@ -2,7 +2,7 @@ import { Navigate } from 'react-router';
 import { FormStatus } from 'components/common';
 import Header from 'components/Layout/Header';
 import { Mobile } from 'components/Layout/Mobile';
-import { HappySmile } from 'components/Layout/HappySmile';
+import HappySmile from 'components/Layout/HappySmile';
 import { LoginForm } from './components/LoginForm';
 import routesPaths from 'constants/routes-paths-constant';
 import testIds from 'constants/test-ids-constant';

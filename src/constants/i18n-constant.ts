@@ -75,3 +75,8 @@ export const actionButtonsI18n = {
   ACTION_CONFIRM: 'action.button.confirm',
   ACTION_CANCEL: 'action.button.cancel',
 };
+
+export const aboutI18n = {
+  PAGE_TITLE: 'about.page.title',
+  PAGE_SUBTITLE: 'about.page.subtitle',
+};

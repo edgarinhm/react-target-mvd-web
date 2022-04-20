@@ -2,6 +2,13 @@
   &:focus {
     outline: none;
   }
+
+  &__icon {
+    font-size: 1rem;
+    box-shadow: none;
+    width: auto;
+    background-color: transparent;
+  }
 }
 
 .disabled {

@@ -9,10 +9,14 @@ export interface ButtonProps {
   disabled?: boolean;
   isLoading?: boolean;
   className?: string;
+  icon?: any;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ label, onClick, disabled = false, isLoading = false, type = 'button', className }, ref) => {
+  (
+    { label, onClick, disabled = false, isLoading = false, type = 'button', className, icon },
+    ref
+  ) => {
     const style = classNames.bind(buttonStyle);
 
     return (
@@ -24,6 +28,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={style('button', { disabled: disabled, loading: isLoading }, className)}
         ref={ref}
       >
+        {icon && <img src={icon} alt="icon" />}
         {label}
       </button>
     );
