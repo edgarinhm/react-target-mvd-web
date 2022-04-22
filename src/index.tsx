@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { persistor, store } from 'state/store';
 import { httpClient } from 'http-client';
 import { applyDefaultInterceptor } from 'interceptors';
+import { ModalProvider } from 'context/ModalContext';
 import './assets/themes/mvd/theme.scss';
 import './assets/styles/styles.scss';
 import './config/i18n';
@@ -17,7 +18,9 @@ ReactDOM.render(
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <Suspense fallback={<div>...</div>}>
-          <App />
+          <ModalProvider>
+            <App />
+          </ModalProvider>
         </Suspense>
       </BrowserRouter>
     </PersistGate>

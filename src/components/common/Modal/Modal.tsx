@@ -1,7 +1,27 @@
 import modalConfig from 'config/modal';
 import ReactModal from 'react-modal';
-import './modal.scss';
+import styles from './modal.module.scss';
 
+export interface ModalConfig {
+  content?: {
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+    marginRight?: string;
+    transform?: string;
+    width?: string;
+  };
+  overlay?: {
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+    backgroundColor?: string;
+    zIndex?: number;
+    opacity?: number;
+  };
+}
 interface ModalProps {
   isOpen: boolean;
   title?: string;
@@ -12,6 +32,9 @@ interface ModalProps {
   afterOpenModal?: () => void;
   handleClose: () => void;
   children?: React.ReactNode;
+  setTo?: string;
+  style?: ModalConfig;
+  variant?: string;
 }
 
 const Modal = ({
@@ -24,21 +47,29 @@ const Modal = ({
   afterOpenModal,
   handleClose,
   children,
+  setTo = 'root',
+  style,
+  variant = '',
 }: ModalProps) => {
-  ReactModal.setAppElement('#root');
+  ReactModal.setAppElement(`#${setTo}`);
+  const styleConfig = { ...modalConfig, ...style };
+
   return (
     <ReactModal
       isOpen={isOpen}
       onAfterOpen={afterOpenModal}
       onRequestClose={handleClose}
-      style={modalConfig}
+      style={styleConfig}
       contentLabel={contentLabel}
     >
-      <div className="modal" style={bigModal ? { width: '70%' } : {}}>
-        {title && <h1 className="modal__title">{title}</h1>}
-        {subtitle && <h2 className="modal__subtitle">{subtitle}</h2>}
+      <div
+        className={variant ? variant : styles.modal__wrap}
+        style={bigModal ? { width: '70%' } : {}}
+      >
+        {title && <h1 className={styles.modal__title}>{title}</h1>}
+        {subtitle && <h2 className={styles.modal__subtitle}>{subtitle}</h2>}
         {showCloseButton && (
-          <div className="modal__close">
+          <div className={styles.modal__close}>
             <button onClick={handleClose}>x</button>
           </div>
         )}

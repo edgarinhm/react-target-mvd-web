@@ -80,3 +80,10 @@ export const aboutI18n = {
   PAGE_TITLE: 'about.page.title',
   PAGE_SUBTITLE: 'about.page.subtitle',
 };
+
+export const contactI18n = {
+  PAGE_TITLE: 'contact.modal.title',
+  FORM_EMAIL: 'contact.form.email',
+  FORM_MESSAGE: 'contact.form.message',
+  FORM_SUBMIT: 'contact.form.submit',
+};

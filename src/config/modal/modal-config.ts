@@ -7,6 +7,11 @@ const modalConfig = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1000,
+    opacity: 1,
+  },
 };
 
 export default modalConfig;

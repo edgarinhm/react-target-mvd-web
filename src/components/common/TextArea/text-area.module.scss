@@ -1,0 +1,25 @@
+.input {
+  margin: 0;
+  outline: medium none;
+  padding: 0.25em;
+  font-weight: normal;
+
+  &-container {
+    padding-bottom: 1rem;
+  }
+
+  &-label {
+    padding-bottom: 0.5rem;
+  }
+
+  &-error {
+    padding-top: 0.5rem;
+  }
+}
+
+.fluid .input-text {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
