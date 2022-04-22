@@ -11,6 +11,7 @@ const getSelectTheme = (theme: any, styles?: any) => {
 const themeConfig: ThemeConfig = theme => ({
   ...theme,
   borderRadius: 0,
+
   colors: {
     ...theme.colors,
     ...getSelectTheme(themes, customStyles),

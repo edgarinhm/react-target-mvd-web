@@ -1,13 +1,12 @@
 import { FocusEventHandler } from 'react';
 import { Controller, FieldValues, UseFormRegister, Control } from 'react-hook-form';
 import Select from 'react-select';
-import classNames from 'classnames';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
 import { validateLocalSrc } from 'utils';
 import { MEDIA_ICONS } from 'constants/assets-constants';
-import './dropdown.scss';
 import themeConfig from 'config/react-select';
+import styles from './dropdown.module.scss';
 
 export type isMultiType = true | false;
 export interface DropdownOption {
@@ -51,8 +50,12 @@ const Dropdown = ({
   control,
 }: DropdownProps) => {
   return (
-    <div className={classNames('input-container')}>
-      {label && <div className={classNames('input-label')}>{label}</div>}
+    <div className={styles.dropdown__container + ' ' + className}>
+      {label && (
+        <div className={styles.dropdown__label}>
+          <label htmlFor={name}>{label}</label>
+        </div>
+      )}
       <Controller
         name={name}
         control={control}
@@ -60,7 +63,7 @@ const Dropdown = ({
           <Select
             ref={ref}
             {...field}
-            className={classNames('dropdown', className)}
+            className={styles.dropdown + ' ' + className}
             options={options}
             placeholder={placeholder}
             components={{
@@ -73,7 +76,7 @@ const Dropdown = ({
             onBlur={onBlur}
             formatOptionLabel={option =>
               option.icon ? (
-                <div className={classNames('dropdown__option')}>
+                <div className={styles.dropdown__option}>
                   <img
                     src={validateLocalSrc(
                       option.icon,

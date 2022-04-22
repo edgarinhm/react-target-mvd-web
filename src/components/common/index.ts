@@ -7,3 +7,4 @@ export { Spinner } from './Spinner';
 export { FormStatus } from './FormStatus';
 export { Password } from './Password';
 export { Modal } from './Modal';
+export { TextArea } from './TextArea';

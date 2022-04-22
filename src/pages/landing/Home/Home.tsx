@@ -9,6 +9,7 @@ import Target from './components/Target';
 import testIds from 'constants/test-ids-constant';
 import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
+import ContactModal from './components/ContactModal';
 
 const Home = () => {
   const { activeContent, handleMapClick, currentLocation, activeSidebar } = useHome();
@@ -33,6 +34,7 @@ const Home = () => {
     <article className="two-column-layout-wrap" data-testid={testIds.HOME_PAGE}>
       <section className={activeSidebar ? 'left left__sidebar' : 'left'}>
         <SideBar />
+        <ContactModal />
         {activeHomeContent.content}
         <Footer>
           <HappySmile styleClass="smiles-small" />

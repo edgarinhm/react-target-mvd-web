@@ -1,26 +1,27 @@
 import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames/bind';
+
+import inputStyle from './text-area.module.scss';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { ValidationError } from 'interfaces/validation/validation-error-interface';
-import inputStyle from './input-text.module.scss';
 
 export interface InputProps {
   name: string;
   value?: string | number;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   label?: string;
   placeholder?: string;
   className?: string;
   required?: boolean;
   error?: string | ValidationError;
   type?: string;
-  onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   disabled?: boolean;
   autocomplete?: string;
   isVisibleRequiredIcon?: boolean;
 }
 
-const InputText = forwardRef<HTMLInputElement, InputProps>(
+const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
   (
     {
       name,
@@ -31,7 +32,6 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
       className,
       required = false,
       error,
-      type = 'text',
       onFocus,
       disabled = false,
       autocomplete = 'off',
@@ -51,14 +51,13 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
           </div>
         )}
         <div>
-          <input
+          <textarea
             name={name}
             value={value}
             onChange={onChange}
             onFocus={onFocus}
             placeholder={placeholder}
-            className={style({ 'input input-text error': error, 'input input-text': !error })}
-            type={type}
+            className={style({ 'textarea text-area error': error, 'textarea text-area': !error })}
             required={required}
             disabled={disabled}
             ref={ref}
@@ -71,4 +70,4 @@ const InputText = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-export default InputText;
+export default TextArea;

@@ -1,4 +1,4 @@
-$inputBorder: #000000;
+$inputBorder: 0.5px solid #000000;
 $inputPlaceholderTextColor: #a6a6a6;
 $blue: #2fbcf7;
 $fontSize: 0.625rem;
@@ -16,4 +16,5 @@ $hoverDropdown: #f4f4f4;
 
 :export {
   hoverDropdown: $hoverDropdown;
+  inputBorder: $inputBorder;
 }

@@ -23,28 +23,31 @@ body {
     overflow: hidden;
   }
 
-  .input-text {
-    width: 180px;
-    height: 37px;
+  .input-text,
+  .text-area {
+    height: 2rem;
     padding: 0.5rem;
     border-radius: 0px;
-    border: 0.5px solid $inputBorder;
+    border: $inputBorder;
     text-align: center;
     text-transform: uppercase;
     font-size: $fontSize;
     letter-spacing: 1.5px;
+  }
 
-    @include placeholder {
-      color: $inputPlaceholderTextColor;
+  .textarea {
+    &.text-area {
+      border: $inputBorder;
+      height: 6rem;
     }
   }
 
-  .form {
-    text-align: center;
+  form {
     text-transform: uppercase;
     letter-spacing: 1.65px;
     box-shadow: none;
-    font-size: $fontSize;
+    width: 100%;
+    margin-top: 1rem;
 
     .input-label {
       line-height: 13px;
@@ -56,6 +59,15 @@ body {
 
     &--text-left {
       text-align: left;
+    }
+
+    @include placeholder {
+      color: $inputPlaceholderTextColor;
+      font-size: $fontSize;
+    }
+
+    input {
+      width: 100%;
     }
   }
 
@@ -83,10 +95,9 @@ body {
   }
 
   .dropdown {
-    width: 180px;
     height: 37px;
     border-radius: 0;
-    border: 0.5px solid $inputBorder;
+    border: $inputBorder;
     font-size: $fontSize;
   }
 

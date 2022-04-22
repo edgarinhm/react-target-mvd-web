@@ -1,14 +1,21 @@
 .modal {
+  &__wrap {
+    text-align: center;
+  }
+
   &__title {
     margin: 0;
     display: inline;
   }
+
   &__subtitle {
     margin: 0;
   }
+
   &__close {
     display: flex;
     justify-content: flex-end;
+
     button {
       background-color: transparent;
       border: none;

@@ -7,8 +7,10 @@
   box-sizing: border-box;
 }
 
-.input {
-  &-text {
+.input,
+.textarea {
+  &-text,
+  &.text-area {
     margin: 0;
     outline: medium none;
     font-weight: normal;
