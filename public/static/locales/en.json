@@ -88,12 +88,30 @@
   },
   "contact": {
     "modal": {
-      "title": "Don´t by shine, drop us a line!",
-      "form": {
-        "email": "email",
-        "message": "message",
-        "submit": "send"
-      }
+      "title": "Don´t by shine, drop us a line!"
+    },
+    "form": {
+      "email": "email",
+      "message": "message",
+      "submit": "send"
+    }
+  },
+  "profile": {
+    "page": {
+      "title": "Edit Profile"
+    },
+    "form": {
+      "email": "email",
+      "current-password": "Current Password",
+      "password-placeholder": "Min 6 characters long",
+      "password": "New Password",
+      "password-confirm": "Confirm New Password",
+      "submit": "Save Changes"
+    },
+    "link": {
+      "edit": "edit",
+      "logout": "logout",
+      "delete": "Delete my TARGET account"
     }
   }
 }

@@ -1,5 +1,5 @@
 export interface ErrorApiResponse {
-  status: string;
+  status: string | boolean;
   data: Object;
   errors: Errors;
 }

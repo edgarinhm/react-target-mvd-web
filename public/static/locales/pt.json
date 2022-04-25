@@ -88,12 +88,30 @@
   },
   "contact": {
     "modal": {
-      "title": "Não seja tímido, escreva-nos!",
-      "form": {
-        "email": "e-mail",
-        "message": "mensagem",
-        "submit": "mandar"
-      }
+      "title": "Não seja tímido, escreva-nos!"
+    },
+    "form": {
+      "email": "e-mail",
+      "message": "mensagem",
+      "submit": "mandar"
+    }
+  },
+  "profile": {
+    "page": {
+      "title": "Editar Perfil"
+    },
+    "form": {
+      "email": "E-mail",
+      "current-password": "Senha atual",
+      "password-placeholder": "Comprimento mínimo 6 caracteres",
+      "password": "Nova senha",
+      "password-confirm": "Confirmar nova senha",
+      "submit": "Salvar alterações"
+    },
+    "link": {
+      "edit": "editar",
+      "logout": "sair",
+      "delete": "Excluir minha conta do TARGET"
     }
   }
 }

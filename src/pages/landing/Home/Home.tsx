@@ -1,15 +1,16 @@
 import About from './components/About';
+import ContactModal from './components/ContactModal';
 import Chats from 'components/Layout/Chats';
 import Footer from 'components/Layout/Footer';
 import HappySmile from 'components/Layout/HappySmile';
 import HomeEmptyState from './components/EmptyHomeSidebar';
-import SideBar from 'components/Layout/SideBar/SideBar';
 import Maps from 'components/Layout/Map';
+import ProfileEdit from './components/ProfileEdit';
+import SideBar from 'components/Layout/SideBar/SideBar';
 import Target from './components/Target';
 import testIds from 'constants/test-ids-constant';
 import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
-import ContactModal from './components/ContactModal';
 
 const Home = () => {
   const { activeContent, handleMapClick, currentLocation, activeSidebar } = useHome();
@@ -26,6 +27,9 @@ const Home = () => {
     },
     [HomeContent.AboutView]: {
       content: <About />,
+    },
+    [HomeContent.ProfileEditView]: {
+      content: <ProfileEdit />,
     },
   };
   const activeHomeContent = homeContent[activeContent];

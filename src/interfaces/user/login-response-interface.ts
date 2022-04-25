@@ -1,5 +1,5 @@
-import { User } from './user-interface';
+import { ProfileUser } from 'interfaces/profile/profile-response-interface';
 
 export default interface LoginResponse {
-  data: User;
+  data: ProfileUser;
 }

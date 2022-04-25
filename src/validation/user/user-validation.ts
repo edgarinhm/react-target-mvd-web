@@ -28,3 +28,7 @@ export const gender = {
     })
     .required(),
 };
+
+export const currentPassword = {
+  currentPassword: string().min(8).required(),
+};

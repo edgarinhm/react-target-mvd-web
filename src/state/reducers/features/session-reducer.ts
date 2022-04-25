@@ -1,21 +1,35 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { User } from 'interfaces/user/user-interface';
+import { ProfileUser } from 'interfaces/profile/profile-response-interface';
 import { updateSession, signUp, login, logout } from 'state/actions/user-actions';
 
 export interface SessionState {
   authenticated: boolean;
-  accessToken?: string;
-  user?: User;
-  clientToken?: string;
-  uid?: string;
+  accessToken: string;
+  clientToken: string;
+  uid: string;
+  user: ProfileUser;
 }
 
 const initialState: SessionState = {
   accessToken: '',
   authenticated: false,
-  user: {},
   clientToken: '',
   uid: '',
+  user: {
+    id: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    fullName: '',
+    username: '',
+    gender: '',
+    avatar: {
+      originalUrl: '',
+      normalUrl: '',
+      smallThumbUrl: '',
+    },
+    pushToken: '',
+  },
 };
 
 const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<SessionState>) => {
@@ -24,12 +38,12 @@ const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<Ses
   state.uid = payload.uid;
 };
 
-const handleSignupFulfilled = (state: SessionState, { payload }: PayloadAction<User>) => {
+const handleSignupFulfilled = (state: SessionState, { payload }: PayloadAction<ProfileUser>) => {
   state.user = payload;
   state.authenticated = true;
 };
 
-const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<User>) => {
+const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<ProfileUser>) => {
   state.user = payload;
   state.authenticated = true;
 };

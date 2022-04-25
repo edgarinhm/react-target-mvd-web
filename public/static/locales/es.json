@@ -95,5 +95,23 @@
       "message": "mensaje",
       "submit": "enviar"
     }
+  },
+  "profile": {
+    "page": {
+      "title": "Editar Perfil"
+    },
+    "form": {
+      "email": "Correo",
+      "current-password": "Contraseña Actual",
+      "password-placeholder": "Longitud Mínima 6 caracteres",
+      "password": "Nueva Contraseña",
+      "password-confirm": "Confirmar Nueva Contraseña",
+      "submit": "Guardar Cambios"
+    },
+    "link": {
+      "edit": "editar",
+      "logout": "salir",
+      "delete": "Borrar mi cuenta OBJETIVO"
+    }
   }
 }
