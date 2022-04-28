@@ -10,9 +10,11 @@ export const signUp = createAsyncThunk('user/signUp', async (user: User) => {
   }
 });
 
-export const login = createAsyncThunk('user/login', async (user: User) => {
+export const login = createAsyncThunk('user/login', async (user: User, { dispatch }) => {
   try {
-    return await userService.login(user);
+    const data = await userService.login(user);
+    const profileUser = await userService.profile(data.id);
+    return { ...profileUser };
   } catch ({ response: { data } }) {
     throw data;
   }

@@ -14,6 +14,7 @@ export enum HomeContent {
   TargetNewView,
   ChatView,
   AboutView,
+  ProfileEditView,
 }
 
 interface HomeContentElement {
@@ -45,6 +46,7 @@ export const useHome = () => {
       location: { lat: targetOption.target.lat, lng: targetOption.target.lng },
       topic: TopicService.findTopicById(targetOption.target.topicId, topicsCollection)?.label,
     }));
+
     dispatch(setTopicCollection(topicsCollection));
     dispatch(setTargetCollection(targetsCollecion));
     dispatch(setLocationCollection(markers));

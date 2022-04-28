@@ -57,7 +57,7 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
           dispatch(setErrors(errorApi));
         }
         const errorApiResponse = error.response.data as ErrorApiResponse;
-        if (errorApiResponse?.status === 'error') {
+        if (errorApiResponse?.status === 'error' || !errorApiResponse?.status) {
           dispatch(setErrors(errorApiResponse.errors.full_messages[0]));
         }
       }

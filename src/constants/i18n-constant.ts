@@ -87,3 +87,16 @@ export const contactI18n = {
   FORM_MESSAGE: 'contact.form.message',
   FORM_SUBMIT: 'contact.form.submit',
 };
+
+export const profileI18n = {
+  PAGE_TITLE: 'profile.page.title',
+  FORM_EMAIL: 'profile.form.email',
+  FORM_CURRENT_PASSWORD: 'profile.form.current-password',
+  FORM_PASSWORD_PLACEHOLDER: 'profile.form.password-placeholder',
+  FORM_NEW_PASSWORD: 'profile.form.password',
+  FORM_CONFIRM_PASSWORD: 'profile.form.password-confirm',
+  FORM_SUBMIT: 'profile.form.submit',
+  LINK_EDIT: 'profile.link.edit',
+  LINK_LOGOUT: 'profile.link.logout',
+  LINK_DELETE: 'profile.link.delete',
+};
