@@ -1,7 +1,7 @@
 ## This rule redirects to an external API
 [build]
   publish = "build"
-  command = "ng build"
+  command = "npm run build"
 [[redirects]]
   from = "/*"
   to = "/index.html"
