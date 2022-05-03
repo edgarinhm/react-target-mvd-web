@@ -1,0 +1,8 @@
+## This rule redirects to an external API
+[build]
+  publish = "dist/react-mvd"
+  command = "ng build --prod"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
