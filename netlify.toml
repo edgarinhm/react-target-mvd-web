@@ -1,7 +1,7 @@
 ## This rule redirects to an external API
 [build]
-  publish = "dist/react-mvd"
-  command = "ng build --prod"
+  publish = "build"
+  command = "ng build"
 [[redirects]]
   from = "/*"
   to = "/index.html"
