@@ -9,7 +9,7 @@
       "email": "correo",
       "password": "contrasena",
       "submit": "iniciar session",
-      "forgot-password": "olvido su contrasena?",
+      "forgot-password": "olvido su contraseña?",
       "connect-facebook": "connectar con facebook",
       "signup": "registrarse"
     }
@@ -33,9 +33,9 @@
       "email": "correo",
       "email-placeholder": "escriba su correo",
       "password": "contrasena",
-      "password-placeholder": "escriba su contrasena",
-      "password-confirm": "confirmar contrasena",
-      "password-confirm-placeholder": "confirme su contrasena",
+      "password-placeholder": "escriba su contraseña",
+      "password-confirm": "confirmar contraseña",
+      "password-confirm-placeholder": "confirme su contraseña",
       "gender": "genero",
       "gender-default": "seleccione su genero",
       "submit": "registro",

@@ -7,7 +7,7 @@ import phoneIcon from 'assets/layout/icons/phone-icon.svg';
 import styles from './sidebar.module.scss';
 
 const SideBar = () => {
-  const { handleSection, activeSidebar, handleOnClick, handleContactModal } = useSideBar();
+  const { handleSection, activeSidebar, handleContactModal } = useSideBar();
 
   return (
     <div className={activeSidebar ? styles['sidebar__active'] : styles.sidebar}>
