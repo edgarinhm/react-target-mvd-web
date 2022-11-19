@@ -121,6 +121,7 @@
     },
     "form": {
       "email": "e-mail",
+      "email-placeholder": "escreva seu e-mail",
       "submit": "Recuperar"
     },
     "link": {

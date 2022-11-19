@@ -103,7 +103,9 @@ export const profileI18n = {
 
 export const forgotPasswordI18n = {
   PAGE_TITLE: 'forgot-password.page.title',
+  PAGE_TEXT: 'forgot-password.page.text',
   FORM_EMAIL: 'forgot-password.form.email',
+  FORM_EMAIL_PLACEHOLDER: 'forgot-password.form.email-placeholder',
   FORM_SUBMIT: 'forgot-password.form.submit',
   LINK_LOGIN: 'forgot-password.link.login',
 };
