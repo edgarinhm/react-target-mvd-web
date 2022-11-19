@@ -124,3 +124,6 @@ yarn-error.log*
 
 # vscode
 .vscode
+
+# husky
+.husky

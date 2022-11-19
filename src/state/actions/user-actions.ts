@@ -10,7 +10,7 @@ export const signUp = createAsyncThunk('user/signUp', async (user: User) => {
   }
 });
 
-export const login = createAsyncThunk('user/login', async (user: User, { dispatch }) => {
+export const login = createAsyncThunk('user/login', async (user: User) => {
   try {
     const data = await userService.login(user);
     const profileUser = await userService.profile(data.id);

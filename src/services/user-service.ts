@@ -9,11 +9,13 @@ import {
 } from 'interfaces/profile/profile-update-request-interface';
 import { ChangePassword } from 'interfaces/profile/change-password-interface';
 import { ProfileResponse, ProfileUser } from 'interfaces/profile/profile-response-interface';
+import { ResetPassword } from 'interfaces/profile/forgot-password-interface';
 
 const USER_BASE_URL = '/users';
 const LOGIN_URL = `${USER_BASE_URL}/sign_in`;
 const LOGOUT_URL = `${USER_BASE_URL}/sign_out`;
 const PASSWORD_URL = `${USER_BASE_URL}/password`;
+const EDIT_RESET_PASSWORD_URL = `${PASSWORD_URL}/edit`;
 
 class UserService {
   static async signUp(user: User): Promise<User> {
@@ -86,6 +88,19 @@ class UserService {
         data: {},
       });
       return user;
+    } catch ({ response: { data, status } }) {
+      throw Error(status as string);
+    }
+  }
+
+  static async resetPassword(email: string): Promise<string> {
+    try {
+      const resetPassword: ResetPassword = {
+        email,
+        redirectUrl: `${process.env.REACT_APP_API_URL}${EDIT_RESET_PASSWORD_URL}`,
+      };
+      const { status } = await httpClient.post(PASSWORD_URL, resetPassword);
+      return `${status}`;
     } catch ({ response: { data, status } }) {
       throw Error(status as string);
     }
