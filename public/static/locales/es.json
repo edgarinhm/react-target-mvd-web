@@ -113,5 +113,32 @@
       "logout": "salir",
       "delete": "Borrar mi cuenta OBJETIVO"
     }
+  },
+  "forgot-password": {
+    "page": {
+      "title": "Olvide mi contraseña",
+      "text": "Revisa tu bandeja de correo el correo ha sido enviado"
+    },
+    "form": {
+      "email": "email",
+      "email-placeholder": "escriba su correo",
+      "submit": "Recuperar"
+    },
+    "link": {
+      "login": "iniciar sessión"
+    }
+  },
+  "recover-password": {
+    "page": {
+      "title": "Recuperacion de contraseña"
+    },
+    "form": {
+      "email": "Correo",
+      "password": "Nueva Constraseña",
+      "password-placeholder": "Min 6 characters long"
+    },
+    "link": {
+      "login": "iniciar sessión"
+    }
   }
 }
