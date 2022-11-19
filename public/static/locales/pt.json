@@ -113,5 +113,31 @@
       "logout": "sair",
       "delete": "Excluir minha conta do TARGET"
     }
+  },
+  "forgot-password": {
+    "page": {
+      "title": "Esqueci minha senha",
+      "text": "Verifique sua caixa de entrada, o email foi enviado"
+    },
+    "form": {
+      "email": "e-mail",
+      "submit": "Recuperar"
+    },
+    "link": {
+      "login": "entrar"
+    }
+  },
+  "recover-password": {
+    "page": {
+      "title": "Recuperação de senha"
+    },
+    "form": {
+      "email": "e-mail",
+      "password": "Nova senha",
+      "password-placeholder": "Mínimo de 6 caracteres"
+    },
+    "link": {
+      "login": "entrar"
+    }
   }
 }

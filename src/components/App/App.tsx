@@ -4,14 +4,25 @@ import SignUp from 'pages/landing/Signup';
 import Home from 'pages/landing/Home';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
+import LandingWrap from 'components/Layout/LandingWrap';
 import routesPaths from 'constants/routes-paths-constant';
 import About from 'pages/landing/Home/components/About/About';
+import ForgotPassword from 'pages/landing/ForgotPassword';
 
 function App() {
   return (
     <Routes>
       <Route path={routesPaths.signup} element={<SignUp />}></Route>
       <Route path={routesPaths.login} element={<Login />}></Route>
+      <Route
+        path={routesPaths.passwordReset}
+        element={
+          <LandingWrap>
+            <ForgotPassword />
+          </LandingWrap>
+        }
+      ></Route>
+      <Route path={routesPaths.about} element={<About />}></Route>
       <Route
         path={routesPaths.index}
         element={
@@ -20,7 +31,6 @@ function App() {
           </RequireAuth>
         }
       ></Route>
-      <Route path={routesPaths.about} element={<About />}></Route>
       <Route path="*" element={<NotMatch />} />
     </Routes>
   );

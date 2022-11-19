@@ -100,3 +100,20 @@ export const profileI18n = {
   LINK_LOGOUT: 'profile.link.logout',
   LINK_DELETE: 'profile.link.delete',
 };
+
+export const forgotPasswordI18n = {
+  PAGE_TITLE: 'forgot-password.page.title',
+  FORM_EMAIL: 'forgot-password.form.email',
+  FORM_SUBMIT: 'forgot-password.form.submit',
+  LINK_LOGIN: 'forgot-password.link.login',
+};
+
+export const recoverPasswordI18n = {
+  PAGE_TITLE: 'recover-password.page.title',
+  FORM_EMAIL: 'recover-password.form.email',
+  FORM_NEW_PASSWORD: 'recover-password.form.password',
+  FORM_PASSWORD_PLACEHOLDER: 'recover-password.form.password-placeholder',
+  FORM_CONFIRM_PASSWORD: 'recover-password.form.password-confirm',
+  FORM_SUBMIT: 'recover-password.form.submit',
+  LINK_LOGIN: 'recover-password.link.login',
+};
