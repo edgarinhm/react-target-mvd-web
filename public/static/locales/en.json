@@ -113,5 +113,32 @@
       "logout": "logout",
       "delete": "Delete my TARGET account"
     }
+  },
+  "forgot-password": {
+    "page": {
+      "title": "Forgot Password",
+      "text": "You should have received an email"
+    },
+    "form": {
+      "email": "email",
+      "email-placeholder": "write your email",
+      "submit": "Recover"
+    },
+    "link": {
+      "login": "login"
+    }
+  },
+  "recover-password": {
+    "page": {
+      "title": "Recover Password"
+    },
+    "form": {
+      "email": "email",
+      "password": "New Password",
+      "password-placeholder": "Min 6 characters long"
+    },
+    "link": {
+      "login": "login"
+    }
   }
 }
