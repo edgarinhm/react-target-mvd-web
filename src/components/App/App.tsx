@@ -1,37 +1,27 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from 'pages/landing/Login';
-import SignUp from 'pages/landing/Signup';
-import Home from 'pages/landing/Home';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { NotMatch } from 'components/Layout/NotMatch';
 import RequireAuth from 'components/Routes/RequireAuth';
-import LandingWrap from 'components/Layout/LandingWrap';
-import routesPaths from 'constants/routes-paths-constant';
-import About from 'pages/landing/Home/components/About/About';
-import ForgotPassword from 'pages/landing/ForgotPassword';
+import routes from 'routes/routes';
+import { useAppSelector } from 'hooks';
 
 function App() {
+  const isAuthenticated = useAppSelector(state => state.session.authenticated);
   return (
     <Routes>
-      <Route path={routesPaths.signup} element={<SignUp />}></Route>
-      <Route path={routesPaths.login} element={<Login />}></Route>
-      <Route
-        path={routesPaths.passwordReset}
-        element={
-          <LandingWrap>
-            <ForgotPassword />
-          </LandingWrap>
-        }
-      ></Route>
-      <Route path={routesPaths.about} element={<About />}></Route>
-      <Route
-        path={routesPaths.index}
-        element={
-          <RequireAuth>
-            <Home />
-          </RequireAuth>
-        }
-      ></Route>
-      <Route path="*" element={<NotMatch />} />
+      <Route path="/" element={<Outlet />}>
+        {routes.map(route => (
+          <Route
+            path={route.path}
+            element={
+              <RequireAuth key={`route-${route.path}`} authenticated={isAuthenticated} {...route}>
+                {route.Component}
+              </RequireAuth>
+            }
+            key={`route-${route.path}`}
+          />
+        ))}
+        <Route path="*" element={<NotMatch />} />
+      </Route>
     </Routes>
   );
 }

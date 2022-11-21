@@ -7,6 +7,7 @@ const routesPaths = {
   passwordReset: '/password-reset',
   signupFacebook: '/sign-up-facebook',
   about: '/about',
+  notAutenticaded: '/login',
 };
 
 export default routesPaths;

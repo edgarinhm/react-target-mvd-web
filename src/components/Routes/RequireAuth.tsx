@@ -1,16 +1,28 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSession } from 'hooks';
 import routesPaths from 'constants/routes-paths-constant';
+import { Routes } from 'interfaces/route/routes-interface';
 
-const RequireAuth: React.FC<{ children: JSX.Element }> = ({ children }) => {
+interface RouteFromPathProps extends Routes {
+  authenticated?: boolean;
+  children: JSX.Element;
+}
+
+const RequireAuth = ({ ...props }: RouteFromPathProps) => {
   const { authenticated } = useSession();
   let location = useLocation();
 
-  if (!authenticated) {
-    return <Navigate to={routesPaths.login} state={{ path: location.pathname }} replace />;
+  if (props.private) {
+    if (!authenticated) {
+      return (
+        <Navigate to={routesPaths.notAutenticaded} state={{ path: location.pathname }} replace />
+      );
+    } else {
+      return props.children;
+    }
+  } else {
+    return props.children;
   }
-
-  return children;
 };
 
 export default RequireAuth;
