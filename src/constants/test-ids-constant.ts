@@ -3,6 +3,8 @@ const testIds = {
   SIGNUP_PAGE: 'signup-page',
   LOGIN_PAGE: 'login-page',
   TARGET_PAGE: 'target-page',
+  CONVERSATION_PAGE: 'conversation-page',
+  MESSAGE_PAGE: 'message-page',
   FORM: 'form',
   PASSWORD_RESET_LINK: 'password-reset-form-link',
   FACEBOOK_LINK: 'facebook-form-link',

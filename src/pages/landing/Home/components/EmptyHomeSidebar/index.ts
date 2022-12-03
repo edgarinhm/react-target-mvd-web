@@ -1,1 +1,1 @@
-export { default } from './EmptyHomeSidebar';
+export { default as HomeEmptyState } from './EmptyHomeSidebar';
