@@ -8,12 +8,13 @@
   line-height: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 /* Oval right */
 .avatar-chat {
-  width: 33px;
-  height: 33px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   margin-right: 14px;
 }
@@ -21,7 +22,8 @@
 .chat__details {
   display: flex;
   align-items: center;
-  padding: 2em;
+  padding: 1em;
+  justify-content: space-between;
 }
 
 .chat-title {
@@ -31,5 +33,19 @@
 }
 
 .group-icon {
+  display: flex;
+  position: relative;
+}
+
+.icon-badge {
+  position: absolute;
+  right: -1em;
+}
+
+.icon {
+  margin: 0.7em;
+}
+
+.group-detail {
   display: flex;
 }

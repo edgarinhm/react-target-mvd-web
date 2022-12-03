@@ -10,6 +10,7 @@ import placeReducer from './features/place-reducer';
 import homeReducer from './features/home-reducer';
 import targetReducer from './features/target-reducer';
 import topicReducer from './features/topic-reducer';
+import chatReducer from './features/chat-reducer';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   homeReducer,
   targetReducer,
   topicReducer,
+  chatReducer,
 });
 
 export default rootReducer;

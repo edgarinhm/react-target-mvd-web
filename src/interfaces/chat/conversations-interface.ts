@@ -1,4 +1,4 @@
-export default interface Conversations {
+export interface Conversations {
   matchId: number;
   topicIcon: string;
   lastMessage: string;
@@ -6,7 +6,7 @@ export default interface Conversations {
   user: chatUser;
 }
 
-interface chatUser {
+export interface chatUser {
   id: number;
   fullName: string;
   avatar: {
@@ -14,4 +14,8 @@ interface chatUser {
     normalUrl: string;
     smallThumbUrl: string;
   };
+}
+
+export interface ConversationResponse {
+  matches: Conversations[];
 }

@@ -1,21 +1,24 @@
-import { MEDIA_AVATARS, MEDIA_ICONS } from 'constants/assets-constants';
+import { MEDIA_AVATARS, MEDIA_ICONS, DEFAULT_AVATAR } from 'constants/assets-constants';
 import { validateLocalSrc } from 'utils';
-import Conversations from 'interfaces/chat/conversations-interface';
-import { default as data } from 'data/conversations.json';
-import humps from 'humps';
+import { Conversations } from 'interfaces/chat/conversations-interface';
 import './chats.scss';
 
-const Chats = () => {
-  const conversations = humps.camelizeKeys(data) as Conversations[];
+interface ChatsProps {
+  conversations: Conversations[];
+}
+
+const Chats = ({ conversations }: ChatsProps) => {
   const chats = conversations.map((conversation, index) => (
-    <div key={conversation.matchId}>
-      <div className="grid chats">
-        <div className={!index ? 'chat__details chat__details-first' : 'chat__details'}>
+    <div className="grid chats" key={conversation.matchId}>
+      <div className={!index ? 'chat__details chat__details-first' : 'chat__details'}>
+        <div className="group-detail">
           <img
             className="avatar-chat"
             src={validateLocalSrc(
               conversation.user.avatar.normalUrl,
-              process.env.PUBLIC_URL + MEDIA_AVATARS + conversation.user.avatar.normalUrl
+              process.env.PUBLIC_URL +
+                MEDIA_AVATARS +
+                (conversation.user.avatar.normalUrl || DEFAULT_AVATAR)
             )}
             alt={'avatar ' + conversation.user.fullName}
           />
@@ -25,19 +28,20 @@ const Chats = () => {
             </span>
             <span>{conversation.lastMessage}</span>
           </div>
-          <div className="group-icon">
-            <img
-              className="icon"
-              src={validateLocalSrc(
-                conversation.topicIcon,
-                process.env.PUBLIC_URL + MEDIA_ICONS + conversation.topicIcon
-              )}
-              alt="topic icon"
-            />
-            {conversation.unreadMessages > 0 && (
-              <div className="icon-badge">{conversation.unreadMessages}</div>
+        </div>
+
+        <div className="group-icon">
+          <img
+            className="icon"
+            src={validateLocalSrc(
+              conversation.topicIcon,
+              process.env.PUBLIC_URL + MEDIA_ICONS + conversation.topicIcon
             )}
-          </div>
+            alt="topic icon"
+          />
+          {conversation.unreadMessages > 0 && (
+            <span className="icon-badge">{conversation.unreadMessages}</span>
+          )}
         </div>
       </div>
     </div>

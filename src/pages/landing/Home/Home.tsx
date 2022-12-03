@@ -1,13 +1,13 @@
 import About from './components/About';
 import ContactModal from './components/ContactModal';
-import Chats from 'components/Layout/Chats';
+import { HomeEmptyState } from './components/EmptyHomeSidebar';
+import ProfileEdit from './components/ProfileEdit';
+import Target from './components/Target';
+import ChatList from './components/ChatList/ChatList';
 import Footer from 'components/Layout/Footer';
 import HappySmile from 'components/Layout/HappySmile';
-import HomeEmptyState from './components/EmptyHomeSidebar';
 import Maps from 'components/Layout/Map';
-import ProfileEdit from './components/ProfileEdit';
 import SideBar from 'components/Layout/SideBar/SideBar';
-import Target from './components/Target';
 import testIds from 'constants/test-ids-constant';
 import { HomeContent, useHome, homeContentDictionary } from './useHome';
 import './home.scss';
@@ -23,7 +23,7 @@ const Home = () => {
       content: <Target />,
     },
     [HomeContent.ChatView]: {
-      content: <Chats />,
+      content: <ChatList />,
     },
     [HomeContent.AboutView]: {
       content: <About />,
