@@ -55,6 +55,13 @@
       "topic": "select a topic",
       "topic-default": "What do you want to talk about?",
       "submit": "save target"
+    },
+    "modal": {
+      "title": "Hey!",
+      "text": "Target compatible, start getting connected with:",
+      "form": {
+        "submit": "Close"
+      }
     }
   },
   "home": {

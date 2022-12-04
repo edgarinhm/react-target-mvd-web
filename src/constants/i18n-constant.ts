@@ -119,3 +119,9 @@ export const recoverPasswordI18n = {
   FORM_SUBMIT: 'recover-password.form.submit',
   LINK_LOGIN: 'recover-password.link.login',
 };
+
+export const targetCompatibleModalI18n = {
+  PAGE_TITLE: 'target.modal.title',
+  FORM_TEXT: 'target.modal.text',
+  FORM_SUBMIT: 'target.modal.form.submit',
+};

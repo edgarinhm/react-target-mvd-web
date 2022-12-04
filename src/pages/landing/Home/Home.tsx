@@ -1,5 +1,6 @@
 import About from './components/About';
 import ContactModal from './components/ContactModal';
+import CompatibleTargetModal from './components/CompatibleTargetModal';
 import { HomeEmptyState } from './components/EmptyHomeSidebar';
 import ProfileEdit from './components/ProfileEdit';
 import Target from './components/Target';
@@ -39,6 +40,7 @@ const Home = () => {
       <section className={activeSidebar ? 'left left__sidebar' : 'left'}>
         <SideBar />
         <ContactModal />
+        <CompatibleTargetModal />
         {activeHomeContent.content}
         <Footer>
           <HappySmile styleClass="smiles-small" />
