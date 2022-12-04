@@ -61,11 +61,11 @@ export const useHome = () => {
 
   const loadChatData = useCallback(async () => {
     const chatCollection: Conversations[] = await ChatService.findAllChats();
-    if (chatCollection.length) {
+    if (chatCollection.length && activeContent === HomeContent.Empty) {
       dispatch(setHomeContent(HomeContent.ChatView));
     }
     dispatch(setChatCollection(chatCollection));
-  }, [dispatch]);
+  }, [activeContent, dispatch]);
 
   useEffect(() => {
     loadChatData();
