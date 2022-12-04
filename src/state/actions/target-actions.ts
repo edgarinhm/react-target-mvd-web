@@ -3,12 +3,13 @@ import Target from 'interfaces/target/target-interface';
 import { TargetColletion } from 'interfaces/target/target-response-interface';
 import TargetService from 'services/target-service';
 import { addLocationToCollection, setMapLocation } from './place-actions';
+import { TargetColletionResponse } from '../../interfaces/target/target-response-interface';
 
 export const createTarget = createAsyncThunk(
   'target/create',
-  async (target: Target, { dispatch }) => {
+  async (newTarget: Target, { dispatch }) => {
     try {
-      const data = await TargetService.createTarget(target);
+      const data = await TargetService.createTarget(newTarget);
       dispatch(
         setMapLocation({
           id: 0,
@@ -20,14 +21,14 @@ export const createTarget = createAsyncThunk(
 
       dispatch(
         addLocationToCollection({
-          id: data.id,
-          name: data.title,
-          icon: target.topicIcon,
+          id: data.target.id,
+          name: data.target.title,
+          icon: data.target.topicIcon,
           location: {
-            lat: data.lat,
-            lng: data.lng,
+            lat: data.target.lat,
+            lng: data.target.lng,
           },
-          topic: target.topicTitle,
+          topic: data.target.topicTitle,
         })
       );
       return data;
@@ -37,6 +38,7 @@ export const createTarget = createAsyncThunk(
   }
 );
 
+export const createTargetSuccess = createAction<TargetColletionResponse>('target/createSuccess');
 export const setTarget = createAction<Target | undefined>('target/setTarget');
 export const setTargetCollection = createAction<TargetColletion[] | undefined>(
   'target/TargetCollection'

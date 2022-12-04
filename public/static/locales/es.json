@@ -55,6 +55,13 @@
       "topic": "seleccione un tema",
       "topic-default": "¿De qué quieres hablar?",
       "submit": "guardar objetivo"
+    },
+    "modal": {
+      "title": "Hey!",
+      "text": "Tema compatible, inicia una conversación con:",
+      "form": {
+        "submit": "Cerrar"
+      }
     }
   },
   "home": {

@@ -55,6 +55,13 @@
       "topic": "selecione um tópico",
       "topic-default": "Sobre o que você quer falar?",
       "submit": "salvar destino"
+    },
+    "modal": {
+      "title": "Ei!",
+      "text": "Tópico suportado, inicie uma conversa com:",
+      "form": {
+        "submit": "fechar"
+      }
     }
   },
   "home": {
