@@ -1,5 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
-import { ACCEPT, APPLICATION_JSON, CONTENT_TYPE } from 'constants/api-constants';
+import {
+  ACCEPT,
+  ACCESS_CONTROL_ALLOW_ORIGIN,
+  ALL_ORIGIN,
+  APPLICATION_JSON,
+  CONTENT_TYPE,
+} from 'constants/api-constants';
 
 export interface HttpClient extends AxiosInstance {}
 
@@ -8,6 +14,7 @@ const client = axios.create({
   headers: {
     [ACCEPT]: APPLICATION_JSON,
     [CONTENT_TYPE]: APPLICATION_JSON,
+    [ACCESS_CONTROL_ALLOW_ORIGIN]: ALL_ORIGIN,
   },
 });
 
