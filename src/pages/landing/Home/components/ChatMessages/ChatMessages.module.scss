@@ -1,0 +1,66 @@
+@import '../../../../../assets/styles/custom-variables';
+
+.line {
+  width: 95%;
+  height: 0.03rem;
+  border: 0.03rem solid lightgrey;
+  margin: 0.5rem;
+}
+
+.chat-message-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-message-title img {
+  position: absolute;
+  left: 3rem;
+}
+
+.chat-message-group-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-message-content {
+  background-color: lightgrey;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.chat-message-group-content span {
+  color: lightgrey;
+  text-transform: uppercase;
+}
+
+.chat-message-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-message-text {
+  background-color: lightgray;
+  padding: 1rem;
+  width: 100%;
+}
+
+.chat-message-text textarea {
+  background-color: lightgray;
+  padding: 1rem;
+  width: 100%;
+  text-transform: none;
+  resize: none;
+}
+
+.chat-message-container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  width: 100%;
+}

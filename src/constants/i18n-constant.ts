@@ -125,3 +125,8 @@ export const targetCompatibleModalI18n = {
   FORM_TEXT: 'target.modal.text',
   FORM_SUBMIT: 'target.modal.form.submit',
 };
+
+export const chatMessagesI18n = {
+  PAGE_TITLE: 'chat-messages.page.title',
+  PAGE_SUBTITLE: 'chat-messages.page.subtitle',
+};
