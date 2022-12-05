@@ -2,12 +2,22 @@ import { MEDIA_AVATARS, MEDIA_ICONS, DEFAULT_AVATAR } from 'constants/assets-con
 import { validateLocalSrc } from 'utils';
 import { Conversations } from 'interfaces/chat/conversations-interface';
 import './chats.scss';
+import { Button } from 'components/common';
+import { setHomeContent } from 'state/actions/home-actions';
+import { HomeContent } from 'pages/landing/Home/useHome';
+import { useAppDispatch } from 'hooks';
+import { setCurrentChatId } from 'state/actions/chat-actions';
 
 interface ChatsProps {
   conversations: Conversations[];
 }
 
 const Chats = ({ conversations }: ChatsProps) => {
+  const dispatch = useAppDispatch();
+  const handleReadMessages = (matchId: number) => {
+    dispatch(setCurrentChatId(matchId));
+    dispatch(setHomeContent(HomeContent.MessageView));
+  };
   const chats = conversations.map((conversation, index) => (
     <div className="grid chats" key={conversation.matchId}>
       <div className={!index ? 'chat__details chat__details-first' : 'chat__details'}>
@@ -40,7 +50,13 @@ const Chats = ({ conversations }: ChatsProps) => {
             alt="topic icon"
           />
           {conversation.unreadMessages > 0 && (
-            <span className="icon-badge">{conversation.unreadMessages}</span>
+            <div className="icon-badge-button">
+              <Button
+                onClick={() => handleReadMessages(conversation.matchId)}
+                className="icon-badge"
+                label={`${conversation.unreadMessages}`}
+              />
+            </div>
           )}
         </div>
       </div>

@@ -19,6 +19,7 @@ export enum HomeContent {
   ChatView,
   AboutView,
   ProfileEditView,
+  MessageView,
 }
 
 interface HomeContentElement {

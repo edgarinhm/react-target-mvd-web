@@ -123,7 +123,7 @@ body {
   align-items: center;
 
   &--back {
-    background: $blue;
+    background-color: $blue !important;
     color: $white;
 
     .menu-item .path {
