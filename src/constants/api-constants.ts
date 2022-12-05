@@ -11,3 +11,5 @@ export const BAD_REQUEST = '400';
 export const NO_CONTENT = '204';
 export const OK = '200';
 export const UNPROCESSABLE_ENTITY = '422';
+export const ACCESS_CONTROL_ALLOW_ORIGIN = 'Access-Control-Allow-Origin';
+export const ALL_ORIGIN = '*';
