@@ -10,30 +10,17 @@ import HappySmile from 'components/Layout/HappySmile';
 import Maps from 'components/Layout/Map';
 import SideBar from 'components/Layout/SideBar/SideBar';
 import testIds from 'constants/test-ids-constant';
-import { HomeContent, useHome, homeContentDictionary } from './useHome';
+import { HomeContent, useHome } from './useHome';
 import './home.scss';
 
 const Home = () => {
-  const { activeContent, handleMapClick, currentLocation, activeSidebar } = useHome();
-
-  const homeContent: homeContentDictionary = {
-    [HomeContent.Empty]: {
-      content: <HomeEmptyState />,
-    },
-    [HomeContent.TargetNewView]: {
-      content: <Target />,
-    },
-    [HomeContent.ChatView]: {
-      content: <ChatList />,
-    },
-    [HomeContent.AboutView]: {
-      content: <About />,
-    },
-    [HomeContent.ProfileEditView]: {
-      content: <ProfileEdit />,
-    },
-  };
-  const activeHomeContent = homeContent[activeContent];
+  const { handleMapClick, currentLocation, activeSidebar, activeHomeContent } = useHome([
+    <HomeEmptyState />,
+    <Target />,
+    <ChatList />,
+    <About />,
+    <ProfileEdit />,
+  ]);
 
   return (
     <article className="two-column-layout-wrap" data-testid={testIds.HOME_PAGE}>
@@ -41,7 +28,7 @@ const Home = () => {
         <SideBar />
         <ContactModal />
         <CompatibleTargetModal />
-        {activeHomeContent.content}
+        {activeHomeContent}
         <Footer>
           <HappySmile styleClass="smiles-small" />
         </Footer>
