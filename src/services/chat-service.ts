@@ -1,7 +1,6 @@
 import { httpClient } from 'http-client';
 import { Conversations, ConversationResponse } from 'interfaces/chat/conversations-interface';
-
-const CHAT_BASE_URL = '/match_conversations';
+import { CHAT_BASE_URL } from 'constants/api-urls-constants';
 
 class ChatService {
   static async findAllChats(): Promise<Conversations[]> {

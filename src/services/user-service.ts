@@ -10,12 +10,13 @@ import {
 import { ChangePassword } from 'interfaces/profile/change-password-interface';
 import { ProfileResponse, ProfileUser } from 'interfaces/profile/profile-response-interface';
 import { ResetPassword } from 'interfaces/profile/forgot-password-interface';
-
-const USER_BASE_URL = '/users';
-const LOGIN_URL = `${USER_BASE_URL}/sign_in`;
-const LOGOUT_URL = `${USER_BASE_URL}/sign_out`;
-const PASSWORD_URL = `${USER_BASE_URL}/password`;
-const EDIT_RESET_PASSWORD_URL = `${PASSWORD_URL}/edit`;
+import {
+  EDIT_RESET_PASSWORD_URL,
+  LOGIN_URL,
+  LOGOUT_URL,
+  PASSWORD_URL,
+  USER_BASE_URL,
+} from 'constants/api-urls-constants';
 
 class UserService {
   static async signUp(user: User): Promise<User> {

@@ -7,8 +7,7 @@ import {
   TargetColletion,
   TargetCreateResponse,
 } from 'interfaces/target/target-response-interface';
-
-const TARGET_BASE_URL = '/targets';
+import { TARGET_BASE_URL } from 'constants/api-urls-constants';
 
 class TargetService {
   static async createTarget(newTarget: Target): Promise<TargetCreateResponse> {

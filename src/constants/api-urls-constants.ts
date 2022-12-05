@@ -1,0 +1,9 @@
+export const USER_BASE_URL = '/users';
+export const LOGIN_URL = `${USER_BASE_URL}/sign_in`;
+export const LOGOUT_URL = `${USER_BASE_URL}/sign_out`;
+export const PASSWORD_URL = `${USER_BASE_URL}/password`;
+export const EDIT_RESET_PASSWORD_URL = `${PASSWORD_URL}/edit`;
+export const CHAT_BASE_URL = '/match_conversations';
+export const QUESTIONS_BASE_URL = '/questions';
+export const TARGET_BASE_URL = '/targets';
+export const TOPIC_BASE_URL = '/topics';
