@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, ReactElement } from 'react';
 import { useAppSelector, useAppDispatch } from 'hooks';
 import TargetService from 'services/target-service';
 import TopicService from 'services/topic-service';
@@ -11,6 +11,7 @@ import { setTopicCollection } from 'state/actions/topic-actions';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import { Conversations } from 'interfaces/chat/conversations-interface';
 import { TopicColletion } from 'interfaces/topic/topic-response-interface';
+import { setErrors } from 'state/actions/user-actions';
 
 export enum HomeContent {
   Empty,
@@ -25,7 +26,7 @@ interface HomeContentElement {
 }
 export type homeContentDictionary = Record<HomeContent, HomeContentElement>;
 
-export const useHome = () => {
+export const useHome = (homeContent: ReactElement[]) => {
   const { activeContent } = useAppSelector(state => state.homeReducer);
   const dispatch = useAppDispatch();
 
@@ -40,19 +41,24 @@ export const useHome = () => {
   const currentLocation: MapMarker = { id, location: { lat, lng }, icon };
 
   const loadData = useCallback(async () => {
-    const topicsCollection: TopicColletion[] = await TopicService.findAllTopics();
-    const targetsCollection = await TargetService.findAllTargets();
-    const markers: MapMarker[] = targetsCollection.map(targetOption => ({
-      id: targetOption.target.id,
-      name: targetOption.target.title,
-      icon: TopicService.findTopicById(targetOption.target.topicId, topicsCollection)?.icon,
-      location: { lat: targetOption.target.lat, lng: targetOption.target.lng },
-      topic: TopicService.findTopicById(targetOption.target.topicId, topicsCollection)?.label,
-    }));
+    try {
+      const topicsCollection: TopicColletion[] = await TopicService.findAllTopics();
+      const targetsCollection = await TargetService.findAllTargets();
 
-    dispatch(setTopicCollection(topicsCollection));
-    dispatch(setTargetCollection(targetsCollection));
-    dispatch(setLocationCollection(markers));
+      const markers: MapMarker[] = targetsCollection.map(targetOption => ({
+        id: targetOption.target.id,
+        name: targetOption.target.title,
+        icon: TopicService.findTopicById(targetOption.target.topicId, topicsCollection)?.icon,
+        location: { lat: targetOption.target.lat, lng: targetOption.target.lng },
+        topic: TopicService.findTopicById(targetOption.target.topicId, topicsCollection)?.label,
+      }));
+
+      dispatch(setTopicCollection(topicsCollection));
+      dispatch(setTargetCollection(targetsCollection));
+      dispatch(setLocationCollection(markers));
+    } catch (error) {
+      dispatch(setErrors(JSON.stringify(Error)));
+    }
   }, [dispatch]);
 
   useEffect(() => {
@@ -60,11 +66,15 @@ export const useHome = () => {
   }, [loadData]);
 
   const loadChatData = useCallback(async () => {
-    const chatCollection: Conversations[] = await ChatService.findAllChats();
-    if (chatCollection.length && activeContent === HomeContent.Empty) {
-      dispatch(setHomeContent(HomeContent.ChatView));
+    try {
+      const chatCollection: Conversations[] = await ChatService.findAllChats();
+      if (chatCollection.length && activeContent === HomeContent.Empty) {
+        dispatch(setHomeContent(HomeContent.ChatView));
+      }
+      dispatch(setChatCollection(chatCollection));
+    } catch (error) {
+      dispatch(setErrors(JSON.stringify(Error)));
     }
-    dispatch(setChatCollection(chatCollection));
   }, [activeContent, dispatch]);
 
   useEffect(() => {
@@ -78,5 +88,6 @@ export const useHome = () => {
     handleMapClick,
     currentLocation,
     activeSidebar,
+    activeHomeContent: homeContent[activeContent],
   };
 };
