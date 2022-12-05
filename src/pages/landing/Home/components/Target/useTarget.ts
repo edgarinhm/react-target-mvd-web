@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useHome, HomeContent } from '../../useHome';
+import { HomeContent } from '../../useHome';
 import { useAppDispatch, useAppSelector, useStatus, useTranslation } from 'hooks';
 import { createTarget, createTargetSuccess } from 'state/actions/target-actions';
 import { FULFILLED } from 'constants/action-status-constant';
@@ -10,10 +10,10 @@ import TargetService from 'services/target-service';
 import { addLocationToCollection, setMapLocation } from 'state/actions/place-actions';
 import { setErrors } from 'state/actions/user-actions';
 import { ModalContext } from 'context/ModalContext';
+import { setHomeContent } from 'state/actions/home-actions';
 
 export const useTarget = () => {
   const t = useTranslation();
-  const { handleMapClick } = useHome();
   const dispatch = useAppDispatch();
   const { status } = useStatus(createTarget);
   const { topics } = useAppSelector(state => state.topicReducer);
@@ -72,9 +72,9 @@ export const useTarget = () => {
 
   const handleBackMap = () => {
     if (status !== FULFILLED) {
-      handleMapClick(HomeContent.Empty);
+      dispatch(setHomeContent(HomeContent.Empty));
     } else {
-      handleMapClick(HomeContent.ChatView);
+      dispatch(setHomeContent(HomeContent.ChatView));
     }
   };
 

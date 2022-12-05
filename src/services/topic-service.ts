@@ -1,8 +1,7 @@
 import { httpClient } from 'http-client';
 import Topic from 'interfaces/topic/topic-interface';
 import { TopicColletion, TopicColletionResponse } from 'interfaces/topic/topic-response-interface';
-
-const TOPIC_BASE_URL = '/topics';
+import { TOPIC_BASE_URL } from 'constants/api-urls-constants';
 
 class TopicService {
   static async findAllTopics(): Promise<TopicColletion[]> {

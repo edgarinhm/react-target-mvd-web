@@ -37,7 +37,7 @@
   position: relative;
 }
 
-.icon-badge {
+.icon-badge-button {
   position: absolute;
   right: -1em;
 }
@@ -48,4 +48,20 @@
 
 .group-detail {
   display: flex;
+}
+
+.icon-badge-button button {
+  padding: 0rem;
+  height: auto;
+  background-color: #f0c738;
+  border: 1px solid #f0c738;
+  box-shadow: none;
+  border-radius: 50%;
+}
+
+.icon-badge-button button:enabled:focus,
+button:enabled:focus-visible,
+.button:enabled:hover {
+  box-shadow: none;
+  background-color: #f0c738;
 }

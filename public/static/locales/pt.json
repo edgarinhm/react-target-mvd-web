@@ -147,5 +147,10 @@
     "link": {
       "login": "entrar"
     }
+  },
+  "chat-messages": {
+    "page": {
+      "title": "Chat"
+    }
   }
 }

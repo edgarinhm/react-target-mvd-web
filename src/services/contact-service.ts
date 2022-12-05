@@ -1,7 +1,6 @@
 import { httpClient } from 'http-client';
 import { Question } from 'interfaces/contact/question-interface';
-
-const QUESTIONS_BASE_URL = '/questions';
+import { QUESTIONS_BASE_URL } from 'constants/api-urls-constants';
 
 class ContactService {
   static async sendQuestion(question: Question): Promise<string> {
