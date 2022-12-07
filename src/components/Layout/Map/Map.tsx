@@ -1,4 +1,4 @@
-import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
+import { InfoWindow, Marker } from '@react-google-maps/api';
 import MapRemoveMarkerModal from '../MapRemoveMarkerModal';
 import { useMap } from './useMap';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
@@ -26,6 +26,7 @@ const Map = ({ onMapClick, marker }: MapProps) => {
     isMapModalOpen,
     handleOnClickModal,
     handleCloseModal,
+    GoogleMap,
   } = useMap();
 
   const onClick = (e: google.maps.MapMouseEvent) => {
@@ -35,7 +36,7 @@ const Map = ({ onMapClick, marker }: MapProps) => {
 
   if (!isLoaded) return <img src={mapMedia} alt="map of targets" />;
 
-  const markers = locationCollection?.map(contaniner => (
+  const markers = locationCollection?.map((contaniner: MapMarker) => (
     <Marker
       key={contaniner.id}
       position={contaniner.location}

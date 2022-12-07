@@ -14,8 +14,9 @@ export const useMap = () => {
   });
   const options = useMemo<google.maps.MapOptions>(() => defaultOptions, []);
   const mapRef = useRef<GoogleMap | null>();
+  interface Map extends google.maps.Map {}
 
-  const onLoad = useCallback(map => (mapRef.current = map), []);
+  const onLoad = useCallback((map: Map): void | Promise<void> => {}, []);
 
   const moveTo = (location: google.maps.LatLngLiteral) => {
     if (mapRef.current) {
@@ -30,7 +31,6 @@ export const useMap = () => {
           url,
           origin: new window.google.maps.Point(0, 0),
           anchor: new window.google.maps.Point(15, 15),
-          scaledSize: new window.google.maps.Size(40, 40),
         };
   };
 
@@ -77,5 +77,6 @@ export const useMap = () => {
     isMapModalOpen,
     handleOnClickModal,
     handleCloseModal,
+    GoogleMap,
   };
 };

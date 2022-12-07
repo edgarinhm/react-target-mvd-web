@@ -1,10 +1,10 @@
 import { ReactFragment } from 'react';
 
-interface FotterProps {
-  children: ReactFragment | JSX.Element[];
+interface FooterProps {
+  children: ReactFragment | JSX.Element | JSX.Element[];
 }
 
-const Footer = ({ children }: FotterProps) => {
+const Footer = ({ children }: FooterProps) => {
   return <div className="footer">{children}</div>;
 };
 

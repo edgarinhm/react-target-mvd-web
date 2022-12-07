@@ -39,7 +39,7 @@ const handleCurrentLocation = (state: PlaceState, { payload }: PayloadAction<Geo
 
 const handlelocationCollection = (state: PlaceState, { payload }: PayloadAction<MapMarker[]>) => {
   state.locationCollection = [];
-  payload.forEach(marker => {
+  payload.forEach((marker: MapMarker) => {
     state.locationCollection.push(marker);
   });
 };

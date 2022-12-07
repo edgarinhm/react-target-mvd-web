@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -13,7 +13,9 @@ import './assets/themes/mvd/theme.scss';
 import './assets/styles/styles.scss';
 import './config/i18n';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
@@ -24,8 +26,7 @@ ReactDOM.render(
         </Suspense>
       </BrowserRouter>
     </PersistGate>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

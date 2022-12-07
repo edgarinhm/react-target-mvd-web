@@ -8,7 +8,7 @@ interface HeaderProps {
   variant?: string;
   canClose?: boolean;
   closeTo?: () => void;
-  children?: ReactFragment | JSX.Element[];
+  children?: ReactFragment | JSX.Element | JSX.Element[];
 }
 
 const Header = ({ title, variant = '', canClose, closeTo, children }: HeaderProps) => {
