@@ -11,6 +11,7 @@ import useChatList from './useChatList';
 function ChatList() {
   const t = useTranslation();
   const { conversations } = useChatList();
+
   return (
     <>
       <Header title={t(homeI18n.PAGE_TITLE)} />

@@ -1,4 +1,4 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import { setHomeContent, setHomeSidebar } from 'state/actions/home-actions';
 import { HomeContent } from 'pages/landing/Home/useHome';
 
@@ -12,15 +12,15 @@ const initialState: HomeState = {
   activeSidebar: false,
 };
 
-const handleHomeContent = (state: HomeState, { payload }: PayloadAction<HomeContent>) => {
-  state.activeContent = payload;
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-const handleActiveSidebar = (state: HomeState, { payload }: PayloadAction<boolean>) => {
-  state.activeSidebar = payload;
-};
-
-export default createReducer(initialState, {
-  [setHomeContent.type]: handleHomeContent,
-  [setHomeSidebar.type]: handleActiveSidebar,
+export default createReducer(initialState, builder => {
+  builder
+    .addCase(resetAction, () => initialState)
+    .addCase(setHomeContent, (state, { payload }) => {
+      state.activeContent = payload;
+    })
+    .addCase(setHomeSidebar, (state, { payload }) => {
+      state.activeSidebar = payload;
+    });
 });

@@ -12,7 +12,7 @@ const CompatibleTargetModal = () => {
     handleOpenModal,
     styleConfig,
     t,
-    matchedUserArray,
+    matchedUser,
     handleOnSubmit,
   } = useCompatibleTargetModal();
 
@@ -27,8 +27,8 @@ const CompatibleTargetModal = () => {
       <h2>{t(targetCompatibleModalI18n.PAGE_TITLE)}</h2>
       <form data-testid="form" className="form" onSubmit={handleOnSubmit} noValidate>
         <label className={styles.label}>{t(targetCompatibleModalI18n.FORM_TEXT)}</label>
-        {matchedUserArray &&
-          matchedUserArray.map(user => {
+        {matchedUser &&
+          matchedUser.map(user => {
             return (
               <div key={user.id} className="group-detail">
                 <img

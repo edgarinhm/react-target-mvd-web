@@ -1,4 +1,4 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import { ProfileUser } from 'interfaces/profile/profile-response-interface';
 import { updateSession, signUp, login, logout } from 'state/actions/user-actions';
 
@@ -32,30 +32,26 @@ const initialState: SessionState = {
   },
 };
 
-const handleUpdateSession = (state: SessionState, { payload }: PayloadAction<SessionState>) => {
-  state.accessToken = payload.accessToken;
-  state.clientToken = payload.clientToken;
-  state.uid = payload.uid;
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-const handleSignupFulfilled = (state: SessionState, { payload }: PayloadAction<ProfileUser>) => {
-  state.user = payload;
-  state.authenticated = true;
-};
-
-const handleLoginFulfilled = (state: SessionState, { payload }: PayloadAction<ProfileUser>) => {
-  state.user = payload;
-  state.authenticated = true;
-};
-
-const handleLogoutFulfilled = () => {
-  localStorage.clear();
-  return initialState;
-};
-
-export default createReducer(initialState, {
-  [updateSession.type]: handleUpdateSession,
-  [signUp.fulfilled.type]: handleSignupFulfilled,
-  [login.fulfilled.type]: handleLoginFulfilled,
-  [logout.fulfilled.type]: handleLogoutFulfilled,
+export default createReducer(initialState, builder => {
+  builder
+    .addCase(resetAction, () => initialState)
+    .addCase(updateSession, (state, { payload }) => {
+      state.accessToken = payload.accessToken;
+      state.clientToken = payload.clientToken;
+      state.uid = payload.uid;
+    })
+    .addCase(signUp.fulfilled, (state, { payload }) => {
+      state.user = { ...state.user, ...payload };
+      state.authenticated = true;
+    })
+    .addCase(login.fulfilled, (state, { payload }) => {
+      state.user = payload;
+      state.authenticated = true;
+    })
+    .addCase(logout.fulfilled, () => {
+      localStorage.clear();
+      return initialState;
+    });
 });

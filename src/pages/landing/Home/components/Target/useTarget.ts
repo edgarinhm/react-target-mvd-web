@@ -21,10 +21,7 @@ export const useTarget = () => {
   const { setCompatibleTargetModalIsOpen } = useContext(ModalContext);
 
   const handleSubmit = async (target: Target) => {
-    const topic: Topic | undefined = TopicService.findTopicById(
-      target.topicId,
-      Object.values(topics)
-    );
+    const topic: Topic | undefined = TopicService.findTopicById(target.topicId, topics);
     target = { ...target, topicIcon: topic!.icon, topicTitle: topic!.label };
     try {
       const {
@@ -32,12 +29,11 @@ export const useTarget = () => {
         matchConversation,
         matchedUser,
       } = await TargetService.createTarget(target);
-      const targetsArray = Object.values(targets);
       const matchedUserArray = matchedUser ? [matchedUser] : [];
 
       dispatch(
         createTargetSuccess({
-          targets: [...targetsArray, { target: createdTarget }],
+          targets: [...targets, { target: createdTarget }],
           matchConversation,
           matchedUser: matchedUserArray,
         })

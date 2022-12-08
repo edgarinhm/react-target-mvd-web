@@ -3,8 +3,8 @@ import Target from 'interfaces/target/target-interface';
 import TargetRequest from 'interfaces/target/target-request-interface';
 import { ErrorApiResponse } from '../interfaces/api/error-api-response-interface';
 import {
-  TargetColletionResponse,
-  TargetColletion,
+  TargetCollectionResponse,
+  TargetCollection,
   TargetCreateResponse,
 } from 'interfaces/target/target-response-interface';
 import { TARGET_BASE_URL } from 'constants/api-urls-constants';
@@ -21,9 +21,11 @@ class TargetService {
     }
   }
 
-  static async findAllTargets(): Promise<TargetColletion[]> {
+  static async findAllTargets(): Promise<TargetCollection[]> {
     try {
-      const { data } = await httpClient.get<TargetColletionResponse>(TARGET_BASE_URL, { data: {} });
+      const { data } = await httpClient.get<TargetCollectionResponse>(TARGET_BASE_URL, {
+        data: {},
+      });
       return data.targets;
     } catch ({ response: { data, status } }) {
       throw Error(status as string);

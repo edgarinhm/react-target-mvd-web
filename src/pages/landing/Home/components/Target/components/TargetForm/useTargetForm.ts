@@ -44,7 +44,7 @@ export const useTargetForm = () => {
     return isValid ? status === PENDING : !isValid;
   };
 
-  const errorMessage = error ? `record not created` : error;
+  const errorMessage = error ? `record not created` : error || '';
 
   useEffect(() => {
     setValue('lat', lat);
@@ -55,8 +55,7 @@ export const useTargetForm = () => {
   const { topics } = useAppSelector(state => state.topicReducer);
 
   const loadData = useCallback(async () => {
-    const topicsArray = Object.values(topics);
-    const topicsCollection: DropdownOption[] = topicsArray.map(collection => ({
+    const topicsCollection: DropdownOption[] = topics.map(collection => ({
       value: collection.topic.id,
       text: collection.topic.label,
       icon: collection.topic.icon,

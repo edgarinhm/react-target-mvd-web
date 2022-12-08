@@ -1,9 +1,9 @@
 import Topic from './topic-interface';
 
-export interface TopicColletion {
+export interface TopicCollection {
   topic: Topic;
 }
 
-export interface TopicColletionResponse {
-  topics: TopicColletion[];
+export interface TopicCollectionResponse {
+  topics: TopicCollection[];
 }

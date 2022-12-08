@@ -10,7 +10,7 @@ import { setLocationCollection } from 'state/actions/place-actions';
 import { setTopicCollection } from 'state/actions/topic-actions';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import { Conversations } from 'interfaces/chat/conversations-interface';
-import { TopicColletion } from 'interfaces/topic/topic-response-interface';
+import { TopicCollection } from 'interfaces/topic/topic-response-interface';
 import { setErrors } from 'state/actions/user-actions';
 
 export enum HomeContent {
@@ -30,7 +30,6 @@ export type homeContentDictionary = Record<HomeContent, HomeContentElement>;
 export const useHome = (homeContent: ReactElement[]) => {
   const { activeContent } = useAppSelector(state => state.homeReducer);
   const dispatch = useAppDispatch();
-
   const handleMapClick = (content: HomeContent) => {
     dispatch(setHomeContent(content));
   };
@@ -43,7 +42,7 @@ export const useHome = (homeContent: ReactElement[]) => {
 
   const loadData = useCallback(async () => {
     try {
-      const topicsCollection: TopicColletion[] = await TopicService.findAllTopics();
+      const topicsCollection: TopicCollection[] = await TopicService.findAllTopics();
       const targetsCollection = await TargetService.findAllTargets();
 
       const markers: MapMarker[] = targetsCollection.map(targetOption => ({

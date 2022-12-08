@@ -10,9 +10,6 @@ const useCompatibleTargetModal = () => {
   const { compatibleTargetModalIsOpen, setCompatibleTargetModalIsOpen } = useContext(ModalContext);
   const { matchedUser, matchConversation } = useAppSelector(state => state.targetReducer);
 
-  const matchedUserArray = Object.values(matchedUser);
-  const matchConversationArray = Object.values(matchConversation || []);
-
   const handleOpenModal = () => {
     setCompatibleTargetModalIsOpen(isOpen => !isOpen);
   };
@@ -36,8 +33,8 @@ const useCompatibleTargetModal = () => {
     handleOpenModal,
     styleConfig,
     t,
-    matchedUserArray,
-    matchConversationArray,
+    matchedUser,
+    matchConversation,
     handleOnSubmit,
   };
 };

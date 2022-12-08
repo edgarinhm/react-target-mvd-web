@@ -14,8 +14,7 @@ function useChatMessages() {
   };
 
   const { currentChatId, matches } = useAppSelector(state => state.chatReducer);
-  const matchesArray = Object.values(matches);
-  const conversation = matchesArray.filter(match => match.matchId === currentChatId);
+  const conversation = matches.filter(match => match.matchId === currentChatId);
 
   const [messages, setMessages] = useState<Messages[]>([]);
 

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import userService from 'services/user-service';
 import { User } from 'interfaces/user/user-interface';
+import { SessionState } from 'state/reducers/features/session-reducer';
 
 export const signUp = createAsyncThunk('user/signUp', async (user: User) => {
   try {
@@ -28,6 +29,6 @@ export const logout = createAsyncThunk('user/logout', async () => {
   }
 });
 
-export const updateSession = createAction<object | undefined>('session/update');
-export const setLoading = createAction<boolean | undefined>('interceptor/setLoading');
-export const setErrors = createAction<string | undefined>('interceptor/setErrors');
+export const updateSession = createAction<SessionState>('session/update');
+export const setLoading = createAction<boolean>('interceptor/setLoading');
+export const setErrors = createAction<string>('interceptor/setErrors');

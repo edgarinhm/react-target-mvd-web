@@ -12,7 +12,7 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
 
   client.interceptors.request.use(config => {
     dispatch(setLoading(true));
-    dispatch(setErrors());
+    dispatch(setErrors(''));
     const { accessToken, clientToken, uid } = store.getState().session;
     const { headers } = config;
     if (accessToken) {
@@ -31,14 +31,18 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
     async response => {
       dispatch(setLoading(false));
       const { headers } = response;
-      const accessToken = headers[ACCESS_TOKEN];
-      const clientToken = headers[CLIENT];
-      const uid = headers[UID];
+      const accessToken = headers[ACCESS_TOKEN] || '';
+      const clientToken = headers[CLIENT] || '';
+      const uid = headers[UID] || '';
+      const { authenticated, user } = store.getState().session;
+
       if (accessToken) {
         const session = {
           accessToken,
           clientToken,
           uid,
+          authenticated,
+          user,
         };
         dispatch(updateSession(session));
       }
@@ -50,7 +54,7 @@ const applyDefaultInterceptor = (store: EnhancedStore, client: HttpClient) => {
       dispatch(setLoading(false));
       const globalErrors = (error.response.data as ErrorApi)?.errors || '';
       if (error.response && globalErrors.length > 0) {
-        dispatch(setErrors(globalErrors.at(0)));
+        dispatch(setErrors(globalErrors.at(0) || ''));
       } else {
         const errorApi = (error.response.data as ErrorApi)?.error;
         if (errorApi) {

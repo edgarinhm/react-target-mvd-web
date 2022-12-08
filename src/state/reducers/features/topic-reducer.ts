@@ -1,22 +1,23 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import { setTopicCollection } from 'state/actions/topic-actions';
-import { TopicColletion } from 'interfaces/topic/topic-response-interface';
+import { TopicCollection } from 'interfaces/topic/topic-response-interface';
 
 export interface TopicState {
-  topics: TopicColletion[];
+  topics: TopicCollection[];
 }
 
 const initialState: TopicState = {
   topics: [],
 };
 
-const handleSetTopicCollection = (
-  state: TopicState,
-  { payload }: PayloadAction<TopicColletion[]>
-) => {
-  state.topics = { ...payload };
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-export default createReducer(initialState, {
-  [setTopicCollection.type]: handleSetTopicCollection,
+const chatReducer = createReducer(initialState, builder => {
+  builder
+    .addCase(resetAction, () => initialState)
+    .addCase(setTopicCollection, (state, { payload }) => {
+      state.topics = [...payload];
+    });
 });
+
+export default chatReducer;

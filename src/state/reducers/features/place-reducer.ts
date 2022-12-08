@@ -1,5 +1,4 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import Geolocation from 'interfaces/geolocation/geolocation-interface';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import { MapMarker } from 'interfaces/map/map-marker-interface';
 import {
   setMapLocation,
@@ -25,35 +24,25 @@ const initialState: PlaceState = {
   locationCollection: [],
 };
 
-const handleMapLocation = (state: PlaceState, { payload }: PayloadAction<Geolocation>) => {
-  state.lng = payload.lng;
-  state.lat = payload.lat;
-  state.icon = payload.icon;
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-const handleCurrentLocation = (state: PlaceState, { payload }: PayloadAction<Geolocation>) => {
-  state.currentLocation.lng = payload.lng;
-  state.currentLocation.lat = payload.lat;
-  state.currentLocation.icon = payload.icon;
-};
-
-const handlelocationCollection = (state: PlaceState, { payload }: PayloadAction<MapMarker[]>) => {
-  state.locationCollection = [];
-  payload.forEach((marker: MapMarker) => {
-    state.locationCollection.push(marker);
-  });
-};
-
-const handleAddlocationToCollection = (
-  state: PlaceState,
-  { payload }: PayloadAction<MapMarker>
-) => {
-  state.locationCollection.push(payload);
-};
-
-export default createReducer(initialState, {
-  [setMapLocation.type]: handleMapLocation,
-  [setCurrentLocation.type]: handleCurrentLocation,
-  [setLocationCollection.type]: handlelocationCollection,
-  [addLocationToCollection.type]: handleAddlocationToCollection,
+export default createReducer(initialState, builder => {
+  builder
+    .addCase(resetAction, () => initialState)
+    .addCase(setMapLocation, (state, { payload }) => {
+      state.lng = payload.lng;
+      state.lat = payload.lat;
+      state.icon = payload.icon;
+    })
+    .addCase(setCurrentLocation, (state, { payload }) => {
+      state.currentLocation.lng = payload.lng;
+      state.currentLocation.lat = payload.lat;
+      state.currentLocation.icon = payload.icon;
+    })
+    .addCase(setLocationCollection, (state, { payload }) => {
+      state.locationCollection = [...state.locationCollection, ...payload];
+    })
+    .addCase(addLocationToCollection, (state, { payload }) => {
+      state.locationCollection = [...state.locationCollection, payload];
+    });
 });

@@ -1,4 +1,4 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { createAction, createSlice } from '@reduxjs/toolkit';
 import { setChatCollection, setCurrentChatId } from 'state/actions/chat-actions';
 import { Conversations } from 'interfaces/chat/conversations-interface';
 
@@ -12,15 +12,22 @@ const initialState: ChatState = {
   currentChatId: 0,
 };
 
-const handleSetChatCollection = (state: ChatState, { payload }: PayloadAction<Conversations[]>) => {
-  state.matches = { ...payload };
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-const handleSetCurrentChatId = (state: ChatState, { payload }: PayloadAction<number>) => {
-  state.currentChatId = payload;
-};
-
-export default createReducer(initialState, {
-  [setChatCollection.type]: handleSetChatCollection,
-  [setCurrentChatId.type]: handleSetCurrentChatId,
+const chatsSlice = createSlice({
+  name: 'chats',
+  initialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(resetAction, () => initialState)
+      .addCase(setChatCollection, (state, { payload }) => {
+        state.matches = [...payload];
+      })
+      .addCase(setCurrentChatId, (state, action) => {
+        state.currentChatId = action.payload;
+      });
+  },
 });
+
+export default chatsSlice.reducer;

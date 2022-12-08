@@ -1,4 +1,4 @@
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import { setErrors, setLoading } from 'state/actions/user-actions';
 
 interface InterceptorState {
@@ -11,21 +11,15 @@ const initialState: InterceptorState = {
   isLoading: false,
 };
 
-const handleSetLoadingInterceptor = (
-  state: InterceptorState,
-  { payload }: PayloadAction<boolean>
-) => {
-  state.isLoading = payload;
-};
+const resetAction = createAction('reset-tracked-loading-state');
 
-const handleSetErrorsInterceptor = (
-  state: InterceptorState,
-  { payload }: PayloadAction<string>
-) => {
-  state.error = payload;
-};
-
-export default createReducer(initialState, {
-  [setLoading.type]: handleSetLoadingInterceptor,
-  [setErrors.type]: handleSetErrorsInterceptor,
+export default createReducer(initialState, builder => {
+  builder
+    .addCase(resetAction, () => initialState)
+    .addCase(setLoading, (state, { payload }) => {
+      state.isLoading = payload;
+    })
+    .addCase(setErrors, (state, { payload }) => {
+      state.error = payload;
+    });
 });

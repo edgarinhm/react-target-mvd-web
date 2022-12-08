@@ -1,9 +1,9 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import Target from 'interfaces/target/target-interface';
-import { TargetColletion } from 'interfaces/target/target-response-interface';
+import { TargetCollection } from 'interfaces/target/target-response-interface';
 import TargetService from 'services/target-service';
 import { addLocationToCollection, setMapLocation } from './place-actions';
-import { TargetColletionResponse } from '../../interfaces/target/target-response-interface';
+import { TargetCollectionResponse } from '../../interfaces/target/target-response-interface';
 
 export const createTarget = createAsyncThunk(
   'target/create',
@@ -38,9 +38,7 @@ export const createTarget = createAsyncThunk(
   }
 );
 
-export const createTargetSuccess = createAction<TargetColletionResponse>('target/createSuccess');
-export const setTarget = createAction<Target | undefined>('target/setTarget');
-export const setTargetCollection = createAction<TargetColletion[] | undefined>(
-  'target/TargetCollection'
-);
-export const removeTarget = createAction<number | undefined>('target/removeTarget');
+export const createTargetSuccess = createAction<TargetCollectionResponse>('target/createSuccess');
+export const setTarget = createAction<Target>('target/setTarget');
+export const setTargetCollection = createAction<TargetCollection[]>('target/TargetCollection');
+export const removeTarget = createAction<number>('target/removeTarget');
