@@ -1,5 +1,5 @@
 import localForage from 'localforage';
-import { configureStore } from '@reduxjs/toolkit';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import {
   persistStore,
@@ -15,6 +15,7 @@ import AppReducer from 'state/reducers/root-reducer';
 
 const persistConfig = {
   key: 'root',
+  version: 1,
   storage: localForage,
   whitelist: ['session'],
 };
@@ -37,8 +38,15 @@ const store = configureStore({
     }).concat(logger),
 });
 
-const persistor = persistStore(store);
+const persistedStore = persistStore(store);
 
 export type StoreType = typeof store;
 export type AppDispatch = typeof store.dispatch;
-export { store, persistor };
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
+export { store, persistedStore };

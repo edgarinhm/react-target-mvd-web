@@ -1,5 +1,5 @@
 import { useSelector, shallowEqual } from 'react-redux';
-import { RootState } from 'state/reducers/root-reducer';
+import { RootState } from 'state/store/store';
 
 const useSession = () =>
   useSelector(
